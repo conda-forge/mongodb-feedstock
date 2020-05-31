@@ -1,0 +1,47 @@
+abseil_cpp:
+- '20200225.2'
+boost_cpp:
+- 1.70.0
+c_compiler:
+- gcc
+c_compiler_version:
+- '8'
+channel_sources:
+- conda-forge,defaults
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- gxx
+cxx_compiler_version:
+- '8'
+docker_image:
+- condaforge/linux-anvil-ppc64le
+icu:
+- '64.2'
+libcurl:
+- '7'
+openssl:
+- 1.1.1
+pin_run_as_build:
+  boost-cpp:
+    max_pin: x.x.x
+  icu:
+    max_pin: x
+  libcurl:
+    max_pin: x
+  openssl:
+    max_pin: x.x.x
+  sqlite:
+    max_pin: x
+  zlib:
+    max_pin: x.x
+  zstd:
+    max_pin: x.x.x
+snappy:
+- '1'
+sqlite:
+- '3'
+zlib:
+- '1.2'
+zstd:
+- 1.4.4
