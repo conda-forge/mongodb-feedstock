@@ -22,10 +22,6 @@ source:
     - patches/0012-Don-t-force-disable-auto-linking-if-use-system-boost.patch
 
 build:
-  # Skipping on Windows because azure ain't got what it takes
-  # LINK : fatal error LNK1102: out of memory
-  # fatal error C1060: compiler is out of heap space
-  skip: true  # [win]
   number: 0
   detect_binary_files_with_prefix: false
   missing_dso_whitelist:   # [osx]
