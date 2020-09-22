@@ -3,7 +3,7 @@ MACOSX_DEPLOYMENT_TARGET:
 abseil_cpp:
 - '20200225.2'
 boost_cpp:
-- '1.72'
+- 1.72.0
 c_compiler:
 - clang
 c_compiler_version:

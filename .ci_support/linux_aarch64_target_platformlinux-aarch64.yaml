@@ -3,7 +3,7 @@ BUILD:
 abseil_cpp:
 - '20200225.2'
 boost_cpp:
-- '1.72'
+- 1.72.0
 c_compiler:
 - gcc
 c_compiler_version:
