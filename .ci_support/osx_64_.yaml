@@ -1,13 +1,13 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
 abseil_cpp:
-- '20200225.2'
+- '20200923.2'
 boost_cpp:
-- 1.72.0
+- 1.74.0
 c_compiler:
 - clang
 c_compiler_version:
-- '10'
+- '11'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
@@ -15,7 +15,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '10'
+- '11'
 icu:
 - '67'
 libcurl:
@@ -27,8 +27,6 @@ openssl:
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
-  icu:
-    max_pin: x
   libcurl:
     max_pin: x
   openssl:
@@ -43,6 +41,9 @@ sqlite:
 - '3'
 target_platform:
 - osx-64
+zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
 zlib:
 - '1.2'
 zstd:
