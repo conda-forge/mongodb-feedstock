@@ -23,7 +23,7 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-comp7
 icu:
-- '67'
+- '68'
 libcurl:
 - '7'
 openssl:
