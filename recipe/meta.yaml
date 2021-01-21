@@ -1,4 +1,4 @@
-{% set version = "4.2.11" %}
+{% set version = "4.2.12" %}
 
 package:
   name: mongodb
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://fastdl.mongodb.org/src/mongodb-src-r{{ version }}.tar.gz
-  sha256: ab5a8b6e967614a8ad67c0ca87124c4f380d4a476508973a7995d54ed902b02e
+  sha256: 79b0eee164d51b948bb65cf8f845a35db736d4e083b6be6695835c9dbb40549d
   patches:
     - patches/0001-Do-not-inject-debug-info-unnecessarily.patch
     - patches/0002-Relax-constraint-on-minimum-version-of-GCC.patch
@@ -23,7 +23,7 @@ source:
     - patches/0013-MSVC-Don-t-generating-debug-info-forcefully.patch
 
 build:
-  number: 1
+  number: 0
   detect_binary_files_with_prefix: false
   missing_dso_whitelist:   # [osx]
     - /usr/lib/libresolv.9.dylib  # [osx]
