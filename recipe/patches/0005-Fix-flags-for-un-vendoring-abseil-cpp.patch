@@ -1,18 +1,18 @@
-From 8f1d9564e76bd2f54de6ca56fa17e4530dab6578 Mon Sep 17 00:00:00 2001
+From 4626adacef85cf7f61c9a836941d854070dc378a Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 02:26:17 +0000
 Subject: [PATCH 05/13] Fix flags for un-vendoring abseil-cpp
 
 ---
- SConstruct                 | 13 +++++++++++++
+ SConstruct                 | 14 ++++++++++++++
  src/third_party/SConscript |  3 +--
- 2 files changed, 14 insertions(+), 2 deletions(-)
+ 2 files changed, 15 insertions(+), 2 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index cba4746e19..aae8da1c8b 100644
+index cba4746e19..3374b677f6 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -3298,6 +3298,19 @@ def doConfigure(myenv):
+@@ -3298,6 +3298,20 @@ def doConfigure(myenv):
          conf.env['LIBDEPS_ICUI18N_SYSLIBDEP'] = 'icui18n'
          conf.env['LIBDEPS_ICUUC_SYSLIBDEP'] = 'icuuc'
  
@@ -21,12 +21,13 @@ index cba4746e19..aae8da1c8b 100644
 +        # Please note that these are in dependency order. Another way is to throw all of these inside
 +        # -Wl,--start-group ... -Wl,--end-group
 +        conf.env['LIBDEPS_ABSL_LIBS_SYSLIBDEP'] = [
-+	    'absl_hashtablez_sampler', 'absl_hash', 'absl_exponential_biased', 'absl_synchronization',
-+            'absl_graphcycles_internal', 'absl_stacktrace', 'absl_symbolize', 'absl_malloc_internal',
-+            'absl_debugging_internal', 'absl_demangle_internal', 'absl_time', 'absl_civil_time',
-+            'absl_time_zone', 'absl_strings', 'absl_base', 'absl_spinlock_wait', 'absl_raw_hash_set',
-+            'absl_int128', 'absl_throw_delegate', 'absl_strings_internal', 'absl_bad_optional_access',
-+            'absl_bad_variant_access', 'absl_raw_logging_internal', 'absl_log_severity', 'absl_city'
++            'absl_hashtablez_sampler', 'absl_hash', 'absl_wyhash', 'absl_exponential_biased',
++            'absl_synchronization', 'absl_graphcycles_internal', 'absl_stacktrace', 'absl_symbolize',
++            'absl_malloc_internal', 'absl_debugging_internal', 'absl_demangle_internal', 'absl_time',
++            'absl_civil_time', 'absl_time_zone', 'absl_strings', 'absl_base', 'absl_spinlock_wait',
++            'absl_raw_hash_set', 'absl_int128', 'absl_throw_delegate', 'absl_strings_internal',
++            'absl_bad_optional_access', 'absl_bad_variant_access', 'absl_raw_logging_internal',
++            'absl_log_severity', 'absl_city'
 +        ]
 +
      if wiredtiger and use_system_version_of_library("wiredtiger"):
