@@ -23,7 +23,7 @@ source:
     - patches/0013-MSVC-Don-t-generating-debug-info-forcefully.patch
 
 build:
-  number: 0
+  number: 1
   detect_binary_files_with_prefix: false
   missing_dso_whitelist:   # [osx]
     - /usr/lib/libresolv.9.dylib  # [osx]
