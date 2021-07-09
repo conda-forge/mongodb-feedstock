@@ -1,0 +1,24 @@
+From 708c79431c4d854ea1c988b49296dd1fe20c237e Mon Sep 17 00:00:00 2001
+From: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date: Thu, 8 Jul 2021 22:50:55 -0400
+Subject: [PATCH 14/14] Drop dependency on pymongo
+
+Can lead to a circular dependency. Plus, we don't run the entire test
+suite in this recipe anyway.
+---
+ etc/pip/components/core.req | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/etc/pip/components/core.req b/etc/pip/components/core.req
+index 0e833b94c3..a157aeb420 100644
+--- a/etc/pip/components/core.req
++++ b/etc/pip/components/core.req
+@@ -1,5 +1,4 @@
+ # Core (we need these for most buildscripts)
+ psutil
+-pymongo >= 3.9, != 3.6.0  # See PYTHON-1434, SERVER-34820
+ PyYAML >= 3.0.0
+ requests >= 2.0.0
+-- 
+2.31.1
+
