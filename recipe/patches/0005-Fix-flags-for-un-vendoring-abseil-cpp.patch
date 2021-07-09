@@ -1,4 +1,4 @@
-From 7cc8224367fc74fdfc0d42a984b5434ef5b77d55 Mon Sep 17 00:00:00 2001
+From 7bc8344b143d2d53af7f4e94af862d933a103683 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 02:26:17 +0000
 Subject: [PATCH 05/14] Fix flags for un-vendoring abseil-cpp
@@ -9,7 +9,7 @@ Subject: [PATCH 05/14] Fix flags for un-vendoring abseil-cpp
  2 files changed, 15 insertions(+), 2 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index b964eba1ba..0942b662b5 100644
+index b964eba1ba..458ea95905 100644
 --- a/SConstruct
 +++ b/SConstruct
 @@ -4206,6 +4206,20 @@ def doConfigure(myenv):
@@ -21,13 +21,13 @@ index b964eba1ba..0942b662b5 100644
 +        # Please note that these are in dependency order. Another way is to throw all of these inside
 +        # -Wl,--start-group ... -Wl,--end-group
 +        conf.env['LIBDEPS_ABSL_LIBS_SYSLIBDEP'] = [
-+            'absl_hashtablez_sampler', 'absl_hash', 'absl_wyhash', 'absl_exponential_biased',
-+            'absl_synchronization', 'absl_graphcycles_internal', 'absl_stacktrace', 'absl_symbolize',
-+            'absl_malloc_internal', 'absl_debugging_internal', 'absl_demangle_internal', 'absl_time',
-+            'absl_civil_time', 'absl_time_zone', 'absl_strings', 'absl_base', 'absl_spinlock_wait',
-+            'absl_raw_hash_set', 'absl_int128', 'absl_throw_delegate', 'absl_strings_internal',
-+            'absl_bad_optional_access', 'absl_bad_variant_access', 'absl_raw_logging_internal',
-+            'absl_log_severity', 'absl_city'
++            '-labsl_hashtablez_sampler', '-labsl_hash', '-labsl_wyhash', '-labsl_exponential_biased',
++            '-labsl_synchronization', '-labsl_graphcycles_internal', '-labsl_stacktrace', '-labsl_symbolize',
++            '-labsl_malloc_internal', '-labsl_debugging_internal', '-labsl_demangle_internal', '-labsl_time',
++            '-labsl_civil_time', '-labsl_time_zone', '-labsl_strings', '-labsl_base', '-labsl_spinlock_wait',
++            '-labsl_raw_hash_set', '-labsl_int128', '-labsl_throw_delegate', '-labsl_strings_internal',
++            '-labsl_bad_optional_access', '-labsl_bad_variant_access', '-labsl_raw_logging_internal',
++            '-labsl_log_severity', '-labsl_city'
 +        ]
 +
      if wiredtiger and use_system_version_of_library("wiredtiger"):
