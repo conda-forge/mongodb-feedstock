@@ -8,12 +8,12 @@ set "_scons_xtra_flags=%_scons_xtra_flags% --enable-free-mon=on"
 set "_scons_xtra_flags=%_scons_xtra_flags% --enable-http-client=on"
 set "_scons_xtra_flags=%_scons_xtra_flags% --link-model=object"
 set "_scons_xtra_flags=%_scons_xtra_flags% --opt=on"
-set "_scons_xtra_flags=%_scons_xtra_flags% --prefix=%LIBRARY_PREFIX%"
 set "_scons_xtra_flags=%_scons_xtra_flags% --release"
 set "_scons_xtra_flags=%_scons_xtra_flags% --server-js=on"
 set "_scons_xtra_flags=%_scons_xtra_flags% --ssl=on --ssl-provider=openssl"
 set "_scons_xtra_flags=%_scons_xtra_flags% --wiredtiger=on"
 set "_scons_xtra_flags=%_scons_xtra_flags% VERBOSE=on"
+set "_scons_xtra_flags=%_scons_xtra_flags% PREFIX=%LIBRARY_PREFIX%"
 
 for %%v in (boost icu pcre sqlite snappy yaml zlib zstd abseil-cpp) do (
  set "_scons_xtra_flags=!_scons_xtra_flags! --use-system-%%v"
