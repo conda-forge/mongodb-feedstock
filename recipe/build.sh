@@ -1,6 +1,8 @@
 #!/bin/bash
 set -x
 
+export CPPDEFINES="BOOST_ALL_DYN_LINK"
+
 # https://jira.mongodb.org/browse/SERVER-30893
 if [[ $target_platform == linux-aarch64 ]]; then
    export CFLAGS="${CFLAGS:-} -march=armv8-a+crc"
@@ -25,7 +27,7 @@ _scons_xtra_flags+=(--release)
 _scons_xtra_flags+=(--server-js=on)
 _scons_xtra_flags+=(--ssl=on)
 _scons_xtra_flags+=(--wiredtiger=on)
-_scons_xtra_flags+=(CC="$CC" CXX="$CXX" OBJCOPY="$OBJCOPY")
+_scons_xtra_flags+=(CC="$CC" CXX="$CXX" OBJCOPY="$OBJCOPY" CPPDEFINES="$CPPDEFINES")
 _scons_xtra_flags+=(CCFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LINKFLAGS="$LDFLAGS")
 _scons_xtra_flags+=(HOST_ARCH="$HOST")
 _scons_xtra_flags+=(RPATH="$PREFIX/lib")
