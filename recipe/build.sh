@@ -33,4 +33,4 @@ _scons_xtra_flags+=(VERBOSE=on)
 _scons_xtra_flags+=(PREFIX="$PREFIX")
 _scons_xtra_flags+=(--use-system-{boost,icu,pcre,snappy,yaml,zlib,zstd,abseil-cpp})
 
-$PYTHON buildscripts/scons.py install core "${_scons_xtra_flags[@]}"
+$PYTHON buildscripts/scons.py install-all "${_scons_xtra_flags[@]}"

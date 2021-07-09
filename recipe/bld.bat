@@ -24,4 +24,4 @@ set "_scons_xtra_flags=%_scons_xtra_flags% CXXFLAGS=/I%LIBRARY_INC%"
 set "_scons_xtra_flags=%_scons_xtra_flags% LINKFLAGS=/LIBPATH:%LIBRARY_LIB%"
 set "_scons_xtra_flags=%_scons_xtra_flags% CPPDEFINES=BOOST_ALL_DYN_LINK"
 
-python buildscripts/scons.py install core %_scons_xtra_flags%
+python buildscripts/scons.py install-all %_scons_xtra_flags%
