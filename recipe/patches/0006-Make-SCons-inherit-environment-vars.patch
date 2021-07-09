@@ -1,24 +1,24 @@
-From c010f6cccbbd77d51b07a574571079f9c371fc0e Mon Sep 17 00:00:00 2001
+From 36339853da80d0e2602dc505e1d8759b4548ee06 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 15:22:50 +0000
-Subject: [PATCH 06/12] Make SCons inherit environment vars
+Subject: [PATCH 06/13] Make SCons inherit environment vars
 
 ---
- SConstruct |    1 +
- 1 files changed, 1 insertions(+), 0 deletions(-)
+ SConstruct | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/SConstruct b/SConstruct
-index d7553d8..e2b8650 100644
+index 0942b662b5..1ff9338152 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -1027,6 +1027,7 @@ envDict = dict(BUILD_ROOT=buildDir,
-                )
+@@ -1211,6 +1211,7 @@ if get_option('build-tools') == 'next':
+     SCons.Tool.DefaultToolpath.insert(0, os.path.abspath('site_scons/site_tools/next'))
  
  env = Environment(variables=env_vars, **envDict)
 +env.Append(ENV = os.environ)
  del envDict
  
- for var in ['CC', 'CXX']:
+ if get_option('cache-signature-mode') == 'validate':
 -- 
-1.7.1
+2.31.1
 
