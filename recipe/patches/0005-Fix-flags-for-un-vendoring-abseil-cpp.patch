@@ -1,12 +1,12 @@
-From ee540f72bc318f18dd1e220e4d221bbd151c243e Mon Sep 17 00:00:00 2001
+From 7cc8224367fc74fdfc0d42a984b5434ef5b77d55 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 02:26:17 +0000
-Subject: [PATCH 05/13] Fix flags for un-vendoring abseil-cpp
+Subject: [PATCH 05/14] Fix flags for un-vendoring abseil-cpp
 
 ---
  SConstruct                 | 14 ++++++++++++++
- src/third_party/SConscript |  1 +
- 2 files changed, 15 insertions(+)
+ src/third_party/SConscript |  3 +--
+ 2 files changed, 15 insertions(+), 2 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
 index b964eba1ba..0942b662b5 100644
@@ -34,13 +34,15 @@ index b964eba1ba..0942b662b5 100644
          if not conf.CheckCXXHeader( "wiredtiger.h" ):
              myenv.ConfError("Cannot find wiredtiger headers")
 diff --git a/src/third_party/SConscript b/src/third_party/SConscript
-index 6ee43dbd14..48ecedb255 100644
+index 6ee43dbd14..a5e4a30aff 100644
 --- a/src/third_party/SConscript
 +++ b/src/third_party/SConscript
-@@ -350,6 +350,7 @@ if use_system_version_of_library("abseil-cpp"):
+@@ -348,8 +348,7 @@ abseilEnv = env.Clone()
+ if use_system_version_of_library("abseil-cpp"):
+     abseilEnv = abseilEnv.Clone(
          SYSLIBDEPS=[
-             env['LIBDEPS_ABSL_CONTAINER_SYSLIBDEP'],
-             env['LIBDEPS_ABSL_HASH_SYSLIBDEP'],
+-            env['LIBDEPS_ABSL_CONTAINER_SYSLIBDEP'],
+-            env['LIBDEPS_ABSL_HASH_SYSLIBDEP'],
 +            env['LIBDEPS_ABSL_LIBS_SYSLIBDEP'],
          ])
  else:
