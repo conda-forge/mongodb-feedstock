@@ -15,7 +15,7 @@ set "_scons_xtra_flags=%_scons_xtra_flags% --wiredtiger=on"
 set "_scons_xtra_flags=%_scons_xtra_flags% VERBOSE=on"
 set "_scons_xtra_flags=%_scons_xtra_flags% PREFIX=%LIBRARY_PREFIX%"
 
-for %%v in (boost icu pcre sqlite snappy yaml zlib zstd abseil-cpp) do (
+for %%v in (boost icu pcre snappy yaml zlib zstd abseil-cpp) do (
  set "_scons_xtra_flags=!_scons_xtra_flags! --use-system-%%v"
 )
 

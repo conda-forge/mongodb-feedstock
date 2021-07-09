@@ -50,7 +50,6 @@ requirements:
     - openssl
     - pcre
     - snappy
-    - sqlite
     - yaml-cpp
     - zlib
     - zstd

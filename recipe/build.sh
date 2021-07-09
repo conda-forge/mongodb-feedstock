@@ -31,6 +31,6 @@ _scons_xtra_flags+=(HOST_ARCH="$HOST")
 _scons_xtra_flags+=(RPATH="$PREFIX/lib")
 _scons_xtra_flags+=(VERBOSE=on)
 _scons_xtra_flags+=(PREFIX="$PREFIX")
-_scons_xtra_flags+=(--use-system-{boost,icu,pcre,sqlite,snappy,yaml,zlib,zstd,abseil-cpp})
+_scons_xtra_flags+=(--use-system-{boost,icu,pcre,snappy,yaml,zlib,zstd,abseil-cpp})
 
 $PYTHON buildscripts/scons.py install core "${_scons_xtra_flags[@]}"
