@@ -25,14 +25,12 @@ pin_run_as_build:
     max_pin: x
   openssl:
     max_pin: x.x.x
-  sqlite:
-    max_pin: x
   zlib:
     max_pin: x.x
+pywin32:
+- '225'
 snappy:
 - '1'
-sqlite:
-- '3'
 target_platform:
 - win-64
 zlib:
