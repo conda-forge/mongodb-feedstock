@@ -15,6 +15,7 @@ fi
 # https://github.com/llvm/llvm-project/commit/f47b8851
 if [[ $target_platform =~ osx-* ]]; then
    export CFLAGS="${CFLAGS:-} -Wno-undef-prefix"
+   export CPPDEFINES="${CPPDEFINES:-} _LIBCPP_DISABLE_AVAILABILITY"
 fi
 
 export NINJA_STATUS="[%f+%r/%t] "
