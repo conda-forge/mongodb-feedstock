@@ -17,6 +17,8 @@ if [[ $target_platform =~ osx-* ]]; then
    export CFLAGS="${CFLAGS:-} -Wno-undef-prefix"
 fi
 
+export NINJA_STATUS="[%f+%r/%t] "
+
 declare -a _scons_xtra_flags
 _scons_xtra_flags+=(--dbg=off)
 _scons_xtra_flags+=(--disable-warnings-as-errors)
@@ -27,6 +29,7 @@ _scons_xtra_flags+=(--release)
 _scons_xtra_flags+=(--server-js=on)
 _scons_xtra_flags+=(--ssl=on)
 _scons_xtra_flags+=(--wiredtiger=on)
+_scons_xtra_flags+=(--ninja=enabled)
 _scons_xtra_flags+=(CC="$CC" CXX="$CXX" OBJCOPY="$OBJCOPY" CPPDEFINES="$CPPDEFINES")
 _scons_xtra_flags+=(CCFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LINKFLAGS="$LDFLAGS")
 _scons_xtra_flags+=(HOST_ARCH="$HOST")
@@ -35,4 +38,5 @@ _scons_xtra_flags+=(VERBOSE=on)
 _scons_xtra_flags+=(PREFIX="$PREFIX")
 _scons_xtra_flags+=(--use-system-{boost,icu,pcre,snappy,yaml,zlib,zstd,abseil-cpp})
 
-$PYTHON buildscripts/scons.py install-all "${_scons_xtra_flags[@]}"
+$PYTHON buildscripts/scons.py "${_scons_xtra_flags[@]}" generate-ninja
+ninja -f build.ninja install-core

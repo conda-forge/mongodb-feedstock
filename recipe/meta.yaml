@@ -43,6 +43,7 @@ requirements:
     - requests
     - setuptools
     - requirements-parser
+    - ninja
   host:
     - abseil-cpp
     - boost-cpp
