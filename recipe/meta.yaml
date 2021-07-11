@@ -22,6 +22,7 @@ source:
     - patches/0012-Don-t-force-disable-auto-linking-if-use-system-boost.patch
     - patches/0013-MSVC-Don-t-generating-debug-info-forcefully.patch
     - patches/0014-Drop-dependency-on-pymongo.patch
+    - patches/0015-Drop-dependency-on-pypiwin32.patch
 
 build:
   number: 0
