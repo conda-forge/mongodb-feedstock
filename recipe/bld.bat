@@ -16,7 +16,7 @@ set "_scons_xtra_flags=%_scons_xtra_flags% --ssl=on"
 set "_scons_xtra_flags=%_scons_xtra_flags% --wiredtiger=on"
 set "_scons_xtra_flags=%_scons_xtra_flags% --ninja=enabled"
 set "_scons_xtra_flags=%_scons_xtra_flags% VERBOSE=on"
-set "_scons_xtra_flags=%_scons_xtra_flags% PREFIX=%LIBRARY_PREFIX%"
+set "_scons_xtra_flags=%_scons_xtra_flags% DESTDIR=%LIBRARY_PREFIX%"
 
 for %%v in (boost icu pcre snappy yaml zlib zstd abseil-cpp) do (
  set "_scons_xtra_flags=!_scons_xtra_flags! --use-system-%%v"
