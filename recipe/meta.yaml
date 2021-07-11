@@ -44,7 +44,7 @@ requirements:
     - requests
     - setuptools
     - requirements-parser
-    - ninja
+    - ninja  # [unix]
   host:
     - abseil-cpp
     - boost-cpp
