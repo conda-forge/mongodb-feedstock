@@ -24,6 +24,7 @@ source:
     - patches/0014-Drop-dependency-on-pymongo.patch
     - patches/0015-Drop-dependency-on-pypiwin32.patch
     - patches/0016-Revert-SERVER-45772-Require-VS-2019-to-build-the-ser.patch
+    - patches/0017-Disable-installer-on-Windows.patch
 
 build:
   number: 0
