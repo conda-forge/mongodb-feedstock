@@ -1,7 +1,7 @@
 @echo ON
 setlocal ENABLEDELAYEDEXPANSION
 
-set "NINJA_STATUS=[%f+%r/%t] "
+set "NINJA_STATUS=[%%f+%%r/%%t] "
 
 set "_scons_xtra_flags="
 set "_scons_xtra_flags=--dbg=off"
