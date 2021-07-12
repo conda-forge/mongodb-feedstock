@@ -50,8 +50,11 @@ requirements:
     - abseil-cpp
     - boost-cpp
     - icu
-    - libcurl
-    - openssl
+    # Windows build uses WinHTTP
+    - libcurl  # [not win]
+    # MacOS uses 'Secure Transport'
+    # Windows uses 'SChannel'
+    - openssl  # [linux]
     - pcre
     - snappy
     - yaml-cpp
