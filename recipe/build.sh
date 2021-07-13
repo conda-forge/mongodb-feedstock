@@ -6,6 +6,15 @@ if [[ $target_platform == linux-aarch64 ]]; then
    export CFLAGS="${CFLAGS:-} -march=armv8-a+crc"
 fi
 
+if [[ $target_platform != $build_platform ]]; then
+    unset _CONDA_PYTHON_SYSCONFIGDATA_NAME
+fi
+
+# https://github.com/llvm/llvm-project/commit/f47b8851
+if [[ $target_platform =~ osx-* ]]; then
+   export CFLAGS="${CFLAGS:-} -Wno-undef-prefix"
+fi
+
 declare -a _scons_xtra_flags
 _scons_xtra_flags+=(--dbg=off)
 _scons_xtra_flags+=(--disable-warnings-as-errors)

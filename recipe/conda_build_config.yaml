@@ -1,0 +1,13 @@
+# With GCC 9.3.0:
+#   qemu: uncaught target signal 4 (Illegal instruction) - core dumped
+#   sh: line 1:  1849 Illegal instruction     (core dumped) build/scons/opt/sconf_temp/conftest_51d09e77d3bad55888de57755ed583e0_0_480dd2995b200240fe1e9aea4c0b2d19 > "build/scons/opt/sconf_temp/conftest_51d09e77d3bad55888de57755ed583e0_0_480dd2995b200240fe1e9aea4c0b2d19.out"
+#   Checking for vec_vbperm output in index 0... no
+#   qemu: uncaught target signal 4 (Illegal instruction) - core dumped
+#   sh: line 1:  1858 Illegal instruction     (core dumped) build/scons/opt/sconf_temp/conftest_54e278de73eab6643b800adcdfc7184a_0_d7ca91f701679681862c41231bbd6b51 > "build/scons/opt/sconf_temp/conftest_54e278de73eab6643b800adcdfc7184a_0_d7ca91f701679681862c41231bbd6b51.out"
+#   Checking for vec_vbperm output in index 1... no
+#   Running on ppc64le, but can't find a correct vec_vbpermq output index.  Compiler or platform not supported
+#   See $SRC_DIR/build/scons/config.log for details
+c_compiler_version:    # [ppc64le]
+  - '8'                # [ppc64le]
+cxx_compiler_version:  # [ppc64le]
+  - '8'                # [ppc64le]

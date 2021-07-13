@@ -1,18 +1,18 @@
-From cfb9ac4e80402d94f1a67052d69ee5c9b6312e92 Mon Sep 17 00:00:00 2001
+From 4626adacef85cf7f61c9a836941d854070dc378a Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 02:26:17 +0000
-Subject: [PATCH 05/12] Fix flags for un-vendoring abseil-cpp
+Subject: [PATCH 05/13] Fix flags for un-vendoring abseil-cpp
 
 ---
- SConstruct                 |   14 ++++++++++++++
- src/third_party/SConscript |    3 +--
+ SConstruct                 | 14 ++++++++++++++
+ src/third_party/SConscript |  3 +--
  2 files changed, 15 insertions(+), 2 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index a625431..d7553d8 100644
+index cba4746e19..3374b677f6 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -3274,6 +3274,20 @@ def doConfigure(myenv):
+@@ -3298,6 +3298,20 @@ def doConfigure(myenv):
          conf.env['LIBDEPS_ICUI18N_SYSLIBDEP'] = 'icui18n'
          conf.env['LIBDEPS_ICUUC_SYSLIBDEP'] = 'icuuc'
  
@@ -21,20 +21,20 @@ index a625431..d7553d8 100644
 +        # Please note that these are in dependency order. Another way is to throw all of these inside
 +        # -Wl,--start-group ... -Wl,--end-group
 +        conf.env['LIBDEPS_ABSL_LIBS_SYSLIBDEP'] = [
-+	    'absl_hashtablez_sampler', 'absl_hash', 'absl_exponential_biased', 'absl_synchronization',
-+            'absl_graphcycles_internal', 'absl_stacktrace', 'absl_symbolize', 'absl_malloc_internal',
-+            'absl_debugging_internal', 'absl_demangle_internal', 'absl_time', 'absl_civil_time',
-+            'absl_time_zone', 'absl_strings', 'absl_base', 'absl_dynamic_annotations',
-+            'absl_spinlock_wait', 'absl_int128', 'absl_throw_delegate', 'absl_strings_internal',
-+            'absl_bad_optional_access', 'absl_bad_variant_access',
-+            'absl_raw_logging_internal', 'absl_log_severity', 'absl_city'
++            'absl_hashtablez_sampler', 'absl_hash', 'absl_wyhash', 'absl_exponential_biased',
++            'absl_synchronization', 'absl_graphcycles_internal', 'absl_stacktrace', 'absl_symbolize',
++            'absl_malloc_internal', 'absl_debugging_internal', 'absl_demangle_internal', 'absl_time',
++            'absl_civil_time', 'absl_time_zone', 'absl_strings', 'absl_base', 'absl_spinlock_wait',
++            'absl_raw_hash_set', 'absl_int128', 'absl_throw_delegate', 'absl_strings_internal',
++            'absl_bad_optional_access', 'absl_bad_variant_access', 'absl_raw_logging_internal',
++            'absl_log_severity', 'absl_city'
 +        ]
 +
      if wiredtiger and use_system_version_of_library("wiredtiger"):
          if not conf.CheckCXXHeader( "wiredtiger.h" ):
              myenv.ConfError("Cannot find wiredtiger headers")
 diff --git a/src/third_party/SConscript b/src/third_party/SConscript
-index cc6cfbd..c8d2885 100644
+index cc6cfbd7a8..c8d2885c73 100644
 --- a/src/third_party/SConscript
 +++ b/src/third_party/SConscript
 @@ -291,8 +291,7 @@ abseilEnv = env
@@ -48,5 +48,5 @@ index cc6cfbd..c8d2885 100644
  else:
      abseilDirectory = 'abseil-cpp-master'
 -- 
-1.7.1
+2.30.2
 
