@@ -12,18 +12,10 @@ cxx_compiler:
 - vs2019
 icu:
 - '68'
-libcurl:
-- '7'
-openssl:
-- 1.1.1
 pcre:
 - '8'
 pin_run_as_build:
   boost-cpp:
-    max_pin: x.x.x
-  libcurl:
-    max_pin: x
-  openssl:
     max_pin: x.x.x
   zlib:
     max_pin: x.x
