@@ -1,4 +1,4 @@
-From 338b39f12d28f3460d6d400fa305749ccf659146 Mon Sep 17 00:00:00 2001
+From 80e183a9abfa521d0c818c2da7161da2763b53ba Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 02:26:17 +0000
 Subject: [PATCH 05/17] Fix flags for un-vendoring abseil-cpp
@@ -10,10 +10,10 @@ Subject: [PATCH 05/17] Fix flags for un-vendoring abseil-cpp
  3 files changed, 17 insertions(+), 2 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index b964eba1ba..0942b662b5 100644
+index 5174942dc0..5fedd76b6a 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -4206,6 +4206,20 @@ def doConfigure(myenv):
+@@ -4070,6 +4070,20 @@ def doConfigure(myenv):
          conf.env['LIBDEPS_ICUI18N_SYSLIBDEP'] = 'icui18n'
          conf.env['LIBDEPS_ICUUC_SYSLIBDEP'] = 'icuuc'
  
@@ -48,10 +48,10 @@ index 8dd859222e..a1ee3d4e61 100644
          lib_link_suffix = env.subst("$LIBLINKSUFFIX")
          # Elements of syslibdeps are either strings (str or unicode), or they're File objects.
 diff --git a/src/third_party/SConscript b/src/third_party/SConscript
-index 6ee43dbd14..a5e4a30aff 100644
+index c5b2168140..2a16519ad7 100644
 --- a/src/third_party/SConscript
 +++ b/src/third_party/SConscript
-@@ -348,8 +348,7 @@ abseilEnv = env.Clone()
+@@ -370,8 +370,7 @@ abseilEnv = env.Clone()
  if use_system_version_of_library("abseil-cpp"):
      abseilEnv = abseilEnv.Clone(
          SYSLIBDEPS=[
