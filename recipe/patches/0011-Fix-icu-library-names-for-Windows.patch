@@ -1,17 +1,17 @@
-From 6eb71e1424524bb3014a838c075b47238415d27a Mon Sep 17 00:00:00 2001
+From 572e4ab990455ad52fa101c9c425dcde85516d37 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 20:34:47 +0000
-Subject: [PATCH 11/13] Fix icu library names for Windows
+Subject: [PATCH 11/17] Fix icu library names for Windows
 
 ---
  SConstruct | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index 03d1cff68a..0832686b4b 100644
+index 4c1c9ffed0..ed14c19643 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -4200,14 +4200,14 @@ def doConfigure(myenv):
+@@ -4064,14 +4064,14 @@ def doConfigure(myenv):
          conf.FindSysLibDep("intel_decimal128", ["bid"])
  
      if use_system_version_of_library("icu"):
@@ -29,5 +29,5 @@ index 03d1cff68a..0832686b4b 100644
  
      if use_system_version_of_library("abseil-cpp"):
 -- 
-2.31.1
+2.32.0
 

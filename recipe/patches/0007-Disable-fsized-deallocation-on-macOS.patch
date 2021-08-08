@@ -1,7 +1,7 @@
-From 9aab20d9d0876c46a69a785d2cbffb570b8315c7 Mon Sep 17 00:00:00 2001
+From f33799509955ef90cb45790ad3ea2ac568a26aa5 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 16:45:56 +0000
-Subject: [PATCH 07/13] Disable -fsized-deallocation on macOS
+Subject: [PATCH 07/17] Disable -fsized-deallocation on macOS
 
 The check passes on older SDKs, but the compilation still fails
 SConstruct should be updated to use something similar to:
@@ -16,10 +16,10 @@ xref: https://jira.mongodb.org/browse/SERVER-40197
  1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/SConstruct b/SConstruct
-index 1ff9338152..546896f604 100644
+index 99d255971e..031c406fa0 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -3114,7 +3114,10 @@ def doConfigure(myenv):
+@@ -2961,7 +2961,10 @@ def doConfigure(myenv):
          AddToCCFLAGSIfSupported(myenv, "-Wno-exceptions")
  
          # Enable sized deallocation support.
@@ -32,5 +32,5 @@ index 1ff9338152..546896f604 100644
          # This warning was added in Apple clang version 11 and flags many explicitly defaulted move
          # constructors and assignment operators for being implicitly deleted, which is not useful.
 -- 
-2.31.1
+2.32.0
 
