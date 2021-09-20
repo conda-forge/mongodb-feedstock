@@ -1,4 +1,4 @@
-From 9d4cce0d9d62991b7ad240b90dd720305473db34 Mon Sep 17 00:00:00 2001
+From 5e64be42290c150b2a3403a97783b6567ab2cbc0 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 24 May 2020 21:14:47 +0000
 Subject: [PATCH 02/17] Relax constraint on minimum version of GCC
@@ -8,10 +8,10 @@ Subject: [PATCH 02/17] Relax constraint on minimum version of GCC
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index 4328cd0cda..5174942dc0 100644
+index af3f7498e7..6aee9db70c 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -2619,14 +2619,14 @@ def doConfigure(myenv):
+@@ -2611,14 +2611,14 @@ def doConfigure(myenv):
          }
          """ % compiler_minimum_string)
      elif myenv.ToolchainIs('gcc'):
@@ -29,5 +29,5 @@ index 4328cd0cda..5174942dc0 100644
          #endif
  
 -- 
-2.32.0
+2.33.0
 

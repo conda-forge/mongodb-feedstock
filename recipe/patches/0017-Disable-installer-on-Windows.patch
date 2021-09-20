@@ -1,4 +1,4 @@
-From e3ecbd11189e7ae138e13516d5b7cfc0bfa24be5 Mon Sep 17 00:00:00 2001
+From 43d80244d91e28c8b8a9b9a59e43b161d223cc96 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 11 Jul 2021 23:31:20 -0400
 Subject: [PATCH 17/17] Disable installer on Windows
@@ -21,5 +21,5 @@ index 0714eba23a..bc69c93c57 100644
          'platform',
          'rpc',
 -- 
-2.32.0
+2.33.0
 
