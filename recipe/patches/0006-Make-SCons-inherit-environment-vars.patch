@@ -1,4 +1,4 @@
-From f89567314b99e7d1888e9ee603fbee875e425724 Mon Sep 17 00:00:00 2001
+From ae80688709c408561d880b3c7c885a8bd57813d3 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 15:22:50 +0000
 Subject: [PATCH 06/17] Make SCons inherit environment vars
@@ -8,7 +8,7 @@ Subject: [PATCH 06/17] Make SCons inherit environment vars
  1 file changed, 1 insertion(+)
 
 diff --git a/SConstruct b/SConstruct
-index 5fedd76b6a..99d255971e 100644
+index 6c57817c69..4dc1be02cb 100644
 --- a/SConstruct
 +++ b/SConstruct
 @@ -1202,6 +1202,7 @@ if get_option('build-tools') == 'next':
@@ -20,5 +20,5 @@ index 5fedd76b6a..99d255971e 100644
  
  if get_option('cache-signature-mode') == 'validate':
 -- 
-2.32.0
+2.33.0
 
