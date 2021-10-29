@@ -27,7 +27,7 @@ source:
     - patches/0017-Disable-installer-on-Windows.patch
 
 build:
-  number: 1
+  number: 2
   detect_binary_files_with_prefix: false
   missing_dso_whitelist:   # [osx]
     - /usr/lib/libresolv.9.dylib  # [osx]
