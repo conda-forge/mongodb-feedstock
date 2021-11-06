@@ -1,4 +1,4 @@
-From 566d7edbeeabd08d6a5a9fe2af81974deb362e32 Mon Sep 17 00:00:00 2001
+From da4f6944ba524bb5368d27e263e9dc895c174b1c Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sat, 26 Sep 2020 16:05:30 -0400
 Subject: [PATCH 13/17] MSVC: Don't generating debug info forcefully
@@ -9,19 +9,19 @@ Subject: [PATCH 13/17] MSVC: Don't generating debug info forcefully
  2 files changed, 22 insertions(+), 22 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index 24ac3eb7df..47daa87cfb 100644
+index 6b71c3e429..92c3e2a8d0 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -2198,11 +2198,11 @@ elif env.TargetOSIs('windows'):
+@@ -2203,11 +2203,11 @@ elif env.TargetOSIs('windows'):
      # Don't send error reports in case of internal compiler error
      env.Append( CCFLAGS= ["/errorReport:none"] )
  
--    # Select debugging format. /Zi gives faster links but seem to use more memory
+-    # Select debugging format. /Zi gives faster links but seems to use more memory.
 -    if get_option('msvc-debugging-format') == "codeview":
 -        env['CCPDBFLAGS'] = "/Z7"
 -    elif get_option('msvc-debugging-format') == "pdb":
 -        env['CCPDBFLAGS'] = '/Zi /Fd${TARGET}.pdb'
-+#    # Select debugging format. /Zi gives faster links but seem to use more memory
++#    # Select debugging format. /Zi gives faster links but seems to use more memory.
 +#    if get_option('msvc-debugging-format') == "codeview":
 +#        env['CCPDBFLAGS'] = "/Z7"
 +#    elif get_option('msvc-debugging-format') == "pdb":
@@ -29,7 +29,7 @@ index 24ac3eb7df..47daa87cfb 100644
  
  
      # The SCons built-in pdbGenerator always adds /DEBUG, but we would like
-@@ -2215,18 +2215,18 @@ elif env.TargetOSIs('windows'):
+@@ -2220,18 +2220,18 @@ elif env.TargetOSIs('windows'):
              return None
      env['_PDB'] = pdbGenerator
  
@@ -60,7 +60,7 @@ index 24ac3eb7df..47daa87cfb 100644
  
      # /MD:  use the multithreaded, DLL version of the run-time library (MSVCRT.lib/MSVCR###.DLL)
      # /MDd: Defines _DEBUG, _MT, _DLL, and uses MSVCRTD.lib/MSVCRD###.DLL
-@@ -2297,8 +2297,8 @@ elif env.TargetOSIs('windows'):
+@@ -2302,8 +2302,8 @@ elif env.TargetOSIs('windows'):
      )
  
  # When building on visual studio, this sets the name of the debug symbols file
@@ -89,5 +89,5 @@ index 677ef75723..b6b7fa17bf 100644
              pass
  
 -- 
-2.33.0
+2.33.1
 

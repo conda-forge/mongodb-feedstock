@@ -1,4 +1,4 @@
-From 3b66f6ecfc880367bd50865fba71488ab5f30877 Mon Sep 17 00:00:00 2001
+From e050705e651c4bb7e8866c2c5c1ae3fa36cbe567 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 02:26:17 +0000
 Subject: [PATCH 05/17] Fix flags for un-vendoring abseil-cpp
@@ -6,14 +6,14 @@ Subject: [PATCH 05/17] Fix flags for un-vendoring abseil-cpp
 ---
  SConstruct                 | 14 ++++++++++++++
  site_scons/libdeps.py      |  2 ++
- src/third_party/SConscript |  3 +--
- 3 files changed, 17 insertions(+), 2 deletions(-)
+ src/third_party/SConscript |  1 +
+ 3 files changed, 17 insertions(+)
 
 diff --git a/SConstruct b/SConstruct
-index 6aee9db70c..6c57817c69 100644
+index 50350660ab..ea7b72986c 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -4062,6 +4062,20 @@ def doConfigure(myenv):
+@@ -4106,6 +4106,20 @@ def doConfigure(myenv):
          conf.env['LIBDEPS_ICUI18N_SYSLIBDEP'] = 'icui18n'
          conf.env['LIBDEPS_ICUUC_SYSLIBDEP'] = 'icuuc'
  
@@ -35,10 +35,10 @@ index 6aee9db70c..6c57817c69 100644
          if not conf.CheckCXXHeader( "wiredtiger.h" ):
              myenv.ConfError("Cannot find wiredtiger headers")
 diff --git a/site_scons/libdeps.py b/site_scons/libdeps.py
-index ddf1bc9363..f204124d18 100644
+index 1b58934e58..f0d01b58cf 100644
 --- a/site_scons/libdeps.py
 +++ b/site_scons/libdeps.py
-@@ -832,6 +832,8 @@ def get_libdeps_objs(source, target, env, for_signature, debug=False):
+@@ -838,6 +838,8 @@ def get_libdeps_objs(source, target, env, for_signature, debug=False):
  
  
  def stringify_deps(env, deps):
@@ -48,19 +48,17 @@ index ddf1bc9363..f204124d18 100644
      lib_link_suffix = env.subst("$LIBLINKSUFFIX")
  
 diff --git a/src/third_party/SConscript b/src/third_party/SConscript
-index c5b2168140..2a16519ad7 100644
+index 805c56857c..326e84388d 100644
 --- a/src/third_party/SConscript
 +++ b/src/third_party/SConscript
-@@ -370,8 +370,7 @@ abseilEnv = env.Clone()
- if use_system_version_of_library("abseil-cpp"):
-     abseilEnv = abseilEnv.Clone(
-         SYSLIBDEPS=[
--            env['LIBDEPS_ABSL_CONTAINER_SYSLIBDEP'],
--            env['LIBDEPS_ABSL_HASH_SYSLIBDEP'],
+@@ -383,6 +383,7 @@ if use_system_version_of_library("abseil-cpp"):
+             env['LIBDEPS_ABSL_CONTAINER_SYSLIBDEP'],
+             env['LIBDEPS_ABSL_HASH_SYSLIBDEP'],
+             env['LIBDEPS_ABSL_NUMERIC_SYSLIBDEP'],
 +            env['LIBDEPS_ABSL_LIBS_SYSLIBDEP'],
          ])
  else:
      abseilDirectory = 'abseil-cpp-master'
 -- 
-2.33.0
+2.33.1
 

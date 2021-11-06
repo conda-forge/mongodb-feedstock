@@ -1,4 +1,4 @@
-From 003d893d4d363530d01be20d7d75723924b50c7a Mon Sep 17 00:00:00 2001
+From c10215489771be1fc277f025d1e065096a2560c1 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 16:45:56 +0000
 Subject: [PATCH 07/17] Disable -fsized-deallocation on macOS
@@ -16,11 +16,11 @@ xref: https://jira.mongodb.org/browse/SERVER-40197
  1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/SConstruct b/SConstruct
-index 4dc1be02cb..493620ef48 100644
+index 6b4c02eacb..8a01f3364c 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -2953,7 +2953,10 @@ def doConfigure(myenv):
-         AddToCCFLAGSIfSupported(myenv, "-Wno-exceptions")
+@@ -2962,7 +2962,10 @@ def doConfigure(myenv):
+         AddToCCFLAGSIfSupported(myenv, "-Wno-unused-lambda-capture")
  
          # Enable sized deallocation support.
 -        AddToCXXFLAGSIfSupported(myenv, '-fsized-deallocation')
@@ -32,5 +32,5 @@ index 4dc1be02cb..493620ef48 100644
          # This warning was added in Apple clang version 11 and flags many explicitly defaulted move
          # constructors and assignment operators for being implicitly deleted, which is not useful.
 -- 
-2.33.0
+2.33.1
 

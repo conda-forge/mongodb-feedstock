@@ -1,4 +1,4 @@
-From ff5da6dff8bb11751d622ec262e338074eb0bc66 Mon Sep 17 00:00:00 2001
+From 1f0369d10f7a1f5b548967777496b57fdc3a4459 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 24 May 2020 21:16:07 +0000
 Subject: [PATCH 03/17] aligned_alloc in libC is only available in glibc 2.16+
@@ -10,7 +10,7 @@ our gcc compilers conflicts with this.
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/src/third_party/gperftools/dist/src/libc_override_gcc_and_weak.h b/src/third_party/gperftools/dist/src/libc_override_gcc_and_weak.h
-index 687516467f..98860194f9 100644
+index bb99b69008..1fa01b860c 100644
 --- a/src/third_party/gperftools/dist/src/libc_override_gcc_and_weak.h
 +++ b/src/third_party/gperftools/dist/src/libc_override_gcc_and_weak.h
 @@ -214,7 +214,7 @@ extern "C" {
@@ -23,5 +23,5 @@ index 687516467f..98860194f9 100644
    void* pvalloc(size_t size) __THROW              ALIAS(tc_pvalloc);
    int posix_memalign(void** r, size_t a, size_t s) __THROW
 -- 
-2.33.0
+2.33.1
 

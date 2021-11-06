@@ -1,4 +1,4 @@
-From 3906513ecf9422490805a7ee2b4a5ad3c8b8a163 Mon Sep 17 00:00:00 2001
+From 0f30a51890bbce3f0581ba8131317a50beebb1f3 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 19:50:43 +0000
 Subject: [PATCH 10/17] Fix openssl 1.1.x library names on Windows
@@ -8,10 +8,10 @@ Subject: [PATCH 10/17] Fix openssl 1.1.x library names on Windows
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index d0c0326cd9..cb494c06e4 100644
+index a7f2c04904..45af094699 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -3810,9 +3810,9 @@ def doConfigure(myenv):
+@@ -3854,9 +3854,9 @@ def doConfigure(myenv):
              sslLinkDependencies = ["crypto"]
  
          if conf.env.TargetOSIs('windows'):
@@ -25,5 +25,5 @@ index d0c0326cd9..cb494c06e4 100644
          # Used to import system certificate keychains
          if conf.env.TargetOSIs('darwin'):
 -- 
-2.33.0
+2.33.1
 
