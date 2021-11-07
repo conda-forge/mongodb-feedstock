@@ -1,66 +1,41 @@
-From 3b66f6ecfc880367bd50865fba71488ab5f30877 Mon Sep 17 00:00:00 2001
+From b93fa6118ac4393a88bd657a482b35e0bc52a218 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 02:26:17 +0000
-Subject: [PATCH 05/17] Fix flags for un-vendoring abseil-cpp
+Subject: [PATCH 05/18] Fix flags for un-vendoring abseil-cpp
 
 ---
- SConstruct                 | 14 ++++++++++++++
- site_scons/libdeps.py      |  2 ++
- src/third_party/SConscript |  3 +--
- 3 files changed, 17 insertions(+), 2 deletions(-)
+ src/third_party/SConscript | 18 +++++++++++++++---
+ 1 file changed, 15 insertions(+), 3 deletions(-)
 
-diff --git a/SConstruct b/SConstruct
-index 6aee9db70c..6c57817c69 100644
---- a/SConstruct
-+++ b/SConstruct
-@@ -4062,6 +4062,20 @@ def doConfigure(myenv):
-         conf.env['LIBDEPS_ICUI18N_SYSLIBDEP'] = 'icui18n'
-         conf.env['LIBDEPS_ICUUC_SYSLIBDEP'] = 'icuuc'
- 
-+    if use_system_version_of_library("abseil-cpp"):
-+        # Generated using the CMake targets: absl::hashtablez_sampler absl::hash absl::container
-+        # Please note that these are in dependency order. Another way is to throw all of these inside
-+        # -Wl,--start-group ... -Wl,--end-group
-+        conf.env['LIBDEPS_ABSL_LIBS_SYSLIBDEP'] = [
-+            'absl_hashtablez_sampler', 'absl_hash', 'absl_wyhash', 'absl_exponential_biased',
-+            'absl_synchronization', 'absl_graphcycles_internal', 'absl_stacktrace', 'absl_symbolize',
-+            'absl_malloc_internal', 'absl_debugging_internal', 'absl_demangle_internal', 'absl_time',
-+            'absl_civil_time', 'absl_time_zone', 'absl_strings', 'absl_base', 'absl_spinlock_wait',
-+            'absl_raw_hash_set', 'absl_int128', 'absl_throw_delegate', 'absl_strings_internal',
-+            'absl_bad_optional_access', 'absl_bad_variant_access', 'absl_raw_logging_internal',
-+            'absl_log_severity', 'absl_city'
-+        ]
-+
-     if wiredtiger and use_system_version_of_library("wiredtiger"):
-         if not conf.CheckCXXHeader( "wiredtiger.h" ):
-             myenv.ConfError("Cannot find wiredtiger headers")
-diff --git a/site_scons/libdeps.py b/site_scons/libdeps.py
-index ddf1bc9363..f204124d18 100644
---- a/site_scons/libdeps.py
-+++ b/site_scons/libdeps.py
-@@ -832,6 +832,8 @@ def get_libdeps_objs(source, target, env, for_signature, debug=False):
- 
- 
- def stringify_deps(env, deps):
-+    deps = SCons.Util.flatten(deps)
-+
-     lib_link_prefix = env.subst("$LIBLINKPREFIX")
-     lib_link_suffix = env.subst("$LIBLINKSUFFIX")
- 
 diff --git a/src/third_party/SConscript b/src/third_party/SConscript
-index c5b2168140..2a16519ad7 100644
+index 805c56857c..bc40d349d6 100644
 --- a/src/third_party/SConscript
 +++ b/src/third_party/SConscript
-@@ -370,8 +370,7 @@ abseilEnv = env.Clone()
+@@ -380,9 +380,21 @@ abseilEnv = env.Clone()
  if use_system_version_of_library("abseil-cpp"):
      abseilEnv = abseilEnv.Clone(
          SYSLIBDEPS=[
 -            env['LIBDEPS_ABSL_CONTAINER_SYSLIBDEP'],
 -            env['LIBDEPS_ABSL_HASH_SYSLIBDEP'],
-+            env['LIBDEPS_ABSL_LIBS_SYSLIBDEP'],
+-            env['LIBDEPS_ABSL_NUMERIC_SYSLIBDEP'],
++            # src/third_party/abseil-cpp-master/SConscript
++            # target_link_libraries(...
++            #    absl::raw_hash_set
++            #    absl::city absl::hash absl::wyhash
++            #    absl::numeric)
++            'absl_raw_hash_set', 'absl_hash', 'absl_wyhash',
++            'absl_hashtablez_sampler', 'absl_exponential_biased',
++            'absl_synchronization', 'absl_graphcycles_internal',
++            'absl_stacktrace', 'absl_symbolize', 'absl_malloc_internal',
++            'absl_debugging_internal', 'absl_demangle_internal', 'absl_time',
++            'absl_civil_time', 'absl_time_zone', 'absl_city',
++            'absl_bad_optional_access', 'absl_strings', 'absl_throw_delegate',
++            'absl_strings_internal', 'absl_base', 'absl_spinlock_wait',
++            'absl_bad_variant_access', 'absl_raw_logging_internal',
++            'absl_log_severity', 'absl_int128'
          ])
  else:
      abseilDirectory = 'abseil-cpp-master'
 -- 
-2.33.0
+2.33.1
 

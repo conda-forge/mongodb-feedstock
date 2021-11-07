@@ -1,7 +1,7 @@
-From 0839200994a5837161c4280a359d0e65f3c0da9d Mon Sep 17 00:00:00 2001
+From a1f6ea55eb1eb709a712de0ff9571258ea65f347 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 24 May 2020 21:13:26 +0000
-Subject: [PATCH 01/17] Do not inject debug info unnecessarily
+Subject: [PATCH 01/18] Do not inject debug info unnecessarily
 
 Requires humongous amount of disk space for intermediate objects
 ---
@@ -9,10 +9,10 @@ Requires humongous amount of disk space for intermediate objects
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/SConstruct b/SConstruct
-index 01390360ea..af3f7498e7 100644
+index 28f4cbffe7..ec465a17da 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -2358,7 +2358,7 @@ if env.TargetOSIs('posix'):
+@@ -2363,7 +2363,7 @@ if env.TargetOSIs('posix'):
  
      # -Winvalid-pch Warn if a precompiled header (see Precompiled Headers) is found in the search path but can't be used.
      env.Append( CCFLAGS=["-fasynchronous-unwind-tables",
@@ -22,5 +22,5 @@ index 01390360ea..af3f7498e7 100644
                           "-Wsign-compare",
                           "-Wno-unknown-pragmas",
 -- 
-2.33.0
+2.33.1
 

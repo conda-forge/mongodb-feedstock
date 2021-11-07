@@ -1,17 +1,17 @@
-From 538fa281d7d01111ef4f3edea26d39706ebb66a5 Mon Sep 17 00:00:00 2001
+From 9522fe067f1dfcf6607fc6b5b8488347540547b5 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 16:48:04 +0000
-Subject: [PATCH 08/17] Relax minimum Darwin version check to 10.9
+Subject: [PATCH 08/18] Relax minimum Darwin version check to 10.9
 
 ---
  SConstruct | 6 +++---
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index 493620ef48..d0c0326cd9 100644
+index 05b6b65651..3c5f0b7e87 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -2695,7 +2695,7 @@ def doConfigure(myenv):
+@@ -2708,7 +2708,7 @@ def doConfigure(myenv):
  
      conf.Finish()
  
@@ -20,7 +20,7 @@ index 493620ef48..d0c0326cd9 100644
      if env.TargetOSIs('darwin'):
  
          # TODO: Better error messages, mention the various -mX-version-min-flags in the error, and
-@@ -2706,7 +2706,7 @@ def doConfigure(myenv):
+@@ -2719,7 +2719,7 @@ def doConfigure(myenv):
              #include <AvailabilityMacros.h>
              #include <TargetConditionals.h>
  
@@ -29,7 +29,7 @@ index 493620ef48..d0c0326cd9 100644
              #error 1
              #endif
              """
-@@ -2721,7 +2721,7 @@ def doConfigure(myenv):
+@@ -2734,7 +2734,7 @@ def doConfigure(myenv):
          })
  
          if not conf.CheckDarwinMinima():
@@ -39,5 +39,5 @@ index 493620ef48..d0c0326cd9 100644
          conf.Finish()
  
 -- 
-2.33.0
+2.33.1
 
