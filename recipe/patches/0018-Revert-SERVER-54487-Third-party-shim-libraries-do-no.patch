@@ -1,0 +1,59 @@
+From 7b75e03ccd71efb6b27c91dd7c48e74fe92f5ce3 Mon Sep 17 00:00:00 2001
+From: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date: Sat, 6 Nov 2021 23:39:39 -0400
+Subject: [PATCH 18/18] Revert "SERVER-54487 Third-party shim libraries do not
+ need to be linked to or installed"
+
+This reverts commit b7aeb64343266da73e29632ef96ebfad5df91495.
+---
+ site_scons/libdeps.py      |  8 +-------
+ src/third_party/SConscript | 12 +-----------
+ 2 files changed, 2 insertions(+), 18 deletions(-)
+
+diff --git a/site_scons/libdeps.py b/site_scons/libdeps.py
+index 1b58934e58..ddf1bc9363 100644
+--- a/site_scons/libdeps.py
++++ b/site_scons/libdeps.py
+@@ -730,13 +730,7 @@ def _libdeps_visit(n, tsorted, marked, walking, debug=False):
+                 _libdeps_visit_private(child, marked, walking, debug)
+ 
+         marked[n.target_node] = LibdepsVisitationMark.MARKED_PUBLIC
+-
+-        # If the node has been marked as a virtual libdep in the tags,
+-        # we don't add it to tsorted because it isn't a real
+-        # dependency, just a node that adds further transitive
+-        # dependencies.
+-        if not 'virtual-libdep' in n.target_node.get_env().get('LIBDEPS_TAGS', []):
+-            tsorted.append(n.target_node)
++        tsorted.append(n.target_node)
+ 
+     except DependencyCycleError as e:
+         if len(e.cycle_nodes) == 1 or e.cycle_nodes[0] != e.cycle_nodes[-1]:
+diff --git a/src/third_party/SConscript b/src/third_party/SConscript
+index bc40d349d6..5236b0a4ca 100644
+--- a/src/third_party/SConscript
++++ b/src/third_party/SConscript
+@@ -240,19 +240,9 @@ empty_object = env.LibraryObject(
+ )
+ 
+ def shim_library(env, name, **kwargs):
+-    # Add the 'virtual-libdep' tag, which will prevent shim libraries
+-    # from actually being linked to. They don't provide any symbols,
+-    # so there is no need to do so. Instead, they just act as a node
+-    # in the library dependency graph to reach other libraries.
+-    libdeps_tags = kwargs.get('LIBDEPS_TAGS', env.get('LIBDEPS_TAGS', [])).copy()
+-    libdeps_tags.append('virtual-libdep')
+-    kwargs['LIBDEPS_TAGS'] = libdeps_tags
+     return env.Library(
+-        target=f'shim_{name}',
++        target=f"shim_{name}",
+         source=empty_object[0],
+-        # Since nothing will link to this library per the
+-        # `virtual-libdep` tag above, we can also skip installing it.
+-        AIB_IGNORE=True,
+         **kwargs,
+     )
+ env.AddMethod(shim_library, 'ShimLibrary')
+-- 
+2.33.1
+

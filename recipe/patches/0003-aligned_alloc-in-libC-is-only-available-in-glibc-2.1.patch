@@ -1,7 +1,7 @@
-From 1f0369d10f7a1f5b548967777496b57fdc3a4459 Mon Sep 17 00:00:00 2001
+From af050a136a03b4354070bce0ccf1ce3421cc8f86 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 24 May 2020 21:16:07 +0000
-Subject: [PATCH 03/17] aligned_alloc in libC is only available in glibc 2.16+
+Subject: [PATCH 03/18] aligned_alloc in libC is only available in glibc 2.16+
 
 The header only implementation of aligned_alloc for fully supporting c++17 in
 our gcc compilers conflicts with this.

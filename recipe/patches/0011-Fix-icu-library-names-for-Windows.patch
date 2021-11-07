@@ -1,14 +1,14 @@
-From d30001a90510b4fdb982167a80e112a9ab76d68c Mon Sep 17 00:00:00 2001
+From f3161176c2fef22de9b9a514fc022f5985bc96a1 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 20:34:47 +0000
-Subject: [PATCH 11/17] Fix icu library names for Windows
+Subject: [PATCH 11/18] Fix icu library names for Windows
 
 ---
  SConstruct | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index 45af094699..e7d656d044 100644
+index 8690ee102a..d1cf643466 100644
 --- a/SConstruct
 +++ b/SConstruct
 @@ -4100,14 +4100,14 @@ def doConfigure(myenv):
@@ -27,7 +27,7 @@ index 45af094699..e7d656d044 100644
 +        conf.env['LIBDEPS_ICUI18N_SYSLIBDEP'] = 'icuin' if conf.env.TargetOSIs('windows') else 'icui18n'
          conf.env['LIBDEPS_ICUUC_SYSLIBDEP'] = 'icuuc'
  
-     if use_system_version_of_library("abseil-cpp"):
+     if wiredtiger and use_system_version_of_library("wiredtiger"):
 -- 
 2.33.1
 

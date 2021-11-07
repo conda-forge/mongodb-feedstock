@@ -1,7 +1,7 @@
-From c10215489771be1fc277f025d1e065096a2560c1 Mon Sep 17 00:00:00 2001
+From 20d2523475523d8a913b718e39f95f90f4746483 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 16:45:56 +0000
-Subject: [PATCH 07/17] Disable -fsized-deallocation on macOS
+Subject: [PATCH 07/18] Disable -fsized-deallocation on macOS
 
 The check passes on older SDKs, but the compilation still fails
 SConstruct should be updated to use something similar to:
@@ -16,7 +16,7 @@ xref: https://jira.mongodb.org/browse/SERVER-40197
  1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/SConstruct b/SConstruct
-index 6b4c02eacb..8a01f3364c 100644
+index acabb79942..05b6b65651 100644
 --- a/SConstruct
 +++ b/SConstruct
 @@ -2962,7 +2962,10 @@ def doConfigure(myenv):

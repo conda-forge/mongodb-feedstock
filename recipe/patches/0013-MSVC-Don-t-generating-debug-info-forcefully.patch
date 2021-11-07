@@ -1,7 +1,7 @@
-From da4f6944ba524bb5368d27e263e9dc895c174b1c Mon Sep 17 00:00:00 2001
+From 3fa176da4db32d3ba23d137463e772f9825e35c7 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sat, 26 Sep 2020 16:05:30 -0400
-Subject: [PATCH 13/17] MSVC: Don't generating debug info forcefully
+Subject: [PATCH 13/18] MSVC: Don't generating debug info forcefully
 
 ---
  SConstruct                              | 38 ++++++++++++-------------
@@ -9,7 +9,7 @@ Subject: [PATCH 13/17] MSVC: Don't generating debug info forcefully
  2 files changed, 22 insertions(+), 22 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index 6b71c3e429..92c3e2a8d0 100644
+index aa38c0b4a3..20324fa7b4 100644
 --- a/SConstruct
 +++ b/SConstruct
 @@ -2203,11 +2203,11 @@ elif env.TargetOSIs('windows'):

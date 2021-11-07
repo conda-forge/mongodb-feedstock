@@ -1,14 +1,14 @@
-From 0f30a51890bbce3f0581ba8131317a50beebb1f3 Mon Sep 17 00:00:00 2001
+From ac33a6f5c5bfa613b28b9cc810b59f1dbcff882c Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 19:50:43 +0000
-Subject: [PATCH 10/17] Fix openssl 1.1.x library names on Windows
+Subject: [PATCH 10/18] Fix openssl 1.1.x library names on Windows
 
 ---
  SConstruct | 6 +++---
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index a7f2c04904..45af094699 100644
+index 3c5f0b7e87..8690ee102a 100644
 --- a/SConstruct
 +++ b/SConstruct
 @@ -3854,9 +3854,9 @@ def doConfigure(myenv):

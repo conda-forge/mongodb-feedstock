@@ -1,7 +1,7 @@
-From 2ed4505f274260a206181a61588ddc1bc7fd602e Mon Sep 17 00:00:00 2001
+From c5f450226e5af6e19ebb9cf1e382edf1d69e8aee Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 24 May 2020 21:14:47 +0000
-Subject: [PATCH 02/17] Relax constraint on minimum version of GCC
+Subject: [PATCH 02/18] Relax constraint on minimum version of GCC
 
 ---
  SConstruct | 4 ++--
