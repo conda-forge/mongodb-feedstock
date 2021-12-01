@@ -1,4 +1,4 @@
-{% set version = "5.1.0" %}
+{% set version = "5.1.1" %}
 
 package:
   name: mongodb
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://fastdl.mongodb.org/src/mongodb-src-r{{ version }}.tar.gz
-  sha256: 06c1e337a271452dbc0892f0c7a9c6a04506a758f558c9704bbfda41290c7524
+  sha256: 0af3dd6e3c5d12691d7c25e0bbab6a3066c7a42339860480c802435160ce0dab
   patches:
     - patches/0001-Do-not-inject-debug-info-unnecessarily.patch
     - patches/0002-Relax-constraint-on-minimum-version-of-GCC.patch
