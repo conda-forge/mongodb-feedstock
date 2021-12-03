@@ -1,4 +1,4 @@
-{% set version = "5.1.0" %}
+{% set version = "5.1.1" %}
 
 package:
   name: mongodb
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://fastdl.mongodb.org/src/mongodb-src-r{{ version }}.tar.gz
-  sha256: 06c1e337a271452dbc0892f0c7a9c6a04506a758f558c9704bbfda41290c7524
+  sha256: 0af3dd6e3c5d12691d7c25e0bbab6a3066c7a42339860480c802435160ce0dab
   patches:
     - patches/0001-Do-not-inject-debug-info-unnecessarily.patch
     - patches/0002-Relax-constraint-on-minimum-version-of-GCC.patch
@@ -25,8 +25,7 @@ source:
     - patches/0015-Drop-dependency-on-pypiwin32.patch
     - patches/0016-Revert-SERVER-45772-Require-VS-2019-to-build-the-ser.patch
     - patches/0017-Disable-installer-on-Windows.patch
-    - patches/0018-Revert-SERVER-54487-Third-party-shim-libraries-do-no.patch
-    - patches/0019-Disable-aligned-allocation-on-macOS.patch
+    - patches/0018-Disable-aligned-allocation-on-macOS.patch
 
 build:
   number: 0
