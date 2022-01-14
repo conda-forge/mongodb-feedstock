@@ -1,4 +1,4 @@
-From bb982eea487478ba7dc42e1dc43c0c321feeba99 Mon Sep 17 00:00:00 2001
+From 5c550bcfcb8cf3302a333265e12eab0e39b65a7a Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 11 Jul 2021 18:24:04 -0400
 Subject: [PATCH 16/18] Revert "SERVER-45772 Require VS 2019 to build the
@@ -10,10 +10,10 @@ This reverts commit 7160266ea5d1cf497570ba77ba148072ab1f6bd3.
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index 20324fa7b4..3272d5ad64 100644
+index 85925f24a5..a7b58c12b2 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -2610,14 +2610,14 @@ def doConfigure(myenv):
+@@ -2622,14 +2622,14 @@ def doConfigure(myenv):
      # bare compilers, and we should re-check at the very end that TryCompile and TryLink still
      # work with the flags we have selected.
      if myenv.ToolchainIs('msvc'):
@@ -31,5 +31,5 @@ index 20324fa7b4..3272d5ad64 100644
          #endif
  
 -- 
-2.33.1
+2.34.1
 

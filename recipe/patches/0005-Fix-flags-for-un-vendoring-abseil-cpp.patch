@@ -1,4 +1,4 @@
-From b93fa6118ac4393a88bd657a482b35e0bc52a218 Mon Sep 17 00:00:00 2001
+From 2beee6fb316c8cca0ebdf736461f7d669a9cf0e3 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 02:26:17 +0000
 Subject: [PATCH 05/18] Fix flags for un-vendoring abseil-cpp
@@ -8,10 +8,10 @@ Subject: [PATCH 05/18] Fix flags for un-vendoring abseil-cpp
  1 file changed, 15 insertions(+), 3 deletions(-)
 
 diff --git a/src/third_party/SConscript b/src/third_party/SConscript
-index 805c56857c..bc40d349d6 100644
+index 97348c66b8..8c34a974b1 100644
 --- a/src/third_party/SConscript
 +++ b/src/third_party/SConscript
-@@ -380,9 +380,21 @@ abseilEnv = env.Clone()
+@@ -379,9 +379,21 @@ abseilEnv = env.Clone()
  if use_system_version_of_library("abseil-cpp"):
      abseilEnv = abseilEnv.Clone(
          SYSLIBDEPS=[
@@ -37,5 +37,5 @@ index 805c56857c..bc40d349d6 100644
  else:
      abseilDirectory = 'abseil-cpp-master'
 -- 
-2.33.1
+2.34.1
 
