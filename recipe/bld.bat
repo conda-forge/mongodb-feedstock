@@ -27,5 +27,8 @@ set "_scons_xtra_flags=%_scons_xtra_flags% CXXFLAGS=/I%LIBRARY_INC%"
 set "_scons_xtra_flags=%_scons_xtra_flags% LINKFLAGS=/LIBPATH:%LIBRARY_LIB%"
 set "_scons_xtra_flags=%_scons_xtra_flags% CPPDEFINES=BOOST_ALL_DYN_LINK"
 
-python buildscripts/scons.py %_scons_xtra_flags% generate-ninja
+REM To avoid circular dependency b/w mongo and pymongo
+python -m venv %SRC_DIR%\scratch.env
+%SRC_DIR%\scratch.env\bin\pip install %SRC_DIR%\etc\pip\compile-requirements.txt
+%SRC_DIR%\scratch.env\bin\python buildscripts\scons.py %_scons_xtra_flags% generate-ninja
 ninja -f build.ninja install-core

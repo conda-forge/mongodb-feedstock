@@ -39,15 +39,6 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - python 3.*
-    - pywin32  # [win]
-    - cheetah3
-    - packaging
-    - psutil
-    - pyyaml
-    - regex
-    - requests
-    - setuptools
-    - requirements-parser
     - ninja
   host:
     - abseil-cpp
