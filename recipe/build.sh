@@ -40,7 +40,7 @@ _scons_xtra_flags+=(DESTDIR="$PREFIX")
 _scons_xtra_flags+=(--use-system-{boost,icu,pcre,snappy,yaml,zlib,zstd,abseil-cpp})
 
 # To avoid circular dependency b/w mongo and pymongo
-$PYTHON -m venv $SRC_DIR/scratch.env
+$BUILD_PREFIX/bin/python -m venv $SRC_DIR/scratch.env
 $SRC_DIR/scratch.env/bin/pip install $SRC_DIR/etc/pip/compile-requirements.txt
 $SRC_DIR/scratch.env/bin/python buildscripts/scons.py "${_scons_xtra_flags[@]}" generate-ninja
 ninja -f build.ninja install-core
