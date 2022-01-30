@@ -29,6 +29,6 @@ set "_scons_xtra_flags=%_scons_xtra_flags% CPPDEFINES=BOOST_ALL_DYN_LINK"
 
 REM To avoid circular dependency b/w mongo and pymongo
 python -m venv %SRC_DIR%\scratch.env
-%SRC_DIR%\scratch.env\bin\pip install -r %SRC_DIR%\etc\pip\compile-requirements.txt
+%SRC_DIR%\scratch.env\bin\pip install -r %SRC_DIR%\etc\pip\compile-requirements.txt --no-binary :all:
 %SRC_DIR%\scratch.env\bin\python buildscripts\scons.py %_scons_xtra_flags% generate-ninja
 ninja -f build.ninja install-core
