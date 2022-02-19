@@ -1,0 +1,25 @@
+From dbfa4cc711d6b270f952a745d5b50a8358a81478 Mon Sep 17 00:00:00 2001
+From: "Uwe L. Korn" <uwe.korn@quantco.com>
+Date: Thu, 17 Feb 2022 09:45:16 +0100
+Subject: [PATCH] wyhash is now called low_level_hash
+
+---
+ src/third_party/SConscript | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/third_party/SConscript b/src/third_party/SConscript
+index bc40d349..712d1d44 100644
+--- a/src/third_party/SConscript
++++ b/src/third_party/SConscript
+@@ -385,7 +385,7 @@ if use_system_version_of_library("abseil-cpp"):
+             #    absl::raw_hash_set
+             #    absl::city absl::hash absl::wyhash
+             #    absl::numeric)
+-            'absl_raw_hash_set', 'absl_hash', 'absl_wyhash',
++            'absl_raw_hash_set', 'absl_hash', 'absl_low_level_hash',
+             'absl_hashtablez_sampler', 'absl_exponential_biased',
+             'absl_synchronization', 'absl_graphcycles_internal',
+             'absl_stacktrace', 'absl_symbolize', 'absl_malloc_internal',
+-- 
+2.35.0
+
