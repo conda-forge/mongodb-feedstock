@@ -11,7 +11,7 @@ channel_targets:
 cxx_compiler:
 - vs2019
 icu:
-- '69'
+- '70'
 pcre:
 - '8'
 pin_run_as_build:

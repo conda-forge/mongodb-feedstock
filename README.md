@@ -5,7 +5,7 @@ Home: http://www.mongodb.org/
 
 Package license: SSPL-1.0
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mongodb-feedstock/blob/master/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mongodb-feedstock/blob/main/LICENSE.txt)
 
 Summary: A next-gen database that lets you do things you could never do before
 
@@ -28,8 +28,8 @@ Current build status
     <td>
       <details>
         <summary>
-          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9876&branchName=master">
-            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mongodb-feedstock?branchName=master">
+          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9876&branchName=main">
+            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mongodb-feedstock?branchName=main">
           </a>
         </summary>
         <table>
@@ -37,57 +37,57 @@ Current build status
           <tbody><tr>
               <td>linux_64_openssl1.1.1</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9876&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mongodb-feedstock?branchName=master&jobName=linux&configuration=linux_64_openssl1.1.1" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9876&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mongodb-feedstock?branchName=main&jobName=linux&configuration=linux_64_openssl1.1.1" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>linux_64_openssl3</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9876&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mongodb-feedstock?branchName=master&jobName=linux&configuration=linux_64_openssl3" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9876&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mongodb-feedstock?branchName=main&jobName=linux&configuration=linux_64_openssl3" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>linux_aarch64_openssl1.1.1</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9876&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mongodb-feedstock?branchName=master&jobName=linux&configuration=linux_aarch64_openssl1.1.1" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9876&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mongodb-feedstock?branchName=main&jobName=linux&configuration=linux_aarch64_openssl1.1.1" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>linux_aarch64_openssl3</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9876&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mongodb-feedstock?branchName=master&jobName=linux&configuration=linux_aarch64_openssl3" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9876&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mongodb-feedstock?branchName=main&jobName=linux&configuration=linux_aarch64_openssl3" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>linux_ppc64le_openssl1.1.1</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9876&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mongodb-feedstock?branchName=master&jobName=linux&configuration=linux_ppc64le_openssl1.1.1" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9876&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mongodb-feedstock?branchName=main&jobName=linux&configuration=linux_ppc64le_openssl1.1.1" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>linux_ppc64le_openssl3</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9876&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mongodb-feedstock?branchName=master&jobName=linux&configuration=linux_ppc64le_openssl3" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9876&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mongodb-feedstock?branchName=main&jobName=linux&configuration=linux_ppc64le_openssl3" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9876&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mongodb-feedstock?branchName=master&jobName=osx&configuration=osx_64_" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9876&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mongodb-feedstock?branchName=main&jobName=osx&configuration=osx_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>win_64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9876&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mongodb-feedstock?branchName=master&jobName=win&configuration=win_64_" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9876&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mongodb-feedstock?branchName=main&jobName=win&configuration=win_64_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -115,16 +115,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `mongodb` can be installed with:
+Once the `conda-forge` channel has been enabled, `mongodb` can be installed with `conda`:
 
 ```
 conda install mongodb
 ```
 
-It is possible to list all of the versions of `mongodb` available on your platform with:
+or with `mamba`:
+
+```
+mamba install mongodb
+```
+
+It is possible to list all of the versions of `mongodb` available on your platform with `conda`:
 
 ```
 conda search mongodb --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search mongodb --channel conda-forge
+```
+
+Alternatively, `mamba repoquery` may provide more information:
+
+```
+# Search all versions available on your platform:
+mamba repoquery search mongodb --channel conda-forge
+
+# List packages depending on `mongodb`:
+mamba repoquery whoneeds mongodb --channel conda-forge
+
+# List dependencies of `mongodb`:
+mamba repoquery depends mongodb --channel conda-forge
 ```
 
 
@@ -142,10 +167,12 @@ for each of the installable packages. Such a repository is known as a *feedstock
 A feedstock is made up of a conda recipe (the instructions on what and how to build
 the package) and the necessary configurations for automatic building using freely
 available continuous integration services. Thanks to the awesome service provided by
-[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/)
-and [TravisCI](https://travis-ci.com/) it is possible to build and upload installable
-packages to the [conda-forge](https://anaconda.org/conda-forge)
-[Anaconda-Cloud](https://anaconda.org/) channel for Linux, Windows and OSX respectively.
+[Azure](https://azure.microsoft.com/en-us/services/devops/), [GitHub](https://github.com/),
+[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
+[Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
+it is possible to build and upload installable packages to the
+[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
