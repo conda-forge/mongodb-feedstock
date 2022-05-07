@@ -29,7 +29,7 @@ source:
     - patches/0019-wyhash-is-now-called-low_level_hash.patch
 
 build:
-  number: 2
+  number: 3
   detect_binary_files_with_prefix: false
   missing_dso_whitelist:   # [osx]
     - /usr/lib/libresolv.9.dylib  # [osx]
