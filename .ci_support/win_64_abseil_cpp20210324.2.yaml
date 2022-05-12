@@ -1,0 +1,31 @@
+abseil_cpp:
+- '20210324.2'
+boost_cpp:
+- 1.74.0
+c_compiler:
+- vs2019
+channel_sources:
+- conda-forge
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- vs2019
+icu:
+- '70'
+pcre:
+- '8'
+pin_run_as_build:
+  boost-cpp:
+    max_pin: x.x.x
+  zlib:
+    max_pin: x.x
+pywin32:
+- '225'
+snappy:
+- '1'
+target_platform:
+- win-64
+zlib:
+- '1.2'
+zstd:
+- '1.5'
