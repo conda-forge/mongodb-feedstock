@@ -26,7 +26,7 @@ source:
     - patches/0016-Revert-SERVER-45772-Require-VS-2019-to-build-the-ser.patch
     - patches/0017-Disable-installer-on-Windows.patch
     - patches/0018-Disable-aligned-allocation-on-macOS.patch
-    - patches/0019-wyhash-is-now-called-low_level_hash.patch
+    - patches/0019-wyhash-is-now-called-low_level_hash.patch  # [abseil_cpp != '20210324.2']
 
 build:
   number: 3
