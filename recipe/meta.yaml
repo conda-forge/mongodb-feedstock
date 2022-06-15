@@ -1,4 +1,4 @@
-{% set version = "5.1.1" %}
+{% set version = "5.3.2" %}
 
 package:
   name: mongodb
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://fastdl.mongodb.org/src/mongodb-src-r{{ version }}.tar.gz
-  sha256: 0af3dd6e3c5d12691d7c25e0bbab6a3066c7a42339860480c802435160ce0dab
+  sha256: 711dff1e8dba77bb0ddb9a09d30932409d876da407e507136a6da1a0ed37b186
   patches:
     - patches/0001-Do-not-inject-debug-info-unnecessarily.patch
     - patches/0002-Relax-constraint-on-minimum-version-of-GCC.patch
@@ -29,7 +29,7 @@ source:
     - patches/0019-wyhash-is-now-called-low_level_hash.patch  # [abseil_cpp != '20210324.2']
 
 build:
-  number: 3
+  number: 0
   detect_binary_files_with_prefix: false
   missing_dso_whitelist:   # [osx]
     - /usr/lib/libresolv.9.dylib  # [osx]
