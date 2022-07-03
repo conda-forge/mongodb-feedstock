@@ -1,4 +1,4 @@
-From 3830c24b900f36df2f45b38b8383b07bd782c95d Mon Sep 17 00:00:00 2001
+From d5572da36bb599dba7bebae576d6d32e654a7a94 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 11 Jul 2021 17:42:41 -0400
 Subject: [PATCH 15/18] Drop dependency on pypiwin32
@@ -16,5 +16,5 @@ index c5b73def69..9d4f23eeb9 100644
 -pypiwin32==223; sys_platform == "win32" and python_version > "3"
  pywin32==225; sys_platform == "win32" and python_version > "3"
 -- 
-2.33.1
+2.34.1
 

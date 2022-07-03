@@ -1,4 +1,4 @@
-From c5f450226e5af6e19ebb9cf1e382edf1d69e8aee Mon Sep 17 00:00:00 2001
+From 36818e1eb3942ff5682b3196180960d83166a457 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 24 May 2020 21:14:47 +0000
 Subject: [PATCH 02/18] Relax constraint on minimum version of GCC
@@ -8,26 +8,26 @@ Subject: [PATCH 02/18] Relax constraint on minimum version of GCC
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index ec465a17da..50350660ab 100644
+index dbfe3c915d..07df6fb79a 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -2624,14 +2624,14 @@ def doConfigure(myenv):
-         }
-         """ % compiler_minimum_string)
-     elif myenv.ToolchainIs('gcc'):
--        compiler_minimum_string = "GCC 8.2"
-+        compiler_minimum_string = "GCC 7.5"
-         compiler_test_body = textwrap.dedent(
-         """
-         #if !defined(__GNUC__) || defined(__clang__)
-         #error
-         #endif
+@@ -2653,14 +2653,14 @@ def doConfigure(myenv):
+             }
+             """ % compiler_minimum_string)
+         else:
+-            compiler_minimum_string = "GCC 8.2"
++            compiler_minimum_string = "GCC 7.5"
+             compiler_test_body = textwrap.dedent(
+             """
+             #if !defined(__GNUC__) || defined(__clang__)
+             #error
+             #endif
  
--        #if (__GNUC__ < 8) || (__GNUC__ == 8 && __GNUC_MINOR__ < 2)
-+        #if (__GNUC__ < 7) || (__GNUC__ == 7 && __GNUC_MINOR__ < 5)
-         #error %s or newer is required to build MongoDB
-         #endif
+-            #if (__GNUC__ < 8) || (__GNUC__ == 8 && __GNUC_MINOR__ < 2)
++            #if (__GNUC__ < 7) || (__GNUC__ == 7 && __GNUC_MINOR__ < 5)
+             #error %s or newer is required to build MongoDB
+             #endif
  
 -- 
-2.33.1
+2.34.1
 

@@ -1,4 +1,4 @@
-From d0ea9d208c636795515bcd29db8504d5e39883ba Mon Sep 17 00:00:00 2001
+From 3ad34d1c69a39ea97e6be1b97ed4f7d324f1f75a Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 7 Nov 2021 08:33:36 -0500
 Subject: [PATCH 18/18] Disable aligned-allocation on macOS
@@ -36,10 +36,10 @@ Drop this patch when MACOSX_DEPLOYMENT_TARGET is updated to 10.14+
  1 file changed, 4 insertions(+)
 
 diff --git a/SConstruct b/SConstruct
-index ae5ea60a89..669cc50214 100644
+index a7b58c12b2..f9fcc72905 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -2968,6 +2968,10 @@ def doConfigure(myenv):
+@@ -3019,6 +3019,10 @@ def doConfigure(myenv):
          if not env.TargetOSIs('macOS'):
              AddToCXXFLAGSIfSupported(myenv, '-fsized-deallocation')
  
@@ -51,5 +51,5 @@ index ae5ea60a89..669cc50214 100644
          # constructors and assignment operators for being implicitly deleted, which is not useful.
          AddToCXXFLAGSIfSupported(myenv, "-Wno-defaulted-function-deleted")
 -- 
-2.33.1
+2.34.1
 

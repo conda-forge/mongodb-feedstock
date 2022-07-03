@@ -39,5 +39,5 @@ _scons_xtra_flags+=(VERBOSE=on)
 _scons_xtra_flags+=(DESTDIR="$PREFIX")
 _scons_xtra_flags+=(--use-system-{boost,icu,pcre,snappy,yaml,zlib,zstd,abseil-cpp})
 
-$PYTHON buildscripts/scons.py "${_scons_xtra_flags[@]}" generate-ninja
+python buildscripts/scons.py "${_scons_xtra_flags[@]}" generate-ninja
 ninja -f build.ninja install-core
