@@ -1,4 +1,4 @@
-From 911b26f2e6dfd7a3361e658f448693068d29f3f4 Mon Sep 17 00:00:00 2001
+From f1bf0d59be95c02eb261029395586cececd71335 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 24 May 2020 22:36:47 +0000
 Subject: [PATCH 04/18] Fix icu namespace extension for un-vendored icu
@@ -9,7 +9,7 @@ xref: https://sourceforge.net/p/icu/mailman/message/7389197/
  1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/src/mongo/db/query/collation/collator_interface_icu.h b/src/mongo/db/query/collation/collator_interface_icu.h
-index d33a0b3539..0ad32a5863 100644
+index d33a0b35392..0ad32a5863b 100644
 --- a/src/mongo/db/query/collation/collator_interface_icu.h
 +++ b/src/mongo/db/query/collation/collator_interface_icu.h
 @@ -32,10 +32,11 @@
@@ -27,5 +27,5 @@ index d33a0b3539..0ad32a5863 100644
  namespace mongo {
  
 -- 
-2.34.1
+2.33.1
 

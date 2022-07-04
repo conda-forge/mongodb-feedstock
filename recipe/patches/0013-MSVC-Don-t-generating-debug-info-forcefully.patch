@@ -1,4 +1,4 @@
-From a9b82ea226417743e10a033ea0e24dcc3b53b461 Mon Sep 17 00:00:00 2001
+From a0dc26dad6295016f26cbdf1ddefb458c5073dc2 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sat, 26 Sep 2020 16:05:30 -0400
 Subject: [PATCH 13/18] MSVC: Don't generating debug info forcefully
@@ -9,10 +9,10 @@ Subject: [PATCH 13/18] MSVC: Don't generating debug info forcefully
  2 files changed, 22 insertions(+), 22 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index 5a6f5871b6..85925f24a5 100644
+index da8246c6bfb..810365b9731 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -2215,11 +2215,11 @@ elif env.TargetOSIs('windows'):
+@@ -2241,11 +2241,11 @@ elif env.TargetOSIs('windows'):
      # Don't send error reports in case of internal compiler error
      env.Append( CCFLAGS= ["/errorReport:none"] )
  
@@ -29,7 +29,7 @@ index 5a6f5871b6..85925f24a5 100644
  
  
      # The SCons built-in pdbGenerator always adds /DEBUG, but we would like
-@@ -2232,18 +2232,18 @@ elif env.TargetOSIs('windows'):
+@@ -2258,18 +2258,18 @@ elif env.TargetOSIs('windows'):
              return None
      env['_PDB'] = pdbGenerator
  
@@ -60,7 +60,7 @@ index 5a6f5871b6..85925f24a5 100644
  
      # /MD:  use the multithreaded, DLL version of the run-time library (MSVCRT.lib/MSVCR###.DLL)
      # /MDd: Defines _DEBUG, _MT, _DLL, and uses MSVCRTD.lib/MSVCRD###.DLL
-@@ -2314,8 +2314,8 @@ elif env.TargetOSIs('windows'):
+@@ -2340,8 +2340,8 @@ elif env.TargetOSIs('windows'):
      )
  
  # When building on visual studio, this sets the name of the debug symbols file
@@ -72,7 +72,7 @@ index 5a6f5871b6..85925f24a5 100644
  # Python uses APPDATA to determine the location of user installed
  # site-packages. If we do not pass this variable down to Python
 diff --git a/site_scons/site_tools/separate_debug.py b/site_scons/site_tools/separate_debug.py
-index 677ef75723..b6b7fa17bf 100644
+index 677ef75723e..b6b7fa17bf6 100644
 --- a/site_scons/site_tools/separate_debug.py
 +++ b/site_scons/site_tools/separate_debug.py
 @@ -122,9 +122,9 @@ def _update_builder(env, builder):
@@ -89,5 +89,5 @@ index 677ef75723..b6b7fa17bf 100644
              pass
  
 -- 
-2.34.1
+2.33.1
 
