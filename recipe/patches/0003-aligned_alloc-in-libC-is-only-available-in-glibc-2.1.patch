@@ -1,4 +1,4 @@
-From af050a136a03b4354070bce0ccf1ce3421cc8f86 Mon Sep 17 00:00:00 2001
+From 82d64bf1996c6241f82c07abfe271692ebaab0ab Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 24 May 2020 21:16:07 +0000
 Subject: [PATCH 03/18] aligned_alloc in libC is only available in glibc 2.16+
@@ -23,5 +23,5 @@ index bb99b69008..1fa01b860c 100644
    void* pvalloc(size_t size) __THROW              ALIAS(tc_pvalloc);
    int posix_memalign(void** r, size_t a, size_t s) __THROW
 -- 
-2.33.1
+2.34.1
 
