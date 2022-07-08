@@ -1,7 +1,7 @@
-From 0f657ab9a216304b128fb00f42e78fadd6d2a98d Mon Sep 17 00:00:00 2001
+From e4a25c7715d07f9d56b55779328e5eda1bccee35 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 7 Nov 2021 08:33:36 -0500
-Subject: [PATCH 16/18] Disable aligned-allocation on macOS
+Subject: [PATCH 16/19] Disable aligned-allocation on macOS
 
 include/c++/v1/memory:1423:5:
   error: aligned deallocation function of type
@@ -36,10 +36,10 @@ Drop this patch when MACOSX_DEPLOYMENT_TARGET is updated to 10.14+
  1 file changed, 4 insertions(+)
 
 diff --git a/SConstruct b/SConstruct
-index 0a4ad6bc0e6..d9bc7f61f36 100644
+index daeb6dc0dc1..631de61f4b2 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -3052,6 +3052,10 @@ def doConfigure(myenv):
+@@ -3059,6 +3059,10 @@ def doConfigure(myenv):
          if not env.TargetOSIs('macOS'):
              AddToCXXFLAGSIfSupported(myenv, '-fsized-deallocation')
  
@@ -51,5 +51,5 @@ index 0a4ad6bc0e6..d9bc7f61f36 100644
          # constructors and assignment operators for being implicitly deleted, which is not useful.
          AddToCXXFLAGSIfSupported(myenv, "-Wno-defaulted-function-deleted")
 -- 
-2.33.1
+2.33.0
 

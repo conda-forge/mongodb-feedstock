@@ -12,7 +12,7 @@ source:
     - patches/0002-Relax-constraint-on-minimum-version-of-GCC.patch
     - patches/0003-aligned_alloc-in-libC-is-only-available-in-glibc-2.1.patch
     - patches/0004-Fix-icu-namespace-extension-for-un-vendored-icu.patch
-    - patches/0005-Fix-flags-for-un-vendoring-abseil-cpp.patch
+    - patches/0005-Revert-SERVER-61305-Disallow-use-system-abseil-cpp.patch
     - patches/0006-Make-SCons-inherit-environment-vars.patch
     - patches/0007-Disable-fsized-deallocation-on-macOS.patch
     - patches/0008-Relax-minimum-Darwin-version-check-to-10.9.patch
@@ -25,7 +25,8 @@ source:
     - patches/0015-Disable-installer-on-Windows.patch
     - patches/0016-Disable-aligned-allocation-on-macOS.patch
     - patches/0017-Drop-strict-python-pkgs-requirements-check.patch
-    - patches/0018-wyhash-is-now-called-low_level_hash.patch  # [abseil_cpp != '20210324.2']
+    - patches/0018-Fix-flags-for-un-vendoring-abseil-cpp.patch
+    - patches/0019-wyhash-is-now-called-low_level_hash.patch  # [abseil_cpp != '20210324.2']
 
 build:
   number: 0
