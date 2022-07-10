@@ -1,7 +1,7 @@
-From 55a513df34fcee0e09a42b3e82506b957413df6f Mon Sep 17 00:00:00 2001
+From 7b87f91befef570dc5ac3b7066c0014e20ee6d6e Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 4 Jul 2022 17:24:22 -0400
-Subject: [PATCH 14/18] Revert "SERVER-62501 Use MSVS 2022 by default and
+Subject: [PATCH 14/19] Revert "SERVER-62501 Use MSVS 2022 by default and
  require it"
 
 This reverts commit ce789c6c8452ef2f544f54288f20c0e81b6a575d.
@@ -10,10 +10,10 @@ This reverts commit ce789c6c8452ef2f544f54288f20c0e81b6a575d.
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index 810365b9731..0a4ad6bc0e6 100644
+index 418b966ca6a..daeb6dc0dc1 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -949,8 +949,8 @@ env_vars.Add('MSVC_USE_SCRIPT',
+@@ -959,8 +959,8 @@ env_vars.Add('MSVC_USE_SCRIPT',
      help='Sets the script used to setup Visual Studio.')
  
  env_vars.Add('MSVC_VERSION',
@@ -24,7 +24,7 @@ index 810365b9731..0a4ad6bc0e6 100644
  
  env_vars.Add('NINJA_BUILDDIR',
      help="Location for shared Ninja state",
-@@ -2652,14 +2652,14 @@ def doConfigure(myenv):
+@@ -2659,14 +2659,14 @@ def doConfigure(myenv):
      # bare compilers, and we should re-check at the very end that TryCompile and TryLink still
      # work with the flags we have selected.
      if myenv.ToolchainIs('msvc'):
@@ -42,5 +42,5 @@ index 810365b9731..0a4ad6bc0e6 100644
          #endif
  
 -- 
-2.33.1
+2.33.0
 

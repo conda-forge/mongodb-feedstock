@@ -1,4 +1,4 @@
-{% set version = "5.3.2" %}
+{% set version = "6.0.0" %}
 
 package:
   name: mongodb
@@ -6,13 +6,13 @@ package:
 
 source:
   url: https://fastdl.mongodb.org/src/mongodb-src-r{{ version }}.tar.gz
-  sha256: 711dff1e8dba77bb0ddb9a09d30932409d876da407e507136a6da1a0ed37b186
+  sha256: b93b44e43287c0117e997a3707df55261ea6d3faaa8648c32b812e692e7db824
   patches:
     - patches/0001-Do-not-inject-debug-info-unnecessarily.patch
     - patches/0002-Relax-constraint-on-minimum-version-of-GCC.patch
     - patches/0003-aligned_alloc-in-libC-is-only-available-in-glibc-2.1.patch
     - patches/0004-Fix-icu-namespace-extension-for-un-vendored-icu.patch
-    - patches/0005-Fix-flags-for-un-vendoring-abseil-cpp.patch
+    - patches/0005-Revert-SERVER-61305-Disallow-use-system-abseil-cpp.patch
     - patches/0006-Make-SCons-inherit-environment-vars.patch
     - patches/0007-Disable-fsized-deallocation-on-macOS.patch
     - patches/0008-Relax-minimum-Darwin-version-check-to-10.9.patch
@@ -25,7 +25,9 @@ source:
     - patches/0015-Disable-installer-on-Windows.patch
     - patches/0016-Disable-aligned-allocation-on-macOS.patch
     - patches/0017-Drop-strict-python-pkgs-requirements-check.patch
-    - patches/0018-wyhash-is-now-called-low_level_hash.patch  # [abseil_cpp != '20210324.2']
+    - patches/0018-Fix-flags-for-un-vendoring-abseil-cpp.patch
+    - patches/0019-wyhash-is-now-called-low_level_hash.patch  # [abseil_cpp != '20210324.2']
+    - patches/0020-Don-t-inject-ICU-Macros-if-using-pre-compiled-librar.patch
 
 build:
   number: 0

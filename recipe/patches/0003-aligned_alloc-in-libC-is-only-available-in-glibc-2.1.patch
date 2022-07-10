@@ -1,7 +1,7 @@
-From fd57e945e03832ca9a045b1a4fcfe7174814d74f Mon Sep 17 00:00:00 2001
+From 795449bffe9bc33130d863b1dac03e2617e3f55d Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 24 May 2020 21:16:07 +0000
-Subject: [PATCH 03/18] aligned_alloc in libC is only available in glibc 2.16+
+Subject: [PATCH 03/19] aligned_alloc in libC is only available in glibc 2.16+
 
 The header only implementation of aligned_alloc for fully supporting c++17 in
 our gcc compilers conflicts with this.
@@ -23,5 +23,5 @@ index bb99b690085..1fa01b860c2 100644
    void* pvalloc(size_t size) __THROW              ALIAS(tc_pvalloc);
    int posix_memalign(void** r, size_t a, size_t s) __THROW
 -- 
-2.33.1
+2.33.0
 

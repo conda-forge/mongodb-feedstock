@@ -1,17 +1,17 @@
-From 4d16b53e6ecd5a8fc8dc83bf246e5c722d181b29 Mon Sep 17 00:00:00 2001
+From 2bf85763192e910f2de48e52e51f3dbeb0176ac5 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Tue, 26 May 2020 14:11:37 +0000
-Subject: [PATCH 12/18] Don't force disable auto linking if --use-system-boost
+Subject: [PATCH 12/19] Don't force disable auto linking if --use-system-boost
 
 ---
  SConstruct | 11 ++++++-----
  1 file changed, 6 insertions(+), 5 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index ad20fc2afaa..da8246c6bfb 100644
+index 9d8bfb69446..caaa044cc19 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -2116,11 +2116,12 @@ elif env.TargetOSIs('windows'):
+@@ -2125,11 +2125,12 @@ elif env.TargetOSIs('windows'):
          print("NOTE: Tool configuration did not find 'cl' compiler, falling back to os environment")
          env['ENV'] = dict(os.environ)
  
@@ -30,5 +30,5 @@ index ad20fc2afaa..da8246c6bfb 100644
      env.Append( CPPDEFINES=[ "_UNICODE" ] )
      env.Append( CPPDEFINES=[ "UNICODE" ] )
 -- 
-2.33.1
+2.33.0
 

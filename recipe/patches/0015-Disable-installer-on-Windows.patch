@@ -1,14 +1,14 @@
-From 4a3627f09772f20f5cab475c8008b27c6a776b87 Mon Sep 17 00:00:00 2001
+From 3ae3a352b3f5de53aacd6935bc272e05caa18348 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 11 Jul 2021 23:31:20 -0400
-Subject: [PATCH 15/18] Disable installer on Windows
+Subject: [PATCH 15/19] Disable installer on Windows
 
 ---
  src/mongo/SConscript | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/src/mongo/SConscript b/src/mongo/SConscript
-index 82e6e06b67c..7adcf6c7e41 100644
+index 8696da79339..e6902ef3c21 100644
 --- a/src/mongo/SConscript
 +++ b/src/mongo/SConscript
 @@ -32,7 +32,7 @@ env.SConscript(
@@ -19,7 +19,7 @@ index 82e6e06b67c..7adcf6c7e41 100644
 +#        'installer',
          'logv2',
          'platform',
-         'rpc',
+         'resmoke',
 -- 
-2.33.1
+2.33.0
 

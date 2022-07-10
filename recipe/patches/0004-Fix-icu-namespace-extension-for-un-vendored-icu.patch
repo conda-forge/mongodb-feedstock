@@ -1,7 +1,7 @@
-From f1bf0d59be95c02eb261029395586cececd71335 Mon Sep 17 00:00:00 2001
+From 9c3215af3cbc4444e84899900ab758db1877d658 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 24 May 2020 22:36:47 +0000
-Subject: [PATCH 04/18] Fix icu namespace extension for un-vendored icu
+Subject: [PATCH 04/19] Fix icu namespace extension for un-vendored icu
 
 xref: https://sourceforge.net/p/icu/mailman/message/7389197/
 ---
@@ -27,5 +27,5 @@ index d33a0b35392..0ad32a5863b 100644
  namespace mongo {
  
 -- 
-2.33.1
+2.33.0
 
