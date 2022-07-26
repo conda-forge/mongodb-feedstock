@@ -25,12 +25,13 @@ source:
     - patches/0015-Disable-installer-on-Windows.patch
     - patches/0016-Disable-aligned-allocation-on-macOS.patch
     - patches/0017-Drop-strict-python-pkgs-requirements-check.patch
-    - patches/0018-Fix-flags-for-un-vendoring-abseil-cpp.patch
-    - patches/0019-wyhash-is-now-called-low_level_hash.patch  # [abseil_cpp != '20210324.2']
+    - patches/0018-Fix-flags-for-un-vendoring-abseil-cpp.patch          # [unix]
+    - patches/0019-wyhash-is-now-called-low_level_hash.patch            # [unix]
+    - patches/0018-Fix-flags-for-un-vendoring-abseil-cpp-windows.patch  # [not unix]
     - patches/0020-Don-t-inject-ICU-Macros-if-using-pre-compiled-librar.patch
 
 build:
-  number: 0
+  number: 1
   detect_binary_files_with_prefix: false
   missing_dso_whitelist:   # [osx]
     - /usr/lib/libresolv.9.dylib  # [osx]
@@ -50,7 +51,7 @@ requirements:
     - psutil
     - pyyaml >=3.0.0,<=6.0.0
   host:
-    - abseil-cpp
+    - libabseil
     - boost-cpp
     - icu
     # Windows build uses WinHTTP
