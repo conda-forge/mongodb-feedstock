@@ -1,6 +1,14 @@
 @echo ON
 setlocal ENABLEDELAYEDEXPANSION
 
+:REM it seems that ABSEIL requires some flag to be defined
+:REM in windows if one uses the DLL
+:REM https://github.com/conda-forge/mongodb-feedstock/pull/60#issuecomment-1242901106
+:REM https://github.com/microsoft/vcpkg/issues/12021
+:REM This flag can be removed when
+:REM is merged https://github.com/conda-forge/abseil-cpp-feedstock/pull/49
+set "CXXFLAGS=-DABSL_CONSUME_DLL %CXXFLAGS%"
+
 set "NINJA_STATUS=[%%f+%%r/%%t] "
 
 set "_scons_xtra_flags="
