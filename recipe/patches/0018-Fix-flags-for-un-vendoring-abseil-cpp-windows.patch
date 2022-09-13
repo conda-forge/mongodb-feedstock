@@ -1,0 +1,32 @@
+From c5c5f88b9b9b5de59d6dddb9292cd866ef804e16 Mon Sep 17 00:00:00 2001
+From: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date: Mon, 25 May 2020 02:26:17 +0000
+Subject: [PATCH 18/19] Fix flags for un-vendoring abseil-cpp
+
+---
+ src/third_party/SConscript | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/src/third_party/SConscript b/src/third_party/SConscript
+index c8b4716b124..032b90fa080 100644
+--- a/src/third_party/SConscript
++++ b/src/third_party/SConscript
+@@ -377,9 +377,12 @@ abseilEnv = env.Clone()
+ if use_system_version_of_library("abseil-cpp"):
+     abseilEnv = abseilEnv.Clone(
+         SYSLIBDEPS=[
+-            env['LIBDEPS_ABSL_CONTAINER_SYSLIBDEP'],
+-            env['LIBDEPS_ABSL_HASH_SYSLIBDEP'],
+-            env['LIBDEPS_ABSL_NUMERIC_SYSLIBDEP'],
++            # src/third_party/abseil-cpp-master/SConscript
++            # target_link_libraries(...
++            #    absl::raw_hash_set
++            #    absl::city absl::hash absl::wyhash
++            #    absl::numeric)
++            'abseil_dll'
+         ])
+ else:
+     abseilDirectory = 'abseil-cpp-master'
+-- 
+2.34.1
+
