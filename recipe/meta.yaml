@@ -1,4 +1,4 @@
-{% set version = "6.0.1" %}
+{% set version = "6.1.0" %}
 
 package:
   name: mongodb
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://fastdl.mongodb.org/src/mongodb-src-r{{ version }}.tar.gz
-  sha256: dcb7723c78f6b7b26c902261e9f942625eaa8df01b4571ec8bed7d2fed0ed99b
+  sha256: ab9b98867827a1d59011f39b9941e5a26639af7bd7c091a49b56338f59657e10
   patches:
     - patches/0001-Do-not-inject-debug-info-unnecessarily.patch
     - patches/0002-Relax-constraint-on-minimum-version-of-GCC.patch
@@ -31,7 +31,7 @@ source:
     - patches/0020-Don-t-inject-ICU-Macros-if-using-pre-compiled-librar.patch
 
 build:
-  number: 1
+  number: 0
   detect_binary_files_with_prefix: false
   missing_dso_whitelist:   # [osx]
     - /usr/lib/libresolv.9.dylib  # [osx]
