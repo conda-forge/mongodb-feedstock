@@ -1,4 +1,4 @@
-From 0333e8ff01c952ef777cd2ed70e2c5e8bc3381ca Mon Sep 17 00:00:00 2001
+From 582f553e5d78156da74e8930977405a93e972b4e Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Fri, 8 Jul 2022 23:37:22 -0400
 Subject: [PATCH 20/20] Don't inject ICU Macros if using pre-compiled library
@@ -61,5 +61,5 @@ index aa9f1f1e43b..cebe51d6237 100644
  
  if env.TargetOSIs('solaris'):
 -- 
-2.31.1
+2.33.1
 

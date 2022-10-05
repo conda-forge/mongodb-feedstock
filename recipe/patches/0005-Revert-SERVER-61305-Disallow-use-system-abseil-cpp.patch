@@ -1,7 +1,7 @@
-From 71becd5c215d94d1b5185721af372795543ac300 Mon Sep 17 00:00:00 2001
+From 2bb1cbb964bf2014b0965d407b0ad78aa05d0e0d Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Thu, 7 Jul 2022 21:19:24 -0400
-Subject: [PATCH 05/19] Revert "SERVER-61305 Disallow --use-system-abseil-cpp"
+Subject: [PATCH 05/20] Revert "SERVER-61305 Disallow --use-system-abseil-cpp"
 
 This reverts commit 51918a385ab8b3fc1f922bede326ff84e846a47b.
 ---
@@ -10,10 +10,10 @@ This reverts commit 51918a385ab8b3fc1f922bede326ff84e846a47b.
  2 files changed, 24 insertions(+), 12 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index 47344b16d20..d9f20873e6a 100644
+index f90ef9825ee..876dd3435d3 100755
 --- a/SConstruct
 +++ b/SConstruct
-@@ -368,6 +368,7 @@ add_option('use-diagnostic-latches',
+@@ -386,6 +386,7 @@ add_option('use-diagnostic-latches',
  
  # Most of the "use-system-*" options follow a simple form.
  for pack in [
@@ -83,5 +83,5 @@ index 5b80a856e50..c8b4716b124 100644
  abseilEnv.ShimLibrary(name="abseil")
  
 -- 
-2.33.0
+2.33.1
 
