@@ -29,10 +29,6 @@ pcre:
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
-  libcurl:
-    max_pin: x
-  zlib:
-    max_pin: x.x
 snappy:
 - '1'
 target_platform:
