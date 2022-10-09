@@ -1,7 +1,7 @@
-From 263699594680e570e8c4e28341541a071534757a Mon Sep 17 00:00:00 2001
+From d1915c7e8e05f6a7769f6dc0d658a30cb2e297e5 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 16:45:56 +0000
-Subject: [PATCH 07/19] Disable -fsized-deallocation on macOS
+Subject: [PATCH 07/20] Disable -fsized-deallocation on macOS
 
 The check passes on older SDKs, but the compilation still fails
 SConstruct should be updated to use something similar to:
@@ -12,25 +12,26 @@ Drop this patch when MACOSX_DEPLOYMENT_TARGET is updated to 10.12+
 xref: https://jira.mongodb.org/browse/SERVER-36243
 xref: https://jira.mongodb.org/browse/SERVER-40197
 ---
- SConstruct | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ SConstruct | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index 36ffd86d8f6..70dafea1327 100644
+index 1c8e92a1e33..2574c6722d4 100755
 --- a/SConstruct
 +++ b/SConstruct
-@@ -3053,7 +3053,10 @@ def doConfigure(myenv):
-         AddToCCFLAGSIfSupported(myenv, "-Wno-unused-lambda-capture")
+@@ -3105,8 +3105,10 @@ def doConfigure(myenv):
+         # harmful to capture unused variables we are suppressing for now with a plan to fix later.
+         myenv.AddToCCFLAGSIfSupported("-Wno-unused-lambda-capture")
  
-         # Enable sized deallocation support.
--        AddToCXXFLAGSIfSupported(myenv, '-fsized-deallocation')
+-        # Enable sized deallocation support.
+-        myenv.AddToCXXFLAGSIfSupported('-fsized-deallocation')
 +        # Requires macOS >=10.12
 +        # Actual fix should be similar to https://github.com/gperftools/gperftools/commit/98753aa7
-+        if not env.TargetOSIs('macOS'):
-+            AddToCXXFLAGSIfSupported(myenv, '-fsized-deallocation')
++        if not env.TargetOSIs("macOS"):
++            myenv.AddToCXXFLAGSIfSupported("-fsized-deallocation")
  
          # This warning was added in Apple clang version 11 and flags many explicitly defaulted move
          # constructors and assignment operators for being implicitly deleted, which is not useful.
 -- 
-2.33.0
+2.33.1
 
