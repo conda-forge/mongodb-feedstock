@@ -1,7 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '11.0'
 boost_cpp:
-- 1.74.0
+- 1.78.0
 c_compiler:
 - clang
 c_compiler_version:
@@ -17,7 +17,7 @@ cxx_compiler_version:
 icu:
 - '70'
 libabseil:
-- '20220623.0'
+- '20230125'
 libcurl:
 - '7'
 macos_machine:
