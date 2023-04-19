@@ -1,11 +1,11 @@
 boost_cpp:
-- 1.74.0
+- 1.78.0
 c_compiler:
 - gcc
 c_compiler_version:
-- '8'
+- '11'
 cdt_name:
-- cos7
+- cos6
 channel_sources:
 - conda-forge
 channel_targets:
@@ -13,15 +13,15 @@ channel_targets:
 cxx_compiler:
 - gxx
 cxx_compiler_version:
-- '8'
+- '11'
 docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 icu:
-- '70'
+- '72'
 libabseil:
-- '20220623.0'
+- '20230125'
 libcurl:
-- '7'
+- '8'
 openssl:
 - '3'
 pcre:
@@ -32,7 +32,7 @@ pin_run_as_build:
 snappy:
 - '1'
 target_platform:
-- linux-ppc64le
+- linux-64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
