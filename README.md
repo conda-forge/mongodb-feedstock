@@ -1,11 +1,11 @@
-About mongodb
-=============
+About mongodb-feedstock
+=======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mongodb-feedstock/blob/main/LICENSE.txt)
 
 Home: http://www.mongodb.org/
 
 Package license: SSPL-1.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mongodb-feedstock/blob/main/LICENSE.txt)
 
 Summary: A next-gen database that lets you do things you could never do before
 
