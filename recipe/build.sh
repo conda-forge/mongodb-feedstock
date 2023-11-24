@@ -37,6 +37,7 @@ _scons_xtra_flags+=(HOST_ARCH="$HOST")
 _scons_xtra_flags+=(RPATH="$PREFIX/lib")
 _scons_xtra_flags+=(VERBOSE=on)
 _scons_xtra_flags+=(DESTDIR="$PREFIX")
+_scons_xtra_flags+=(MONGO_VERSION="$PKG_VERSION")
 _scons_xtra_flags+=(--use-system-{boost,icu,pcre,snappy,yaml,zlib,zstd,abseil-cpp})
 
 python buildscripts/scons.py "${_scons_xtra_flags[@]}" generate-ninja
