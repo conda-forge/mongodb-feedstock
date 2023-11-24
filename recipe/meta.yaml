@@ -40,16 +40,16 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - python 3.8.*
+    - python 3.10.*
     - ninja
-    - cheetah3 <=3.2.6.post1
-    - packaging <=21.3
-    - regex <=2021.11.10
-    - requirements-parser <=0.3.1
+    - cheetah3
+    - packaging
+    - regex
+    - requirements-parser
     - setuptools
-    - pymongo >=3.9,<4.0
+    - pymongo >=3.9
     - psutil
-    - pyyaml >=3.0.0,<=6.0.0
+    - pyyaml >=3.0
   host:
     - libabseil
     - libboost-devel
