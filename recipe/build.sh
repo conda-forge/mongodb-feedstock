@@ -23,7 +23,6 @@ export NINJA_STATUS="[%f+%r/%t] "
 declare -a _scons_xtra_flags
 _scons_xtra_flags+=(--dbg=off)
 _scons_xtra_flags+=(--disable-warnings-as-errors)
-_scons_xtra_flags+=(--enable-free-mon=on)
 _scons_xtra_flags+=(--enable-http-client=on)
 _scons_xtra_flags+=(--opt=on)
 _scons_xtra_flags+=(--release)
