@@ -18,6 +18,13 @@ if [[ $target_platform =~ osx-* ]]; then
    export CPPDEFINES="${CPPDEFINES:-} _LIBCPP_DISABLE_AVAILABILITY"
 fi
 
+if [[ $target_platform == "linux-aarch64" ]]; then
+    # compilation errors on aarch due to the code wrongly assuming equality
+    # between the native {con,de}structive_interference_size (64 vs. 256);
+    # should be fixed as of mongo 7.x
+    export CXXFLAGS="${CXXFLAGS} --param hardware_destructive_interference_size=64"
+fi
+
 export NINJA_STATUS="[%f+%r/%t] "
 
 declare -a _scons_xtra_flags
