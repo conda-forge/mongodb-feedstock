@@ -28,7 +28,7 @@ source:
     - patches/0018-Fix-flags-for-un-vendoring-abseil-cpp.patch          # [unix]
     - patches/0018-Fix-flags-for-un-vendoring-abseil-cpp-windows.patch  # [not unix]
     - patches/0019-Don-t-inject-ICU-Macros-if-using-pre-compiled-librar.patch
-    - patches/0020-add-missing-fstream-header.patch
+    - patches/0020-add-missing-fstream-headers.patch
 
 build:
   number: 0
