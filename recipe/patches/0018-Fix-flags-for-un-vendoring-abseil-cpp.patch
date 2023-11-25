@@ -1,7 +1,7 @@
 From a2a9def44aa0551b60ab96c9facc4c6cb8f2c282 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 02:26:17 +0000
-Subject: [PATCH 18/19] Fix flags for un-vendoring abseil-cpp
+Subject: [PATCH 18/20] Fix flags for un-vendoring abseil-cpp
 
 Co-Authored-By: Uwe L. Korn <uwe.korn@quantco.com>
 ---
