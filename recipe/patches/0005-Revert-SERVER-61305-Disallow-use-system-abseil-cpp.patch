@@ -1,7 +1,7 @@
-From 2bb1cbb964bf2014b0965d407b0ad78aa05d0e0d Mon Sep 17 00:00:00 2001
+From 56fe656318a329e91cef752b62056610db31b825 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Thu, 7 Jul 2022 21:19:24 -0400
-Subject: [PATCH 05/20] Revert "SERVER-61305 Disallow --use-system-abseil-cpp"
+Subject: [PATCH 05/19] Revert "SERVER-61305 Disallow --use-system-abseil-cpp"
 
 This reverts commit 51918a385ab8b3fc1f922bede326ff84e846a47b.
 ---
@@ -10,10 +10,10 @@ This reverts commit 51918a385ab8b3fc1f922bede326ff84e846a47b.
  2 files changed, 24 insertions(+), 12 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index f90ef9825ee..876dd3435d3 100755
+index 66991749d4a..4879c97800e 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -386,6 +386,7 @@ add_option('use-diagnostic-latches',
+@@ -380,6 +380,7 @@ add_option('use-diagnostic-latches',
  
  # Most of the "use-system-*" options follow a simple form.
  for pack in [
@@ -22,10 +22,10 @@ index f90ef9825ee..876dd3435d3 100755
      ('boost',),
      ('fmt',),
 diff --git a/src/third_party/SConscript b/src/third_party/SConscript
-index 5b80a856e50..c8b4716b124 100644
+index e278f064356..5a52ab5df11 100644
 --- a/src/third_party/SConscript
 +++ b/src/third_party/SConscript
-@@ -17,9 +17,6 @@ tomcryptSuffix = '-1.18.2'
+@@ -16,9 +16,6 @@ tomcryptSuffix = '-1.18.2'
  variantSuffix = '-1.4.0'
  
  thirdPartyEnvironmentModifications = {
@@ -35,7 +35,7 @@ index 5b80a856e50..c8b4716b124 100644
     'fmt' : {
          'CPPPATH' : ['#src/third_party/fmt/dist/include'],
     },
-@@ -104,6 +101,11 @@ if not use_system_version_of_library('boost'):
+@@ -103,6 +100,11 @@ if not use_system_version_of_library('boost'):
          'CCFLAGS' : ['$NOERROR_FOR_UNKNOWN_WARNING_OPTION_GEN'] if env.ToolchainIs('clang') else []
      }
  
@@ -47,7 +47,7 @@ index 5b80a856e50..c8b4716b124 100644
  if not use_system_version_of_library('snappy'):
      thirdPartyEnvironmentModifications['snappy'] = {
          'CPPPATH' : ['#/src/third_party/snappy' + snappySuffix],
-@@ -371,16 +373,25 @@ else:
+@@ -370,16 +372,25 @@ else:
  
  boostEnv.ShimLibrary(name="boost")
  
@@ -82,6 +82,3 @@ index 5b80a856e50..c8b4716b124 100644
  
  abseilEnv.ShimLibrary(name="abseil")
  
--- 
-2.33.1
-

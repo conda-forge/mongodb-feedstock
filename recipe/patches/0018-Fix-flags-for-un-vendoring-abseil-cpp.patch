@@ -1,17 +1,18 @@
-From 317e82bd62bcb7a5f47fb248326a5ed7a35b1f8e Mon Sep 17 00:00:00 2001
+From a2a9def44aa0551b60ab96c9facc4c6cb8f2c282 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 02:26:17 +0000
-Subject: [PATCH 18/20] Fix flags for un-vendoring abseil-cpp
+Subject: [PATCH 18/19] Fix flags for un-vendoring abseil-cpp
 
+Co-Authored-By: Uwe L. Korn <uwe.korn@quantco.com>
 ---
  src/third_party/SConscript | 18 +++++++++++++++---
  1 file changed, 15 insertions(+), 3 deletions(-)
 
 diff --git a/src/third_party/SConscript b/src/third_party/SConscript
-index c8b4716b124..5d4a86886c1 100644
+index 5a52ab5df11..3f81c5b5917 100644
 --- a/src/third_party/SConscript
 +++ b/src/third_party/SConscript
-@@ -377,9 +377,21 @@ abseilEnv = env.Clone()
+@@ -376,9 +376,21 @@ abseilEnv = env.Clone()
  if use_system_version_of_library("abseil-cpp"):
      abseilEnv = abseilEnv.Clone(
          SYSLIBDEPS=[
@@ -23,7 +24,7 @@ index c8b4716b124..5d4a86886c1 100644
 +            #    absl::raw_hash_set
 +            #    absl::city absl::hash absl::wyhash
 +            #    absl::numeric)
-+            'absl_raw_hash_set', 'absl_hash', 'absl_wyhash',
++            'absl_raw_hash_set', 'absl_hash', 'absl_low_level_hash',
 +            'absl_hashtablez_sampler', 'absl_exponential_biased',
 +            'absl_synchronization', 'absl_graphcycles_internal',
 +            'absl_stacktrace', 'absl_symbolize', 'absl_malloc_internal',
@@ -36,6 +37,3 @@ index c8b4716b124..5d4a86886c1 100644
          ])
  else:
      abseilDirectory = 'abseil-cpp-master'
--- 
-2.33.1
-

@@ -1,17 +1,17 @@
-From 5e92ff0c4cccdaec228dc314c3b90ac5ed0bd675 Mon Sep 17 00:00:00 2001
+From d981d418e6b61591ea9a2fb71f86d720eab6cd36 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 20:34:47 +0000
-Subject: [PATCH 11/20] Fix icu library names for Windows
+Subject: [PATCH 11/19] Fix icu library names for Windows
 
 ---
  SConstruct | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index 3d68f7864a8..d164e0d5ebe 100755
+index 6d024adf018..a68a15ad5fe 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -4323,14 +4323,14 @@ def doConfigure(myenv):
+@@ -4365,14 +4365,14 @@ def doConfigure(myenv):
          conf.FindSysLibDep("intel_decimal128", ["bid"])
  
      if use_system_version_of_library("icu"):
@@ -28,6 +28,3 @@ index 3d68f7864a8..d164e0d5ebe 100755
          conf.env['LIBDEPS_ICUUC_SYSLIBDEP'] = 'icuuc'
  
      if wiredtiger and use_system_version_of_library("wiredtiger"):
--- 
-2.33.1
-

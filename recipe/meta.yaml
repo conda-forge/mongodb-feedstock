@@ -26,9 +26,8 @@ source:
     - patches/0016-Disable-aligned-allocation-on-macOS.patch
     - patches/0017-Drop-strict-python-pkgs-requirements-check.patch
     - patches/0018-Fix-flags-for-un-vendoring-abseil-cpp.patch          # [unix]
-    - patches/0019-wyhash-is-now-called-low_level_hash.patch            # [unix]
     - patches/0018-Fix-flags-for-un-vendoring-abseil-cpp-windows.patch  # [not unix]
-    - patches/0020-Don-t-inject-ICU-Macros-if-using-pre-compiled-librar.patch
+    - patches/0019-Don-t-inject-ICU-Macros-if-using-pre-compiled-librar.patch
 
 build:
   number: 0
