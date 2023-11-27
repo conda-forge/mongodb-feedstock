@@ -1,7 +1,7 @@
 From 7f1e4ab6006cc6f9ffbed9e54d9579b43edd10c6 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 24 May 2020 21:13:26 +0000
-Subject: [PATCH 01/20] Do not inject debug info unnecessarily
+Subject: [PATCH 01/21] Do not inject debug info unnecessarily
 
 Requires humongous amount of disk space for intermediate objects
 ---

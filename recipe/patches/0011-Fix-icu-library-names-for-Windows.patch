@@ -1,7 +1,7 @@
 From d981d418e6b61591ea9a2fb71f86d720eab6cd36 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 20:34:47 +0000
-Subject: [PATCH 11/20] Fix icu library names for Windows
+Subject: [PATCH 11/21] Fix icu library names for Windows
 
 ---
  SConstruct | 4 ++--

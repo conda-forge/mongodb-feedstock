@@ -1,7 +1,7 @@
 From ed856570c412c2411012798ad5e05323d752d252 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 16:45:56 +0000
-Subject: [PATCH 07/20] Disable -fsized-deallocation on macOS
+Subject: [PATCH 07/21] Disable -fsized-deallocation on macOS
 
 The check passes on older SDKs, but the compilation still fails
 SConstruct should be updated to use something similar to:

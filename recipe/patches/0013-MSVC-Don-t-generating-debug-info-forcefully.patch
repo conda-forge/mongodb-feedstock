@@ -1,7 +1,7 @@
 From 9df8981aa563d0d01385ba430e6150074cb8bf8e Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sat, 26 Sep 2020 16:05:30 -0400
-Subject: [PATCH 13/20] MSVC: Don't generating debug info forcefully
+Subject: [PATCH 13/21] MSVC: Don't generating debug info forcefully
 
 ---
  SConstruct                              | 38 ++++++++++++-------------
