@@ -24,8 +24,8 @@ libcurl:
 - '8'
 openssl:
 - '3'
-pcre:
-- '8'
+pcre2:
+- '10.40'
 snappy:
 - '1'
 target_platform:

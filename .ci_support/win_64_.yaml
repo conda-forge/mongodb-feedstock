@@ -12,8 +12,8 @@ libabseil:
 - '20230802'
 libboost_devel:
 - '1.82'
-pcre:
-- '8'
+pcre2:
+- '10.40'
 snappy:
 - '1'
 target_platform:
