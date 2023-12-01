@@ -56,7 +56,7 @@ requirements:
     # MacOS uses 'Secure Transport'
     # Windows uses 'SChannel'
     - openssl  # [linux]
-    - pcre
+    - pcre2
     - snappy
     - yaml-cpp
     - zlib

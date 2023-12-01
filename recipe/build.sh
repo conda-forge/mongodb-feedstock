@@ -44,7 +44,7 @@ _scons_xtra_flags+=(RPATH="$PREFIX/lib")
 _scons_xtra_flags+=(VERBOSE=on)
 _scons_xtra_flags+=(DESTDIR="$PREFIX")
 _scons_xtra_flags+=(MONGO_VERSION="$PKG_VERSION")
-_scons_xtra_flags+=(--use-system-{boost,icu,pcre,snappy,yaml,zlib,zstd,abseil-cpp})
+_scons_xtra_flags+=(--use-system-{boost,icu,pcre2,snappy,yaml,zlib,zstd,abseil-cpp})
 
 if [[ $target_platform =~ linux-* ]]; then
     _scons_xtra_flags+=(--linker=gold)
