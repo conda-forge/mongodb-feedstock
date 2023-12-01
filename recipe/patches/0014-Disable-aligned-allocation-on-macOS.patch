@@ -1,7 +1,7 @@
 From 8760e757d1c2ee83758c8ad1464c763631a7e9af Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 7 Nov 2021 08:33:36 -0500
-Subject: [PATCH 14/17] Disable aligned-allocation on macOS
+Subject: [PATCH 14/18] Disable aligned-allocation on macOS
 
 include/c++/v1/memory:1423:5:
   error: aligned deallocation function of type

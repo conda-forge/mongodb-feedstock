@@ -1,7 +1,7 @@
 From eb21bf19fc85c8d64caeb7aabcd652152be86184 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 19:21:32 +0000
-Subject: [PATCH 07/17] Use platform specific TimeStamp implementation
+Subject: [PATCH 07/18] Use platform specific TimeStamp implementation
 
 ---
  src/third_party/mozjs/SConscript | 9 ++++++++-

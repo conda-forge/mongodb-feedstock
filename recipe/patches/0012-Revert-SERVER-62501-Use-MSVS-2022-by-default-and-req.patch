@@ -1,7 +1,7 @@
 From 38ab15ee23c238b290f0623c85320643ef748810 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 4 Jul 2022 17:24:22 -0400
-Subject: [PATCH 12/17] Revert "SERVER-62501 Use MSVS 2022 by default and
+Subject: [PATCH 12/18] Revert "SERVER-62501 Use MSVS 2022 by default and
  require it"
 
 This reverts commit ce789c6c8452ef2f544f54288f20c0e81b6a575d.

@@ -25,6 +25,7 @@ source:
     - patches/0015-Drop-strict-python-pkgs-requirements-check.patch
     - patches/0016-Don-t-inject-ICU-Macros-if-using-pre-compiled-librar.patch
     - patches/0017-use-same-discovery-mechanism-for-system-boost-on-win.patch
+    - patches/0018-only-use-mongo_tooling_metrics-when-building-metrics.patch
 
 build:
   number: 0
