@@ -46,5 +46,9 @@ _scons_xtra_flags+=(DESTDIR="$PREFIX")
 _scons_xtra_flags+=(MONGO_VERSION="$PKG_VERSION")
 _scons_xtra_flags+=(--use-system-{boost,icu,pcre,snappy,yaml,zlib,zstd,abseil-cpp})
 
+if [[ $target_platform =~ linux-* ]]; then
+    _scons_xtra_flags+=(--linker=gold)
+fi
+
 python buildscripts/scons.py "${_scons_xtra_flags[@]}" generate-ninja
 ninja -f build.ninja install-core
