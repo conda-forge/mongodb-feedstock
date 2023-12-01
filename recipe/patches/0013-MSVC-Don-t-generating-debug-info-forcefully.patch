@@ -1,7 +1,7 @@
-From 892959bda7d9088a3c1f6483425cb778e53fd061 Mon Sep 17 00:00:00 2001
+From 9df8981aa563d0d01385ba430e6150074cb8bf8e Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sat, 26 Sep 2020 16:05:30 -0400
-Subject: [PATCH 13/20] MSVC: Don't generating debug info forcefully
+Subject: [PATCH 13/21] MSVC: Don't generating debug info forcefully
 
 ---
  SConstruct                              | 38 ++++++++++++-------------
@@ -9,10 +9,10 @@ Subject: [PATCH 13/20] MSVC: Don't generating debug info forcefully
  2 files changed, 22 insertions(+), 22 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index 383ab342f5f..8c9a8ac532f 100755
+index 860085381d1..b47eeeb8f08 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -2282,11 +2282,11 @@ elif env.TargetOSIs('windows'):
+@@ -2326,11 +2326,11 @@ elif env.TargetOSIs('windows'):
      # Don't send error reports in case of internal compiler error
      env.Append( CCFLAGS= ["/errorReport:none"] )
  
@@ -29,7 +29,7 @@ index 383ab342f5f..8c9a8ac532f 100755
  
  
      # The SCons built-in pdbGenerator always adds /DEBUG, but we would like
-@@ -2299,18 +2299,18 @@ elif env.TargetOSIs('windows'):
+@@ -2343,18 +2343,18 @@ elif env.TargetOSIs('windows'):
              return None
      env['_PDB'] = pdbGenerator
  
@@ -60,7 +60,7 @@ index 383ab342f5f..8c9a8ac532f 100755
  
      # /MD:  use the multithreaded, DLL version of the run-time library (MSVCRT.lib/MSVCR###.DLL)
      # /MDd: Defines _DEBUG, _MT, _DLL, and uses MSVCRTD.lib/MSVCRD###.DLL
-@@ -2381,8 +2381,8 @@ elif env.TargetOSIs('windows'):
+@@ -2425,8 +2425,8 @@ elif env.TargetOSIs('windows'):
      )
  
  # When building on visual studio, this sets the name of the debug symbols file
@@ -88,6 +88,3 @@ index 677ef75723e..b6b7fa17bf6 100644
          else:
              pass
  
--- 
-2.33.1
-

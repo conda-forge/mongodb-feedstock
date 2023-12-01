@@ -1,7 +1,7 @@
-From d1915c7e8e05f6a7769f6dc0d658a30cb2e297e5 Mon Sep 17 00:00:00 2001
+From ed856570c412c2411012798ad5e05323d752d252 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 16:45:56 +0000
-Subject: [PATCH 07/20] Disable -fsized-deallocation on macOS
+Subject: [PATCH 07/21] Disable -fsized-deallocation on macOS
 
 The check passes on older SDKs, but the compilation still fails
 SConstruct should be updated to use something similar to:
@@ -16,10 +16,10 @@ xref: https://jira.mongodb.org/browse/SERVER-40197
  1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index 1c8e92a1e33..2574c6722d4 100755
+index e9ff67671a6..15abfc5fc25 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -3105,8 +3105,10 @@ def doConfigure(myenv):
+@@ -3147,8 +3147,10 @@ def doConfigure(myenv):
          # harmful to capture unused variables we are suppressing for now with a plan to fix later.
          myenv.AddToCCFLAGSIfSupported("-Wno-unused-lambda-capture")
  
@@ -32,6 +32,3 @@ index 1c8e92a1e33..2574c6722d4 100755
  
          # This warning was added in Apple clang version 11 and flags many explicitly defaulted move
          # constructors and assignment operators for being implicitly deleted, which is not useful.
--- 
-2.33.1
-

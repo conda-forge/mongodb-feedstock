@@ -1,17 +1,17 @@
-From 400acd5a4b8281f08ba1676eba2b432d0dc72aa9 Mon Sep 17 00:00:00 2001
+From f9601f947a5da8dff7282455f3a7ab9e03a394bd Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 24 May 2020 21:14:47 +0000
-Subject: [PATCH 02/20] Relax constraint on minimum version of GCC
+Subject: [PATCH 02/21] Relax constraint on minimum version of GCC
 
 ---
  SConstruct | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index 3abdc117361..f90ef9825ee 100755
+index 1fe09eca752..66991749d4a 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -2733,14 +2733,14 @@ def doConfigure(myenv):
+@@ -2775,14 +2775,14 @@ def doConfigure(myenv):
              }
              """ % compiler_minimum_string)
          else:
@@ -28,6 +28,3 @@ index 3abdc117361..f90ef9825ee 100755
              #error %s or newer is required to build MongoDB
              #endif
  
--- 
-2.33.1
-

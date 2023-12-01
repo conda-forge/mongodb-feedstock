@@ -18,12 +18,18 @@ if [[ $target_platform =~ osx-* ]]; then
    export CPPDEFINES="${CPPDEFINES:-} _LIBCPP_DISABLE_AVAILABILITY"
 fi
 
+if [[ $target_platform == "linux-aarch64" ]]; then
+    # compilation errors on aarch due to the code wrongly assuming equality
+    # between the native {con,de}structive_interference_size (64 vs. 256);
+    # should be fixed as of mongo 7.x
+    export CXXFLAGS="${CXXFLAGS} --param destructive-interference-size=64"
+fi
+
 export NINJA_STATUS="[%f+%r/%t] "
 
 declare -a _scons_xtra_flags
 _scons_xtra_flags+=(--dbg=off)
 _scons_xtra_flags+=(--disable-warnings-as-errors)
-_scons_xtra_flags+=(--enable-free-mon=on)
 _scons_xtra_flags+=(--enable-http-client=on)
 _scons_xtra_flags+=(--opt=on)
 _scons_xtra_flags+=(--release)
@@ -37,6 +43,7 @@ _scons_xtra_flags+=(HOST_ARCH="$HOST")
 _scons_xtra_flags+=(RPATH="$PREFIX/lib")
 _scons_xtra_flags+=(VERBOSE=on)
 _scons_xtra_flags+=(DESTDIR="$PREFIX")
+_scons_xtra_flags+=(MONGO_VERSION="$PKG_VERSION")
 _scons_xtra_flags+=(--use-system-{boost,icu,pcre,snappy,yaml,zlib,zstd,abseil-cpp})
 
 python buildscripts/scons.py "${_scons_xtra_flags[@]}" generate-ninja

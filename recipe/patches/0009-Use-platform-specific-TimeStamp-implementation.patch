@@ -1,7 +1,7 @@
-From cdae94b5ed6d27936db31bb618956f5137af21e6 Mon Sep 17 00:00:00 2001
+From 768d0ec9d0caf5fb661c989a3473598cadb564e6 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 19:21:32 +0000
-Subject: [PATCH 09/20] Use platform specific TimeStamp implementation
+Subject: [PATCH 09/21] Use platform specific TimeStamp implementation
 
 ---
  src/third_party/mozjs/SConscript | 10 ++++++++--
@@ -29,6 +29,3 @@ index b649e28abba..aa9f1f1e43b 100644
  
  
  sources.append( [ "extract/modules/fdlibm/{}".format(f) for f in [
--- 
-2.33.1
-

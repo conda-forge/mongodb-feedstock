@@ -1,7 +1,7 @@
-From ae260e0592389f69f5e1f830b53dacd86dcc5f36 Mon Sep 17 00:00:00 2001
+From 527e7f937570dc9a84d34adc6bb624cc40f98def Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 4 Jul 2022 17:24:22 -0400
-Subject: [PATCH 14/20] Revert "SERVER-62501 Use MSVS 2022 by default and
+Subject: [PATCH 14/21] Revert "SERVER-62501 Use MSVS 2022 by default and
  require it"
 
 This reverts commit ce789c6c8452ef2f544f54288f20c0e81b6a575d.
@@ -10,10 +10,10 @@ This reverts commit ce789c6c8452ef2f544f54288f20c0e81b6a575d.
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index 8c9a8ac532f..5f0ecf60d54 100755
+index b47eeeb8f08..fccf7db53b3 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -979,8 +979,8 @@ env_vars.Add('MSVC_USE_SCRIPT',
+@@ -996,8 +996,8 @@ env_vars.Add('MSVC_USE_SCRIPT',
      help='Sets the script used to setup Visual Studio.')
  
  env_vars.Add('MSVC_VERSION',
@@ -24,7 +24,7 @@ index 8c9a8ac532f..5f0ecf60d54 100755
  
  env_vars.Add('NINJA_BUILDDIR',
      help="Location for shared Ninja state",
-@@ -2703,14 +2703,14 @@ def doConfigure(myenv):
+@@ -2745,14 +2745,14 @@ def doConfigure(myenv):
      # bare compilers, and we should re-check at the very end that TryCompile and TryLink still
      # work with the flags we have selected.
      if myenv.ToolchainIs('msvc'):
@@ -41,6 +41,3 @@ index 8c9a8ac532f..5f0ecf60d54 100755
          #error %s or newer is required to build MongoDB
          #endif
  
--- 
-2.33.1
-
