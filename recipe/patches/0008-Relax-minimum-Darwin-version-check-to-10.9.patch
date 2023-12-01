@@ -1,17 +1,17 @@
-From 227543b917507e5432fdb23ce829cc67f330218b Mon Sep 17 00:00:00 2001
+From 2ede7bdbfe94e41cd4de32aea1b438f1f9d1fad2 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 16:48:04 +0000
-Subject: [PATCH 08/21] Relax minimum Darwin version check to 10.9
+Subject: [PATCH 06/17] Relax minimum Darwin version check to 10.9
 
 ---
  SConstruct | 6 +++---
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index 15abfc5fc25..8b8920eb89b 100644
+index 5a6434e9070..39079a29d41 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -2882,7 +2882,7 @@ def doConfigure(myenv):
+@@ -3406,7 +3406,7 @@ def doConfigure(myenv):
  
      conf.Finish()
  
@@ -20,7 +20,7 @@ index 15abfc5fc25..8b8920eb89b 100644
      if env.TargetOSIs('darwin'):
  
          # TODO: Better error messages, mention the various -mX-version-min-flags in the error, and
-@@ -2893,7 +2893,7 @@ def doConfigure(myenv):
+@@ -3417,7 +3417,7 @@ def doConfigure(myenv):
              #include <AvailabilityMacros.h>
              #include <TargetConditionals.h>
  
@@ -29,8 +29,8 @@ index 15abfc5fc25..8b8920eb89b 100644
              #error 1
              #endif
              """
-@@ -2908,7 +2908,7 @@ def doConfigure(myenv):
-         })
+@@ -3437,7 +3437,7 @@ def doConfigure(myenv):
+         )
  
          if not conf.CheckDarwinMinima():
 -            conf.env.ConfError("Required target minimum of macOS 10.14 not found")

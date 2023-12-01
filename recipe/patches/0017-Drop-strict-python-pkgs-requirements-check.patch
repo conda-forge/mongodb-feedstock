@@ -1,14 +1,14 @@
-From 48784a4a003ce8ac04f4558ed54b7259799a4023 Mon Sep 17 00:00:00 2001
+From d65425f2039fcd045e5615f023afb4f260ae65f7 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sat, 29 Jan 2022 17:43:42 -0500
-Subject: [PATCH 17/21] Drop strict python pkgs requirements check
+Subject: [PATCH 15/17] Drop strict python pkgs requirements check
 
 ---
  buildscripts/scons.py | 9 ---------
  1 file changed, 9 deletions(-)
 
 diff --git a/buildscripts/scons.py b/buildscripts/scons.py
-index 534fca3264e..55ac23b32d9 100755
+index f7f7fcd3d5b..8befd0244e9 100755
 --- a/buildscripts/scons.py
 +++ b/buildscripts/scons.py
 @@ -18,15 +18,6 @@ SITE_TOOLS_DIR = os.path.join(MONGODB_ROOT, 'site_scons')

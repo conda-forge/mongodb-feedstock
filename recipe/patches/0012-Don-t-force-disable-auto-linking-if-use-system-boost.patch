@@ -1,31 +1,31 @@
-From 6c56f743ef34d1606eb46853b4671b39836f5ae6 Mon Sep 17 00:00:00 2001
+From ff4146409bc82bf4f95c6019d4ee194a8b07a794 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Tue, 26 May 2020 14:11:37 +0000
-Subject: [PATCH 12/21] Don't force disable auto linking if --use-system-boost
+Subject: [PATCH 10/17] Don't force disable auto linking if --use-system-boost
 
 ---
  SConstruct | 11 ++++++-----
  1 file changed, 6 insertions(+), 5 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index a68a15ad5fe..860085381d1 100644
+index 760b7bfa477..e6387eb3eb5 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -2201,11 +2201,12 @@ elif env.TargetOSIs('windows'):
+@@ -2736,11 +2736,12 @@ elif env.TargetOSIs('windows'):
          print("NOTE: Tool configuration did not find 'cl' compiler, falling back to os environment")
          env['ENV'] = dict(os.environ)
  
 -    env.Append(CPPDEFINES=[
--    # This tells the Windows compiler not to link against the .lib files
--    # and to use boost as a bunch of header-only libraries
+-        # This tells the Windows compiler not to link against the .lib files
+-        # and to use boost as a bunch of header-only libraries
 -        "BOOST_ALL_NO_LIB",
 -    ])
 +    if not use_system_version_of_library("boost"):
 +        env.Append(CPPDEFINES=[
-+        # This tells the Windows compiler not to link against the .lib files
-+        # and to use boost as a bunch of header-only libraries
++            # This tells the Windows compiler not to link against the .lib files
++            # and to use boost as a bunch of header-only libraries
 +            "BOOST_ALL_NO_LIB",
 +        ])
  
-     env.Append( CPPDEFINES=[ "_UNICODE" ] )
-     env.Append( CPPDEFINES=[ "UNICODE" ] )
+     env.Append(CPPDEFINES=["_UNICODE"])
+     env.Append(CPPDEFINES=["UNICODE"])

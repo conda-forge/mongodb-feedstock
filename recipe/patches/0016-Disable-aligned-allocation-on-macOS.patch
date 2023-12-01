@@ -1,7 +1,7 @@
-From fa4b74f05dacb3c4a2a1dda6320e1b6c7ea600f0 Mon Sep 17 00:00:00 2001
+From 8760e757d1c2ee83758c8ad1464c763631a7e9af Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 7 Nov 2021 08:33:36 -0500
-Subject: [PATCH 16/21] Disable aligned-allocation on macOS
+Subject: [PATCH 14/17] Disable aligned-allocation on macOS
 
 include/c++/v1/memory:1423:5:
   error: aligned deallocation function of type
@@ -36,10 +36,10 @@ Drop this patch when MACOSX_DEPLOYMENT_TARGET is updated to 10.14+
  1 file changed, 4 insertions(+)
 
 diff --git a/SConstruct b/SConstruct
-index fccf7db53b3..01609727ccd 100644
+index bd74444d91e..194248b6390 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -3153,6 +3153,10 @@ def doConfigure(myenv):
+@@ -3682,6 +3682,10 @@ def doConfigure(myenv):
          if not env.TargetOSIs("macOS"):
              myenv.AddToCXXFLAGSIfSupported("-fsized-deallocation")
  

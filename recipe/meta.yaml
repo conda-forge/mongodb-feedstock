@@ -8,8 +8,6 @@ source:
   url: https://github.com/mongodb/mongo/archive/refs/tags/r{{ version }}.tar.gz
   sha256: a70383a23e4013e9138056b1545b4360ca68eb2efbd2ba616eb0f12e8500e621
   patches:
-    - patches/0001-Do-not-inject-debug-info-unnecessarily.patch
-    - patches/0002-Relax-constraint-on-minimum-version-of-GCC.patch
     - patches/0003-aligned_alloc-in-libC-is-only-available-in-glibc-2.1.patch
     - patches/0004-Fix-icu-namespace-extension-for-un-vendored-icu.patch
     - patches/0005-Revert-SERVER-61305-Disallow-use-system-abseil-cpp.patch
@@ -25,9 +23,7 @@ source:
     - patches/0015-Disable-installer-on-Windows.patch
     - patches/0016-Disable-aligned-allocation-on-macOS.patch
     - patches/0017-Drop-strict-python-pkgs-requirements-check.patch
-    - patches/0018-Fix-flags-for-un-vendoring-abseil-cpp.patch
     - patches/0019-Don-t-inject-ICU-Macros-if-using-pre-compiled-librar.patch
-    - patches/0020-add-missing-fstream-headers.patch
     - patches/0021-use-same-discovery-mechanism-for-system-boost-on-win.patch
 
 build:
