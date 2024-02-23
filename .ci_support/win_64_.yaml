@@ -13,7 +13,7 @@ libabseil:
 libboost_devel:
 - '1.82'
 pcre2:
-- '10.40'
+- '10.42'
 snappy:
 - '1'
 target_platform:
