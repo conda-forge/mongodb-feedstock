@@ -1,4 +1,6 @@
 pywin32:               # [win]
-  - 225                # [win]
+- 225                  # [win]
 MACOSX_SDK_VERSION:    # [osx and x86_64]
-  - 10.12              # [osx and x86_64]
+- 10.12                # [osx and x86_64]
+github_actions_labels:
+- cirun-openstack-cpu-large
