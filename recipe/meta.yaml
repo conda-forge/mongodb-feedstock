@@ -33,6 +33,8 @@ build:
   skip: true  # [win]
   # currently broken w.r.t. clang/libcxx
   skip: true  # [osx]
+  # debug
+  skip: true  # [not linux64]
   detect_binary_files_with_prefix: false
   missing_dso_whitelist:   # [osx]
     - /usr/lib/libresolv.9.dylib  # [osx]
