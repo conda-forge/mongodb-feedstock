@@ -18,6 +18,22 @@ if [[ $target_platform =~ osx-* ]]; then
    export CPPDEFINES="${CPPDEFINES:-} _LIBCPP_DISABLE_AVAILABILITY"
 fi
 
+# need extra include path for js-confdefs.h which is target-dependent, see
+# https://github.com/mongodb/mongo/blob/r7.3.0-rc4/bazel/mongo_src_rules.bzl#L340-L349
+JS_CONFDEFS_BASE="src/third_party/mozjs/platform"
+if [[ $target_platform == linux-64 ]]; then
+    # see https://scons.org/doc/latest/HTML/scons-user/apa.html#cv-CPPPATH
+    export CPPPATH="#/${JS_CONFDEFS_BASE}/x86_64/linux/include"
+elif [[ $target_platform == linux-aarch64 ]]; then
+    export CPPPATH="#/${JS_CONFDEFS_BASE}/aarch64/linux/include"
+elif [[ $target_platform == linux-ppc64le ]]; then
+    export CPPPATH="#/${JS_CONFDEFS_BASE}/ppc64le/linux/include"
+elif [[ $target_platform == osx-64 ]]; then
+    export CPPPATH="#/${JS_CONFDEFS_BASE}/x86_64/macOS/include"
+elif [[ $target_platform == osx-arm64 ]]; then
+    export CPPPATH="#/${JS_CONFDEFS_BASE}/aarch64/macOS/include"
+fi
+
 export NINJA_STATUS="[%f+%r/%t] "
 
 declare -a _scons_xtra_flags
@@ -32,6 +48,7 @@ _scons_xtra_flags+=(--wiredtiger=on)
 _scons_xtra_flags+=(--ninja=enabled)
 _scons_xtra_flags+=(CC="$CC" CXX="$CXX" OBJCOPY="$OBJCOPY" CPPDEFINES="$CPPDEFINES")
 _scons_xtra_flags+=(CCFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LINKFLAGS="$LDFLAGS")
+_scons_xtra_flags+=(CPPPATH="$CPPPATH")
 _scons_xtra_flags+=(HOST_ARCH="$HOST")
 _scons_xtra_flags+=(RPATH="$PREFIX/lib")
 _scons_xtra_flags+=(VERBOSE=on)
