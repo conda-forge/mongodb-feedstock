@@ -34,8 +34,10 @@ elif [[ $target_platform == osx-arm64 ]]; then
     export CPPPATH="#/${JS_CONFDEFS_BASE}/aarch64/macOS/include"
 fi
 
-# build of mozjs also needs includes from that source folder
+# build of mozjs also needs includes from that source folder...
 export CPPPATH="$CPPPATH #/src/third_party/mozjs/extract/js/src"
+# ... and the general includes for mozjs
+export CPPPATH="$CPPPATH #/src/third_party/mozjs/include"
 
 export NINJA_STATUS="[%f+%r/%t] "
 
