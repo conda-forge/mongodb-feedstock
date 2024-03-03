@@ -38,6 +38,8 @@ fi
 export CPPPATH="$CPPPATH #/src/third_party/mozjs/extract/js/src"
 # ... and the general includes for mozjs
 export CPPPATH="$CPPPATH #/src/third_party/mozjs/include"
+# ... and another
+export CPPPATH="$CPPPATH #/src/third_party/mozjs/extract/mfbt"
 
 export NINJA_STATUS="[%f+%r/%t] "
 
