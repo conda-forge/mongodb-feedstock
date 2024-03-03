@@ -1,7 +1,5 @@
 azure:
-  settings_win:
-    pool:
-      vmImage: windows-2019
+  free_disk_space: true
 build_platform:
   linux_aarch64: linux_64
   linux_ppc64le: linux_64
@@ -13,3 +11,11 @@ github:
   branch_name: main
   tooling_branch_name: main
 test_on_native_only: true
+github_actions:
+  self_hosted: true
+  timeout_minutes: 720
+  triggers:
+  - push
+  - pull_request
+provider:
+  linux_64: github_actions
