@@ -17,7 +17,7 @@ cxx_compiler_version:
 icu:
 - '73'
 libabseil:
-- '20230802'
+- '20240116'
 libboost_devel:
 - '1.82'
 libcurl:
