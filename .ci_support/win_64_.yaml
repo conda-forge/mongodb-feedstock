@@ -1,5 +1,7 @@
 c_compiler:
 - vs2019
+c_stdlib:
+- vs
 channel_sources:
 - conda-forge
 channel_targets:
@@ -15,7 +17,7 @@ libboost_devel:
 pcre:
 - '8'
 snappy:
-- '1'
+- '1.2'
 target_platform:
 - win-64
 zlib:
