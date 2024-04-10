@@ -6,6 +6,10 @@ c_compiler:
 - clang
 c_compiler_version:
 - '16'
+c_stdlib:
+- macosx_deployment_target
+c_stdlib_version:
+- '10.13'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -19,7 +23,7 @@ icu:
 libabseil:
 - '20230802'
 libboost_devel:
-- '1.82'
+- 1.84.0
 libcurl:
 - '8'
 macos_machine:
@@ -33,6 +37,8 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+- - c_stdlib_version
+  - MACOSX_DEPLOYMENT_TARGET
 zlib:
 - '1.2'
 zstd:
