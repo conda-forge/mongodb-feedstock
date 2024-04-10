@@ -2,6 +2,8 @@ c_compiler:
 - vs2019
 c_stdlib:
 - vs
+c_stdlib_version:
+- '2019'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -11,13 +13,13 @@ cxx_compiler:
 icu:
 - '73'
 libabseil:
-- '20230802'
+- '20240116'
 libboost_devel:
-- 1.84.0
+- '1.84'
 pcre:
 - '8'
 snappy:
-- '1'
+- '1.1'
 target_platform:
 - win-64
 zlib:
