@@ -31,7 +31,7 @@ openssl:
 pcre:
 - '8'
 snappy:
-- '1'
+- '1.2'
 target_platform:
 - linux-ppc64le
 zip_keys:

@@ -17,7 +17,7 @@ libboost_devel:
 pcre:
 - '8'
 snappy:
-- '1'
+- '1.2'
 target_platform:
 - win-64
 zlib:
