@@ -1,17 +1,17 @@
-From 4a7e7d5d08a7b577dc408156b3f93606aeedf848 Mon Sep 17 00:00:00 2001
+From 62707f3a954e763e29812a512c2c8d1456c7895f Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 19:21:32 +0000
-Subject: [PATCH 04/14] Use platform specific TimeStamp implementation
+Subject: [PATCH 04/15] Use platform specific TimeStamp implementation
 
 ---
  src/third_party/mozjs/SConscript | 9 ++++++++-
  1 file changed, 8 insertions(+), 1 deletion(-)
 
 diff --git a/src/third_party/mozjs/SConscript b/src/third_party/mozjs/SConscript
-index a861c315d5f..7d7a70f9e62 100644
+index 7d7e132d1f0..15cf112989b 100644
 --- a/src/third_party/mozjs/SConscript
 +++ b/src/third_party/mozjs/SConscript
-@@ -140,8 +140,15 @@ else:
+@@ -158,8 +158,15 @@ else:
      sources.extend([
          "extract/mozglue/misc/ConditionVariable_posix.cpp",
          "extract/mozglue/misc/Mutex_posix.cpp",

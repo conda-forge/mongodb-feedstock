@@ -1,7 +1,7 @@
-From 5860c0a1f83528691eefb4fce9a98134e860c87a Mon Sep 17 00:00:00 2001
+From 0df3dd622b483555faefd21a4bff5b2b6ab9d049 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sat, 26 Sep 2020 16:05:30 -0400
-Subject: [PATCH 08/14] MSVC: Don't generating debug info forcefully
+Subject: [PATCH 08/15] MSVC: Don't generating debug info forcefully
 
 ---
  SConstruct                              | 38 ++++++++++++-------------
@@ -9,10 +9,10 @@ Subject: [PATCH 08/14] MSVC: Don't generating debug info forcefully
  2 files changed, 22 insertions(+), 22 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index bd69236e7ce..959227b8cf1 100644
+index 5f59201fa2f..6ddbf0d043c 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -2861,11 +2861,11 @@ elif env.TargetOSIs('windows'):
+@@ -2867,11 +2867,11 @@ elif env.TargetOSIs('windows'):
      # Don't send error reports in case of internal compiler error
      env.Append(CCFLAGS=["/errorReport:none"])
  
@@ -29,7 +29,7 @@ index bd69236e7ce..959227b8cf1 100644
  
      # The SCons built-in pdbGenerator always adds /DEBUG, but we would like
      # control over that flag so that users can override with /DEBUG:fastlink
-@@ -2878,18 +2878,18 @@ elif env.TargetOSIs('windows'):
+@@ -2884,18 +2884,18 @@ elif env.TargetOSIs('windows'):
  
      env['_PDB'] = pdbGenerator
  
@@ -60,7 +60,7 @@ index bd69236e7ce..959227b8cf1 100644
  
      # /MD:  use the multithreaded, DLL version of the run-time library (MSVCRT.lib/MSVCR###.DLL)
      # /MDd: Defines _DEBUG, _MT, _DLL, and uses MSVCRTD.lib/MSVCRD###.DLL
-@@ -2966,8 +2966,8 @@ elif env.TargetOSIs('windows'):
+@@ -2972,8 +2972,8 @@ elif env.TargetOSIs('windows'):
          ], )
  
  # When building on visual studio, this sets the name of the debug symbols file
