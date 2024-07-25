@@ -24,6 +24,7 @@ source:
     - patches/0014-add-missing-include-for-abi-__cxa_demangle.patch
     # backport https://github.com/mongodb/mongo/commit/814c1d2fc4463faeb42cc5a4f265e2800e29fc89
     - patches/0015-SERVER-76473-Fix-compiling-S2-lib-for-Windows-with-V.patch
+    - patches/0016-don-t-mess-around-with-ProfilerLabel-being-defined-o.patch
 
 build:
   number: 0

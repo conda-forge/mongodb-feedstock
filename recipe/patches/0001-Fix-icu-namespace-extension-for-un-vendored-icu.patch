@@ -1,7 +1,7 @@
 From a499f5cd23a4f70cd558be89e5eabf26f6467d7a Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 24 May 2020 22:36:47 +0000
-Subject: [PATCH 01/15] Fix icu namespace extension for un-vendored icu
+Subject: [PATCH 01/16] Fix icu namespace extension for un-vendored icu
 
 xref: https://sourceforge.net/p/icu/mailman/message/7389197/
 ---

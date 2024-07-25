@@ -1,7 +1,7 @@
 From 9ebb095516a5ae104074f8d032785193b133ff51 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Thu, 7 Jul 2022 21:19:24 -0400
-Subject: [PATCH 02/15] Restore ability to use --use-system-abseil-cpp
+Subject: [PATCH 02/16] Restore ability to use --use-system-abseil-cpp
 
 Originally a revert of "SERVER-61305 Disallow --use-system-abseil-cpp",
 see upstream commit 51918a385ab8b3fc1f922bede326ff84e846a47b.

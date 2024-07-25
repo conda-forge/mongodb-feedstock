@@ -1,7 +1,7 @@
 From 1d91489ae003b1957a7cef9b43a69606bffe8663 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sat, 29 Jan 2022 17:43:42 -0500
-Subject: [PATCH 10/15] Drop strict python pkgs requirements check
+Subject: [PATCH 10/16] Drop strict python pkgs requirements check
 
 ---
  buildscripts/scons.py | 9 ---------
