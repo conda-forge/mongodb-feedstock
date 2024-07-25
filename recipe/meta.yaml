@@ -31,7 +31,7 @@ source:
     - patches/0021-use-same-discovery-mechanism-for-system-boost-on-win.patch
 
 build:
-  number: 1
+  number: 2
   detect_binary_files_with_prefix: false
   missing_dso_whitelist:   # [osx]
     - /usr/lib/libresolv.9.dylib  # [osx]
@@ -65,9 +65,6 @@ requirements:
     - yaml-cpp
     - zlib
     - zstd
-  run:
-    - {{ pin_compatible('icu', max_pin='x') }}
-    - {{ pin_compatible('yaml-cpp', max_pin='x.x.x') }}
 
 test:
   commands:
