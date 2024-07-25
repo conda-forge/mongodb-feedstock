@@ -1,0 +1,28 @@
+c_compiler:
+- vs2022
+c_stdlib:
+- vs
+channel_sources:
+- conda-forge
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- vs2022
+github_actions_labels:
+- cirun-openstack-cpu-large
+icu:
+- '75'
+libabseil:
+- '20240116'
+libboost_devel:
+- '1.84'
+pcre2:
+- '10.44'
+snappy:
+- '1.2'
+target_platform:
+- win-64
+zlib:
+- '1'
+zstd:
+- '1.5'

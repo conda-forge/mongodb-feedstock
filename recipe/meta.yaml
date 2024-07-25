@@ -8,24 +8,20 @@ source:
   url: https://github.com/mongodb/mongo/archive/refs/tags/r{{ version }}.tar.gz
   sha256: a70383a23e4013e9138056b1545b4360ca68eb2efbd2ba616eb0f12e8500e621
   patches:
-    - patches/0001-aligned_alloc-in-libC-is-only-available-in-glibc-2.1.patch
-    - patches/0002-Fix-icu-namespace-extension-for-un-vendored-icu.patch
-    - patches/0003-Restore-ability-to-use-use-system-abseil-cpp.patch
-    - patches/0004-Make-SCons-inherit-environment-vars.patch
-    - patches/0005-Disable-fsized-deallocation-on-macOS.patch
-    - patches/0006-Relax-minimum-Darwin-version-check-to-10.9.patch
-    - patches/0007-Use-platform-specific-TimeStamp-implementation.patch
-    - patches/0008-Fix-openssl-1.1.x-library-names-on-Windows.patch
-    - patches/0009-Fix-icu-library-names-for-Windows.patch
-    - patches/0010-Don-t-force-disable-auto-linking-if-use-system-boost.patch
-    - patches/0011-MSVC-Don-t-generating-debug-info-forcefully.patch
-    - patches/0012-Revert-SERVER-62501-Use-MSVS-2022-by-default-and-req.patch
-    - patches/0013-Disable-installer-on-Windows.patch
-    - patches/0014-Disable-aligned-allocation-on-macOS.patch
-    - patches/0015-Drop-strict-python-pkgs-requirements-check.patch
-    - patches/0016-Don-t-inject-ICU-Macros-if-using-pre-compiled-librar.patch
-    - patches/0017-use-same-discovery-mechanism-for-system-boost-on-win.patch
-    - patches/0018-only-use-mongo_tooling_metrics-when-building-metrics.patch
+    - patches/0001-Fix-icu-namespace-extension-for-un-vendored-icu.patch
+    - patches/0002-Restore-ability-to-use-use-system-abseil-cpp.patch
+    - patches/0003-Make-SCons-inherit-environment-vars.patch
+    - patches/0004-Use-platform-specific-TimeStamp-implementation.patch
+    - patches/0005-Fix-openssl-1.1.x-library-names-on-Windows.patch
+    - patches/0006-Fix-icu-library-names-for-Windows.patch
+    - patches/0007-Don-t-force-disable-auto-linking-if-use-system-boost.patch
+    - patches/0008-MSVC-Don-t-generating-debug-info-forcefully.patch
+    - patches/0009-Disable-installer-on-Windows.patch
+    - patches/0010-Drop-strict-python-pkgs-requirements-check.patch
+    - patches/0011-Don-t-inject-ICU-Macros-if-using-pre-compiled-librar.patch
+    - patches/0012-use-same-discovery-mechanism-for-system-boost-on-win.patch
+    - patches/0013-only-use-mongo_tooling_metrics-when-building-metrics.patch
+    - patches/0014-add-missing-include-for-abi-__cxa_demangle.patch
 
 build:
   number: 0
@@ -42,6 +38,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - python 3.10.*
     - ninja
@@ -67,9 +64,6 @@ requirements:
     - yaml-cpp
     - zlib
     - zstd
-  run:
-    - {{ pin_compatible('icu', max_pin='x') }}
-    - {{ pin_compatible('yaml-cpp', max_pin='x.x.x') }}
 
 test:
   commands:
@@ -111,3 +105,4 @@ about:
 extra:
   recipe-maintainers:
     - nehaljwani
+    - h-vetinari
