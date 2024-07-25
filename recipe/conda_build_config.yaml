@@ -1,4 +1,2 @@
-pywin32:               # [win]
-- 225                  # [win]
 github_actions_labels:
 - cirun-openstack-cpu-large
