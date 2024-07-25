@@ -1,4 +1,4 @@
-{% set version = "6.0.12" %}
+{% set version = "6.0.16" %}
 
 package:
   name: mongodb
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/mongodb/mongo/archive/refs/tags/r{{ version }}.tar.gz
-  sha256: fba6efe5530b9ab57a9d5eb3a5a7877add6b9ae4aed1b3ed8ab1e8246cccf323
+  sha256: 8426949b47e8b0d6b8a048b698c2f80c856464bef4344752dc16f20efd6b10cf
   patches:
     - patches/0001-Do-not-inject-debug-info-unnecessarily.patch
     - patches/0002-Relax-constraint-on-minimum-version-of-GCC.patch
@@ -32,7 +32,7 @@ source:
     - patches/0022-add-missing-include-for-abi-__cxa_demangle.patch
 
 build:
-  number: 2
+  number: 0
   detect_binary_files_with_prefix: false
   missing_dso_whitelist:   # [osx]
     - /usr/lib/libresolv.9.dylib  # [osx]
