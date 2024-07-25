@@ -1,7 +1,7 @@
 From 89bb06395b4bee53709a174876479b230d0faac4 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Fri, 8 Jul 2022 23:37:22 -0400
-Subject: [PATCH 13/16] Don't inject ICU Macros if using pre-compiled library
+Subject: [PATCH 13/17] Don't inject ICU Macros if using pre-compiled library
 
 ---
  src/third_party/mozjs/SConscript | 10 ++++++----
