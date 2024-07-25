@@ -9,27 +9,21 @@ source:
   sha256: 8426949b47e8b0d6b8a048b698c2f80c856464bef4344752dc16f20efd6b10cf
   patches:
     - patches/0001-Do-not-inject-debug-info-unnecessarily.patch
-    - patches/0002-Relax-constraint-on-minimum-version-of-GCC.patch
-    - patches/0003-aligned_alloc-in-libC-is-only-available-in-glibc-2.1.patch
-    - patches/0004-Fix-icu-namespace-extension-for-un-vendored-icu.patch
-    - patches/0005-Revert-SERVER-61305-Disallow-use-system-abseil-cpp.patch
-    - patches/0006-Make-SCons-inherit-environment-vars.patch
-    - patches/0007-Disable-fsized-deallocation-on-macOS.patch
-    - patches/0008-Relax-minimum-Darwin-version-check-to-10.9.patch
-    - patches/0009-Use-platform-specific-TimeStamp-implementation.patch
-    - patches/0010-Fix-openssl-1.1.x-library-names-on-Windows.patch
-    - patches/0011-Fix-icu-library-names-for-Windows.patch
-    - patches/0012-Don-t-force-disable-auto-linking-if-use-system-boost.patch
-    - patches/0013-MSVC-Don-t-generating-debug-info-forcefully.patch
-    - patches/0014-Revert-SERVER-62501-Use-MSVS-2022-by-default-and-req.patch
-    - patches/0015-Disable-installer-on-Windows.patch
-    - patches/0016-Disable-aligned-allocation-on-macOS.patch
-    - patches/0017-Drop-strict-python-pkgs-requirements-check.patch
-    - patches/0018-Fix-flags-for-un-vendoring-abseil-cpp.patch
-    - patches/0019-Don-t-inject-ICU-Macros-if-using-pre-compiled-librar.patch
-    - patches/0020-add-missing-fstream-headers.patch
-    - patches/0021-use-same-discovery-mechanism-for-system-boost-on-win.patch
-    - patches/0022-add-missing-include-for-abi-__cxa_demangle.patch
+    - patches/0002-Fix-icu-namespace-extension-for-un-vendored-icu.patch
+    - patches/0003-Revert-SERVER-61305-Disallow-use-system-abseil-cpp.patch
+    - patches/0004-Make-SCons-inherit-environment-vars.patch
+    - patches/0005-Use-platform-specific-TimeStamp-implementation.patch
+    - patches/0006-Fix-openssl-1.1.x-library-names-on-Windows.patch
+    - patches/0007-Fix-icu-library-names-for-Windows.patch
+    - patches/0008-Don-t-force-disable-auto-linking-if-use-system-boost.patch
+    - patches/0009-MSVC-Don-t-generating-debug-info-forcefully.patch
+    - patches/0010-Disable-installer-on-Windows.patch
+    - patches/0011-Drop-strict-python-pkgs-requirements-check.patch
+    - patches/0012-Fix-flags-for-un-vendoring-abseil-cpp.patch
+    - patches/0013-Don-t-inject-ICU-Macros-if-using-pre-compiled-librar.patch
+    - patches/0014-add-missing-fstream-headers.patch
+    - patches/0015-use-same-discovery-mechanism-for-system-boost-on-win.patch
+    - patches/0016-add-missing-include-for-abi-__cxa_demangle.patch
 
 build:
   number: 0
