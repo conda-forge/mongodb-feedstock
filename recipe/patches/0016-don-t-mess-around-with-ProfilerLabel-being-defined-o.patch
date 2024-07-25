@@ -1,7 +1,7 @@
 From 35514e32ad268d80d00a5cc235bf7f857dba94d6 Mon Sep 17 00:00:00 2001
 From: "H. Vetinari" <h.vetinari@gmx.com>
 Date: Thu, 25 Jul 2024 23:36:11 +1100
-Subject: [PATCH 16/17] don't mess around with ProfilerLabel being defined or
+Subject: [PATCH 16/18] don't mess around with ProfilerLabel being defined or
  not
 
 src/third_party/mozjs/SConscript does set the required macro IMPL_MFBT,

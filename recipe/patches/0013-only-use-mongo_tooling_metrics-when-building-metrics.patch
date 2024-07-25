@@ -1,7 +1,7 @@
 From 8b2683e231fdec0026b7f549268b6d990fdee83f Mon Sep 17 00:00:00 2001
 From: "H. Vetinari" <h.vetinari@gmx.com>
 Date: Fri, 1 Dec 2023 16:18:42 +1100
-Subject: [PATCH 13/17] only use mongo_tooling_metrics when building metrics
+Subject: [PATCH 13/18] only use mongo_tooling_metrics when building metrics
 
 ---
  SConstruct | 21 ++++++++++-----------
