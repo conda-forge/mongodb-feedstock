@@ -1,4 +1,4 @@
-{% set version = "7.0.9" %}
+{% set version = "7.0.12" %}
 
 package:
   name: mongodb
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/mongodb/mongo/archive/refs/tags/r{{ version }}.tar.gz
-  sha256: a3c6c1748b4f7e3cbccd2de094b26479ea3e1b7087adbe06ba5c14d8b298019f
+  sha256: 267a396bd8ab6a114c932e9cb2c65565d3556852473015c88ffddda3693b25c3
   patches:
     - patches/0001-Fix-icu-namespace-extension-for-un-vendored-icu.patch
     - patches/0002-Restore-ability-to-use-use-system-abseil-cpp.patch
