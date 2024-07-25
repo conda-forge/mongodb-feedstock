@@ -1,7 +1,7 @@
 From 56fe656318a329e91cef752b62056610db31b825 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Thu, 7 Jul 2022 21:19:24 -0400
-Subject: [PATCH 05/21] Revert "SERVER-61305 Disallow --use-system-abseil-cpp"
+Subject: [PATCH 05/22] Revert "SERVER-61305 Disallow --use-system-abseil-cpp"
 
 This reverts commit 51918a385ab8b3fc1f922bede326ff84e846a47b.
 ---

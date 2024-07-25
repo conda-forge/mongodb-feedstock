@@ -1,7 +1,7 @@
 From 227543b917507e5432fdb23ce829cc67f330218b Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 16:48:04 +0000
-Subject: [PATCH 08/21] Relax minimum Darwin version check to 10.9
+Subject: [PATCH 08/22] Relax minimum Darwin version check to 10.9
 
 ---
  SConstruct | 6 +++---

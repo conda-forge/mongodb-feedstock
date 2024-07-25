@@ -1,7 +1,7 @@
 From 9b88ee3a11adcfaf170804197f50d5d3e8022cd3 Mon Sep 17 00:00:00 2001
 From: "H. Vetinari" <h.vetinari@gmx.com>
 Date: Tue, 28 Nov 2023 10:32:40 +1100
-Subject: [PATCH 21/21] use same discovery mechanism for system-boost on win as
+Subject: [PATCH 21/22] use same discovery mechanism for system-boost on win as
  on unix
 
 ---
