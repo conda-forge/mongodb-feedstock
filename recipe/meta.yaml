@@ -25,6 +25,8 @@ source:
     # backport https://github.com/mongodb/mongo/commit/814c1d2fc4463faeb42cc5a4f265e2800e29fc89
     - patches/0015-SERVER-76473-Fix-compiling-S2-lib-for-Windows-with-V.patch
     - patches/0016-don-t-mess-around-with-ProfilerLabel-being-defined-o.patch
+    # backport https://github.com/mongodb/mongo/commit/688f62c2904a8630acf44298bb040fce787386cf
+    - patches/0017-SERVER-77007-MongoDB-fails-to-compile-with-Clang-15-.patch
 
 build:
   number: 0
@@ -39,8 +41,6 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    # clang 15 is too old for libcxx 18
-    - libcxx <18
     - python 3.10.*
     - ninja
     - cheetah3
