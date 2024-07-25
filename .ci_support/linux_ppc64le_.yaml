@@ -18,12 +18,14 @@ cxx_compiler_version:
 - '12'
 docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
+github_actions_labels:
+- cirun-openstack-cpu-large
 icu:
-- '73'
+- '75'
 libabseil:
-- '20230802'
+- '20240116'
 libboost_devel:
-- 1.84.0
+- '1.84'
 libcurl:
 - '8'
 openssl:
@@ -31,7 +33,7 @@ openssl:
 pcre:
 - '8'
 snappy:
-- '1'
+- '1.2'
 target_platform:
 - linux-ppc64le
 zip_keys:
@@ -40,6 +42,6 @@ zip_keys:
 - - c_stdlib_version
   - cdt_name
 zlib:
-- '1.2'
+- '1'
 zstd:
 - '1.5'
