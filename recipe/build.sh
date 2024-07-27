@@ -65,8 +65,6 @@ _scons_xtra_flags+=(--use-system-{boost,icu,pcre2,snappy,yaml,zlib,zstd,abseil-c
 
 if [[ $target_platform =~ linux-* ]]; then
     _scons_xtra_flags+=(--linker=gold)
-    # cirun-openstack-cpu-large runs out of memory with default parallelism
-    PARALELLISM="-j2"
 else
     # ensure we pick up the required settings from
     # https://github.com/mongodb/mongo/blob/r7.0.12/SConstruct#L3818-L3827
@@ -74,4 +72,4 @@ else
 fi
 
 python buildscripts/scons.py "${_scons_xtra_flags[@]}" generate-ninja
-ninja ${PARALELLISM} -f build.ninja install-core
+ninja -f build.ninja install-core
