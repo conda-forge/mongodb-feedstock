@@ -9,7 +9,7 @@ channel_targets:
 cxx_compiler:
 - vs2022
 github_actions_labels:
-- cirun-openstack-cpu-large
+- cirun-openstack-cpu-xlarge
 icu:
 - '75'
 libabseil:

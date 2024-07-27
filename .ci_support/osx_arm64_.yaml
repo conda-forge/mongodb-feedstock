@@ -19,7 +19,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '16'
 github_actions_labels:
-- cirun-openstack-cpu-large
+- cirun-openstack-cpu-xlarge
 icu:
 - '75'
 libabseil:
