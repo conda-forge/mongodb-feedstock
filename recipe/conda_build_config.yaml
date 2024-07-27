@@ -4,7 +4,8 @@ cxx_compiler:           # [win]
   - vs2022              # [win]
 
 c_stdlib_version:       # [osx and x86_64]
-  - 10.14               # [osx and x86_64]
+  # for aligned_alloc support
+  - 10.15               # [osx and x86_64]
 
 github_actions_labels:
 - cirun-openstack-cpu-large
