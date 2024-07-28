@@ -1,7 +1,7 @@
 From 97fbfba4f0ccb2bab9dc8fc22276f45ee148de5c Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Tue, 26 May 2020 14:11:37 +0000
-Subject: [PATCH 07/18] Don't force disable auto linking if --use-system-boost
+Subject: [PATCH 07/19] Don't force disable auto linking if --use-system-boost
 
 ---
  SConstruct | 11 ++++++-----

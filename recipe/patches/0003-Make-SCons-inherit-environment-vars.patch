@@ -1,7 +1,7 @@
 From 7331c0c1f74a184df9b2f1556c2d21ffa8c0c178 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 15:22:50 +0000
-Subject: [PATCH 03/18] Make SCons inherit environment vars
+Subject: [PATCH 03/19] Make SCons inherit environment vars
 
 ---
  SConstruct | 1 +

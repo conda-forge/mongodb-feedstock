@@ -1,0 +1,34 @@
+From 426751c412104b0a17ba0901aa606e8cd5dcb9ca Mon Sep 17 00:00:00 2001
+From: "H. Vetinari" <h.vetinari@gmx.com>
+Date: Sun, 28 Jul 2024 13:37:38 +1100
+Subject: [PATCH 19/19] don't try to use MALLOC_FUNCS_ARENA before it is
+ defined
+
+the definitions are in a file that gets included right after, see
+https://github.com/mongodb/mongo/blob/r7.0.12/src/third_party/mozjs/include/malloc_decls.h
+---
+ src/third_party/mozjs/include/mozmemory.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/third_party/mozjs/include/mozmemory.h b/src/third_party/mozjs/include/mozmemory.h
+index e6ed1a352ef..16ff615341c 100644
+--- a/src/third_party/mozjs/include/mozmemory.h
++++ b/src/third_party/mozjs/include/mozmemory.h
+@@ -47,7 +47,7 @@ static inline size_t _malloc_good_size(size_t size) {
+ 
+ #  define MALLOC_DECL(name, return_type, ...) \
+     MOZ_JEMALLOC_API return_type name(__VA_ARGS__);
+-#  define MALLOC_FUNCS MALLOC_FUNCS_JEMALLOC
++#  define MALLOC_FUNCS 4
+ #  include "malloc_decls.h"
+ 
+ #  ifdef __cplusplus
+@@ -67,7 +67,7 @@ static inline void jemalloc_stats(jemalloc_stats_t* aStats) {
+   MOZ_JEMALLOC_API return_type name(__VA_ARGS__) noexcept(true);
+ #define MALLOC_DECL(name, return_type, ...) \
+   MOZ_JEMALLOC_API return_type name(__VA_ARGS__);
+-#define MALLOC_FUNCS MALLOC_FUNCS_ARENA
++#define MALLOC_FUNCS 24
+ #include "malloc_decls.h"
+ 
+ #ifdef __cplusplus

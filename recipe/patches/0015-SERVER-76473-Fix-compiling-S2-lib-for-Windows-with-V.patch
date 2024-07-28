@@ -1,7 +1,7 @@
 From 2bff3ad766806d8847e828260bdd76b040c39a53 Mon Sep 17 00:00:00 2001
 From: Henrik Edin <henrik.edin@mongodb.com>
 Date: Tue, 25 Apr 2023 12:17:29 +0000
-Subject: [PATCH 15/18] SERVER-76473 Fix compiling S2 lib for Windows with
+Subject: [PATCH 15/19] SERVER-76473 Fix compiling S2 lib for Windows with
  VS2022
 
 ---

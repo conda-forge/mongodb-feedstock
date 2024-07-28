@@ -1,7 +1,7 @@
 From e53de7d20628e5bf840ef346c70932b5fac3deaa Mon Sep 17 00:00:00 2001
 From: Colin Stolley <cstolley@gmail.com>
 Date: Thu, 27 Jul 2023 15:55:08 +0000
-Subject: [PATCH 17/18] SERVER-77007: MongoDB fails to compile with Clang 15
+Subject: [PATCH 17/19] SERVER-77007: MongoDB fails to compile with Clang 15
  with C++20
 
 ---

@@ -1,7 +1,7 @@
 From d48df6f690762b6ce7342f0c636787781fbe17cb Mon Sep 17 00:00:00 2001
 From: Colin Stolley <colin.stolley@mongodb.com>
 Date: Mon, 31 Jul 2023 16:27:55 +0000
-Subject: [PATCH 18/18] SERVER-79426: fix build issues under clang-15.
+Subject: [PATCH 18/19] SERVER-79426: fix build issues under clang-15.
 
 ---
  src/mongo/db/cst/c_node.h                     | 59 ++++++++++---------
