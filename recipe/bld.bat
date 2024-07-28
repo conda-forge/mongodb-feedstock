@@ -32,5 +32,9 @@ set "_scons_xtra_flags=%_scons_xtra_flags% CPPPATH=%CPPPATH%"
 set "_scons_xtra_flags=%_scons_xtra_flags% LINKFLAGS=/LIBPATH:%LIBRARY_LIB%"
 set "_scons_xtra_flags=%_scons_xtra_flags% CPPDEFINES=BOOST_ALL_DYN_LINK"
 
+:: point to clang
+set "_scons_xtra_flags=%_scons_xtra_flags% CC=clang-cl.exe"
+set "_scons_xtra_flags=%_scons_xtra_flags% CXX=clang-cl.exe"
+
 python buildscripts\scons.py %_scons_xtra_flags% generate-ninja
 ninja -f build.ninja install-core
