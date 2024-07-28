@@ -29,7 +29,7 @@ source:
     - patches/0017-SERVER-77007-MongoDB-fails-to-compile-with-Clang-15-.patch
     # backport https://github.com/mongodb/mongo/commit/eb02e5a121019b7dcdc28ebd4ec96e777075141e
     - patches/0018-SERVER-79426-fix-build-issues-under-clang-15.patch
-    - patches/0019-don-t-try-to-use-MALLOC_FUNCS_ARENA-before-it-is-def.patch
+    - patches/0019-define-moz_arena_-independently-of-value-of-MALLOC_F.patch
 
 build:
   number: 0
