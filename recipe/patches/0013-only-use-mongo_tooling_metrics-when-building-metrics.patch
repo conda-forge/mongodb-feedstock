@@ -1,0 +1,49 @@
+From 8b2683e231fdec0026b7f549268b6d990fdee83f Mon Sep 17 00:00:00 2001
+From: "H. Vetinari" <h.vetinari@gmx.com>
+Date: Fri, 1 Dec 2023 16:18:42 +1100
+Subject: [PATCH 13/19] only use mongo_tooling_metrics when building metrics
+
+---
+ SConstruct | 21 ++++++++++-----------
+ 1 file changed, 10 insertions(+), 11 deletions(-)
+
+diff --git a/SConstruct b/SConstruct
+index 6ddbf0d043c..0aa9451eec7 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -23,7 +23,6 @@ from pkg_resources import parse_version
+ 
+ import SCons
+ import SCons.Script
+-from mongo_tooling_metrics.lib.top_level_metrics import SConsToolingMetrics
+ from site_scons.mongo import build_profiles
+ 
+ # This must be first, even before EnsureSConsVersion, if
+@@ -1655,17 +1654,17 @@ env.Append(ENV = os.environ)
+ del envDict
+ env.AddMethod(lambda env, name, **kwargs: add_option(name, **kwargs), 'AddOption')
+ 
+-# The placement of this is intentional. Here we setup an atexit method to store tooling metrics.
+-# We should only register this function after env, env_vars and the parser have been properly initialized.
+-SConsToolingMetrics.register_metrics(
+-    utc_starttime=datetime.utcnow(),
+-    artifact_dir=env.Dir('$BUILD_DIR').get_abspath(),
+-    env_vars=env_vars,
+-    env=env,
+-    parser=_parser,
+-)
+-
+ if get_option('build-metrics'):
++    from mongo_tooling_metrics.lib.top_level_metrics import SConsToolingMetrics
++    # The placement of this is intentional. Here we setup an atexit method to store tooling metrics.
++    # We should only register this function after env, env_vars and the parser have been properly initialized.
++    SConsToolingMetrics.register_metrics(
++        utc_starttime=datetime.utcnow(),
++        artifact_dir=env.Dir('$BUILD_DIR').get_abspath(),
++        env_vars=env_vars,
++        env=env,
++        parser=_parser,
++    )
+     env['BUILD_METRICS_ARTIFACTS_DIR'] = '$BUILD_ROOT/$VARIANT_DIR'
+     env.Tool('build_metrics')
+     env.AddBuildMetricsMetaData('evg_id', env.get("BUILD_METRICS_EVG_TASK_ID", "UNKNOWN"))

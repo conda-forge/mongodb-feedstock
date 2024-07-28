@@ -1,0 +1,30 @@
+From 62707f3a954e763e29812a512c2c8d1456c7895f Mon Sep 17 00:00:00 2001
+From: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date: Mon, 25 May 2020 19:21:32 +0000
+Subject: [PATCH 04/19] Use platform specific TimeStamp implementation
+
+---
+ src/third_party/mozjs/SConscript | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/src/third_party/mozjs/SConscript b/src/third_party/mozjs/SConscript
+index 7d7e132d1f0..15cf112989b 100644
+--- a/src/third_party/mozjs/SConscript
++++ b/src/third_party/mozjs/SConscript
+@@ -158,8 +158,15 @@ else:
+     sources.extend([
+         "extract/mozglue/misc/ConditionVariable_posix.cpp",
+         "extract/mozglue/misc/Mutex_posix.cpp",
+-        "extract/mozglue/misc/TimeStamp_posix.cpp",
+     ])
++    if env.TargetOSIs('darwin'):
++        sources.extend([
++            "extract/mozglue/misc/TimeStamp_darwin.cpp"
++        ])
++    else:
++        sources.extend([
++            "extract/mozglue/misc/TimeStamp_posix.cpp"
++        ])
+ 
+ sources.append([
+     "extract/modules/fdlibm/{}".format(f) for f in [

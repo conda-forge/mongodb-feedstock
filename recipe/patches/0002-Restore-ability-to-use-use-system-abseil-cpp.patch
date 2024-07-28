@@ -1,0 +1,90 @@
+From 9ebb095516a5ae104074f8d032785193b133ff51 Mon Sep 17 00:00:00 2001
+From: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date: Thu, 7 Jul 2022 21:19:24 -0400
+Subject: [PATCH 02/19] Restore ability to use --use-system-abseil-cpp
+
+Originally a revert of "SERVER-61305 Disallow --use-system-abseil-cpp",
+see upstream commit 51918a385ab8b3fc1f922bede326ff84e846a47b.
+
+Adapted to use shared abseil builds from conda-forge.
+
+Co-Authored-By: Uwe L. Korn <uwe.korn@quantco.com>
+Co-Authored-By: H. Vetinari <h.vetinari@gmx.com>
+---
+ SConstruct                 |  1 +
+ src/third_party/SConscript | 42 ++++++++++++++++++++++++++++----------
+ 2 files changed, 32 insertions(+), 11 deletions(-)
+
+diff --git a/SConstruct b/SConstruct
+index 53a68f778a2..98fe5bce85d 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -456,6 +456,7 @@ add_option(
+ 
+ # Most of the "use-system-*" options follow a simple form.
+ for pack in [
++    ('abseil-cpp',),
+     (
+         'asio',
+         'ASIO',
+diff --git a/src/third_party/SConscript b/src/third_party/SConscript
+index be043a9708d..6e89ce3163d 100644
+--- a/src/third_party/SConscript
++++ b/src/third_party/SConscript
+@@ -21,7 +21,6 @@ tomcryptSuffix = '-1.18.2'
+ variantSuffix = '-1.4.0'
+ 
+ thirdPartyEnvironmentModifications = {
+-    'abseil-cpp': {'CPPPATH': ['#/src/third_party/abseil-cpp/dist'], },
+     'cares': {
+         'CPPPATH': [
+             '#src/third_party/cares/dist/include',
+@@ -445,17 +444,38 @@ else:
+ 
+ boostEnv.ShimLibrary(name="boost")
+ 
+-abseilDirectory = 'abseil-cpp'
+ abseilEnv = env.Clone()
+-abseilEnv.InjectThirdParty(libraries=['abseil-cpp'])
+-abseilEnv.SConscript(abseilDirectory + '/SConscript', exports={'env': abseilEnv})
+-abseilEnv = abseilEnv.Clone(LIBDEPS_INTERFACE=[
+-    abseilDirectory + '/absl_city',
+-    abseilDirectory + '/absl_hash',
+-    abseilDirectory + '/absl_int128',
+-    abseilDirectory + '/absl_low_level_hash',
+-    abseilDirectory + '/absl_raw_hash_set',
+-])
++if use_system_version_of_library("abseil-cpp"):
++    if env.TargetOSIs('windows'):
++        abseil_shared = ['abseil_dll']
++    else:
++        abseil_shared = [
++            # src/third_party/abseil-cpp/SConscript
++            'absl_raw_hash_set', 'absl_hash', 'absl_low_level_hash',
++            'absl_hashtablez_sampler', 'absl_exponential_biased',
++            'absl_synchronization', 'absl_graphcycles_internal',
++            'absl_stacktrace', 'absl_symbolize', 'absl_malloc_internal',
++            'absl_debugging_internal', 'absl_demangle_internal', 'absl_time',
++            'absl_civil_time', 'absl_time_zone', 'absl_city',
++            'absl_bad_optional_access', 'absl_strings', 'absl_throw_delegate',
++            'absl_strings_internal', 'absl_base', 'absl_spinlock_wait',
++            'absl_bad_variant_access', 'absl_raw_logging_internal',
++            'absl_log_severity', 'absl_int128'
++        ]
++    abseilEnv = abseilEnv.Clone(SYSLIBDEPS=abseil_shared)
++else:
++    abseilDirectory = 'abseil-cpp'
++    abseilEnv = abseilEnv.Clone()
++    abseilEnv.InjectThirdParty(libraries=['abseil-cpp'])
++    abseilEnv.SConscript(abseilDirectory + '/SConscript', exports={'env': abseilEnv})
++    abseilEnv = abseilEnv.Clone(
++        LIBDEPS_INTERFACE=[
++            abseilDirectory + '/absl_city',
++            abseilDirectory + '/absl_hash',
++            abseilDirectory + '/absl_int128',
++            abseilDirectory + '/absl_low_level_hash',
++            abseilDirectory + '/absl_raw_hash_set',
++        ])
+ 
+ abseilEnv.ShimLibrary(name="abseil")
+ 

@@ -1,4 +1,4 @@
-{% set version = "6.0.16" %}
+{% set version = "7.0.12" %}
 
 package:
   name: mongodb
@@ -6,29 +6,35 @@ package:
 
 source:
   url: https://github.com/mongodb/mongo/archive/refs/tags/r{{ version }}.tar.gz
-  sha256: 8426949b47e8b0d6b8a048b698c2f80c856464bef4344752dc16f20efd6b10cf
+  sha256: 267a396bd8ab6a114c932e9cb2c65565d3556852473015c88ffddda3693b25c3
   patches:
-    - patches/0001-Do-not-inject-debug-info-unnecessarily.patch
-    - patches/0002-Fix-icu-namespace-extension-for-un-vendored-icu.patch
-    - patches/0003-Revert-SERVER-61305-Disallow-use-system-abseil-cpp.patch
-    - patches/0004-Make-SCons-inherit-environment-vars.patch
-    - patches/0005-Use-platform-specific-TimeStamp-implementation.patch
-    - patches/0006-Fix-openssl-1.1.x-library-names-on-Windows.patch
-    - patches/0007-Fix-icu-library-names-for-Windows.patch
-    - patches/0008-Don-t-force-disable-auto-linking-if-use-system-boost.patch
-    - patches/0009-MSVC-Don-t-generating-debug-info-forcefully.patch
-    - patches/0010-Disable-installer-on-Windows.patch
-    - patches/0011-Drop-strict-python-pkgs-requirements-check.patch
-    - patches/0012-Fix-flags-for-un-vendoring-abseil-cpp.patch
-    - patches/0013-Don-t-inject-ICU-Macros-if-using-pre-compiled-librar.patch
-    - patches/0014-add-missing-fstream-headers.patch
-    - patches/0015-use-same-discovery-mechanism-for-system-boost-on-win.patch
-    - patches/0016-add-missing-include-for-abi-__cxa_demangle.patch
+    - patches/0001-Fix-icu-namespace-extension-for-un-vendored-icu.patch
+    - patches/0002-Restore-ability-to-use-use-system-abseil-cpp.patch
+    - patches/0003-Make-SCons-inherit-environment-vars.patch
+    - patches/0004-Use-platform-specific-TimeStamp-implementation.patch
+    - patches/0005-Fix-openssl-1.1.x-library-names-on-Windows.patch
+    - patches/0006-Fix-icu-library-names-for-Windows.patch
+    - patches/0007-Don-t-force-disable-auto-linking-if-use-system-boost.patch
+    - patches/0008-MSVC-Don-t-generating-debug-info-forcefully.patch
+    - patches/0009-Disable-installer-on-Windows.patch
+    - patches/0010-Drop-strict-python-pkgs-requirements-check.patch
+    - patches/0011-Don-t-inject-ICU-Macros-if-using-pre-compiled-librar.patch
+    - patches/0012-use-same-discovery-mechanism-for-system-boost-on-win.patch
+    - patches/0013-only-use-mongo_tooling_metrics-when-building-metrics.patch
+    - patches/0014-add-missing-include-for-abi-__cxa_demangle.patch
     # backport https://github.com/mongodb/mongo/commit/814c1d2fc4463faeb42cc5a4f265e2800e29fc89
-    - patches/0017-SERVER-76473-Fix-compiling-S2-lib-for-Windows-with-V.patch
+    - patches/0015-SERVER-76473-Fix-compiling-S2-lib-for-Windows-with-V.patch
+    - patches/0016-don-t-mess-around-with-ProfilerLabel-being-defined-o.patch
+    # backport https://github.com/mongodb/mongo/commit/688f62c2904a8630acf44298bb040fce787386cf
+    - patches/0017-SERVER-77007-MongoDB-fails-to-compile-with-Clang-15-.patch
+    # backport https://github.com/mongodb/mongo/commit/eb02e5a121019b7dcdc28ebd4ec96e777075141e
+    - patches/0018-SERVER-79426-fix-build-issues-under-clang-15.patch
+    - patches/0019-define-moz_arena_-independently-of-value-of-MALLOC_F.patch
 
 build:
   number: 0
+  # debug: only one linux build on cirun
+  skip: true  # [linux and not x86_64]
   detect_binary_files_with_prefix: false
   missing_dso_whitelist:   # [osx]
     - /usr/lib/libresolv.9.dylib  # [osx]
@@ -57,7 +63,7 @@ requirements:
     # MacOS uses 'Secure Transport'
     # Windows uses 'SChannel'
     - openssl  # [linux]
-    - pcre
+    - pcre2
     - snappy
     - yaml-cpp
     - zlib

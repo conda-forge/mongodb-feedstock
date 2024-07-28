@@ -1,6 +1,9 @@
 @echo ON
 setlocal ENABLEDELAYEDEXPANSION
 
+:: see notes in build.sh
+set "CPPPATH=#/src/third_party/mozjs/platform/x86_64/windows/include"
+
 set "NINJA_STATUS=[%%f+%%r/%%t] "
 
 set "_scons_xtra_flags="
@@ -18,14 +21,20 @@ set "_scons_xtra_flags=%_scons_xtra_flags% VERBOSE=on"
 set "_scons_xtra_flags=%_scons_xtra_flags% DESTDIR=%LIBRARY_PREFIX%"
 set "_scons_xtra_flags=%_scons_xtra_flags% MONGO_VERSION=%PKG_VERSION%"
 
-for %%v in (boost icu pcre snappy yaml zlib zstd abseil-cpp) do (
+for %%v in (boost icu pcre2 snappy yaml zlib zstd abseil-cpp) do (
  set "_scons_xtra_flags=!_scons_xtra_flags! --use-system-%%v"
 )
 
+:: LIBRARY_INC could likely also be covered by CPPPATH
 set "_scons_xtra_flags=%_scons_xtra_flags% CCFLAGS=/I%LIBRARY_INC%"
 set "_scons_xtra_flags=%_scons_xtra_flags% CXXFLAGS=/I%LIBRARY_INC%"
+set "_scons_xtra_flags=%_scons_xtra_flags% CPPPATH=%CPPPATH%"
 set "_scons_xtra_flags=%_scons_xtra_flags% LINKFLAGS=/LIBPATH:%LIBRARY_LIB%"
 set "_scons_xtra_flags=%_scons_xtra_flags% CPPDEFINES=BOOST_ALL_DYN_LINK"
+
+:: point to clang
+set "_scons_xtra_flags=%_scons_xtra_flags% CC=clang-cl.exe"
+set "_scons_xtra_flags=%_scons_xtra_flags% CXX=clang-cl.exe"
 
 python buildscripts\scons.py %_scons_xtra_flags% generate-ninja
 ninja -f build.ninja install-core

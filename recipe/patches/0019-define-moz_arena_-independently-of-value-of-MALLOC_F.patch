@@ -1,0 +1,23 @@
+From b8717cfc7461a540ab6858ff859a654b4243d543 Mon Sep 17 00:00:00 2001
+From: "H. Vetinari" <h.vetinari@gmx.com>
+Date: Sun, 28 Jul 2024 18:12:41 +1100
+Subject: [PATCH 19/19] define moz_arena_* independently of value of
+ MALLOC_FUNCS
+
+---
+ src/third_party/mozjs/include/malloc_decls.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/third_party/mozjs/include/malloc_decls.h b/src/third_party/mozjs/include/malloc_decls.h
+index 1b4a0613572..4589ff04b58 100644
+--- a/src/third_party/mozjs/include/malloc_decls.h
++++ b/src/third_party/mozjs/include/malloc_decls.h
+@@ -129,7 +129,7 @@ MALLOC_DECL(moz_set_max_dirty_page_modifier, void, int32_t)
+ 
+ #  endif
+ 
+-#  if MALLOC_FUNCS & MALLOC_FUNCS_ARENA_ALLOC
++#  if MALLOC_FUNCS
+ // Same as the functions without the moz_arena_ prefix, but using arenas
+ // created with moz_create_arena.
+ // The contract, even if not enforced at runtime in some configurations,

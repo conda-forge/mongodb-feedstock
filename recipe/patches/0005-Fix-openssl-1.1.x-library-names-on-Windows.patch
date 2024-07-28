@@ -1,0 +1,26 @@
+From 04a99f9ebff98f0768093051d4c99b41e303e215 Mon Sep 17 00:00:00 2001
+From: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date: Mon, 25 May 2020 19:50:43 +0000
+Subject: [PATCH 05/19] Fix openssl 1.1.x library names on Windows
+
+---
+ SConstruct | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/SConstruct b/SConstruct
+index 144e2babe05..098f0f433b8 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -4844,9 +4844,9 @@ def doConfigure(myenv):
+             sslLinkDependencies = ["crypto"]
+ 
+         if conf.env.TargetOSIs('windows'):
+-            sslLibName = "ssleay32"
+-            cryptoLibName = "libeay32"
+-            sslLinkDependencies = ["libeay32"]
++            sslLibName = "libssl"
++            cryptoLibName = "libcrypto"
++            sslLinkDependencies = ["libcrypto"]
+ 
+         # Used to import system certificate keychains
+         if conf.env.TargetOSIs('darwin'):

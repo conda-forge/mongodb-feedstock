@@ -1,5 +1,5 @@
 c_compiler:
-- vs2022
+- clang
 c_stdlib:
 - vs
 channel_sources:
@@ -7,17 +7,17 @@ channel_sources:
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- vs2022
+- clangxx
 github_actions_labels:
-- cirun-openstack-cpu-large
+- cirun-openstack-cpu-xlarge
 icu:
 - '75'
 libabseil:
 - '20240116'
 libboost_devel:
 - '1.84'
-pcre:
-- '8'
+pcre2:
+- '10.44'
 snappy:
 - '1.2'
 target_platform:
