@@ -1,0 +1,36 @@
+From b5ac7ec7079471e385b86a4cbb6c9da11c4b4846 Mon Sep 17 00:00:00 2001
+From: "H. Vetinari" <h.vetinari@gmx.com>
+Date: Thu, 25 Jul 2024 23:36:11 +1100
+Subject: [PATCH 15/15] don't mess around with ProfilerLabel being defined or
+ not
+
+src/third_party/mozjs/SConscript does set the required macro IMPL_MFBT,
+but for some reason this doesn't seem to be picked up
+---
+ src/third_party/mozjs/include/mozilla/AutoProfilerLabel.h | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/src/third_party/mozjs/include/mozilla/AutoProfilerLabel.h b/src/third_party/mozjs/include/mozilla/AutoProfilerLabel.h
+index 2cbd8252c91..bbde198f6d0 100644
+--- a/src/third_party/mozjs/include/mozilla/AutoProfilerLabel.h
++++ b/src/third_party/mozjs/include/mozilla/AutoProfilerLabel.h
+@@ -36,10 +36,6 @@ typedef void (*ProfilerLabelExit)(void* EntryContext);
+ MFBT_API void RegisterProfilerLabelEnterExit(ProfilerLabelEnter aEnter,
+                                              ProfilerLabelExit aExit);
+ 
+-// This #ifdef prevents this AutoProfilerLabel from being defined in libxul,
+-// which would conflict with the one in the profiler.
+-#ifdef IMPL_MFBT
+-
+ class MOZ_RAII AutoProfilerLabel {
+  public:
+   AutoProfilerLabel(const char* aLabel, const char* aDynamicString);
+@@ -63,8 +59,6 @@ inline bool IsValidProfilerLabel(const ProfilerLabel& aLabel) {
+   return !!Get<0>(aLabel);
+ }
+ 
+-#endif
+-
+ }  // namespace mozilla
+ 
+ #endif  // mozilla_AutoProfilerLabel_h

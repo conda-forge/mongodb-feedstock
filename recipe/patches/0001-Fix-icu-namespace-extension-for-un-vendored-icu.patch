@@ -1,0 +1,32 @@
+From 1c6bc7b290075c8060594cbe0dbb02aa30666096 Mon Sep 17 00:00:00 2001
+From: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date: Sun, 24 May 2020 22:36:47 +0000
+Subject: [PATCH 01/15] Fix icu namespace extension for un-vendored icu
+
+xref: https://sourceforge.net/p/icu/mailman/message/7389197/
+---
+ src/mongo/db/query/collation/collator_interface_icu.h | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/src/mongo/db/query/collation/collator_interface_icu.h b/src/mongo/db/query/collation/collator_interface_icu.h
+index bb9f32e97a1..8497f4e1fa8 100644
+--- a/src/mongo/db/query/collation/collator_interface_icu.h
++++ b/src/mongo/db/query/collation/collator_interface_icu.h
+@@ -30,14 +30,15 @@
+ #pragma once
+ 
+ #include <memory>
++#include <unicode/uversion.h>
+ 
+ #include "mongo/base/string_data.h"
+ #include "mongo/db/basic_types_gen.h"
+ #include "mongo/db/query/collation/collator_interface.h"
+ 
+-namespace icu {
++U_NAMESPACE_BEGIN
+ class Collator;
+-}  // namespace icu
++U_NAMESPACE_END  // namespace icu
+ 
+ namespace mongo {
+ 

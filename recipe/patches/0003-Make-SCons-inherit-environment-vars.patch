@@ -1,0 +1,21 @@
+From 86601feb5edc0f6c0078bf8dd53a77c1424a2a01 Mon Sep 17 00:00:00 2001
+From: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date: Mon, 25 May 2020 15:22:50 +0000
+Subject: [PATCH 03/15] Make SCons inherit environment vars
+
+---
+ SConstruct | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/SConstruct b/SConstruct
+index 714d7f01395..8b46e7d8df8 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -1690,6 +1690,7 @@ if get_option('build-tools') == 'next':
+     SCons.Tool.DefaultToolpath.insert(0, os.path.abspath('site_scons/site_tools/next'))
+ 
+ env = Environment(variables=env_vars, **envDict)
++env.Append(ENV = os.environ)
+ del envDict
+ env.AddMethod(lambda env, name, **kwargs: add_option(name, **kwargs), 'AddOption')
+ 
