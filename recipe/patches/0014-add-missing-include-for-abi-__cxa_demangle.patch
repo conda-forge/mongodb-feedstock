@@ -1,39 +1,102 @@
-From d767eb3f35af78bd5e16ae8c47828b2d0316be5d Mon Sep 17 00:00:00 2001
+From 33f3e2bc2908dd047c56426841c28d8c2aa39a49 Mon Sep 17 00:00:00 2001
 From: "H. Vetinari" <h.vetinari@gmx.com>
 Date: Thu, 25 Jul 2024 12:05:10 +1100
 Subject: [PATCH 14/15] add missing include for abi::__cxa_demangle
 
 ---
- src/mongo/util/heap_profiler.cpp    | 6 ++++++
- src/mongo/util/stacktrace_posix.cpp | 6 ++++++
- 2 files changed, 12 insertions(+)
+ src/mongo/util/assert_util.cpp               | 7 ++++++-
+ src/mongo/util/heap_profiler.cpp             | 7 ++++++-
+ src/mongo/util/stacktrace_libunwind_test.cpp | 7 ++++++-
+ src/mongo/util/stacktrace_posix.cpp          | 7 ++++++-
+ 4 files changed, 24 insertions(+), 4 deletions(-)
 
-diff --git a/src/mongo/util/heap_profiler.cpp b/src/mongo/util/heap_profiler.cpp
-index 6af1279826d..6097f35b06c 100644
---- a/src/mongo/util/heap_profiler.cpp
-+++ b/src/mongo/util/heap_profiler.cpp
-@@ -73,6 +73,12 @@
- // for dlfcn.h and backtrace
- #if defined(_POSIX_VERSION) && defined(MONGO_CONFIG_HAVE_EXECINFO_BACKTRACE)
+diff --git a/src/mongo/util/assert_util.cpp b/src/mongo/util/assert_util.cpp
+index 998497df7ac..e7efa3f6e9d 100644
+--- a/src/mongo/util/assert_util.cpp
++++ b/src/mongo/util/assert_util.cpp
+@@ -30,10 +30,15 @@
  
-+#ifdef __linux__
+ #include <boost/exception/diagnostic_information.hpp>
+ #include <boost/exception/exception.hpp>
+-// IWYU pragma: no_include "cxxabi.h"
+ #include <exception>
+ #include <ostream>
+ 
++#ifdef __unix__
 +// for using abi::__cxa_demangle, see
 +// https://gcc.gnu.org/onlinedocs/libstdc++/manual/ext_demangling.html
 +#include <cxxabi.h>
 +#endif
 +
- //
- // Sampling heap profiler
- //
+ #include "mongo/config.h"  // IWYU pragma: keep
+ #include "mongo/logv2/log.h"
+ #include "mongo/logv2/log_attr.h"
+diff --git a/src/mongo/util/heap_profiler.cpp b/src/mongo/util/heap_profiler.cpp
+index 6af1279826d..6338c8d79fb 100644
+--- a/src/mongo/util/heap_profiler.cpp
++++ b/src/mongo/util/heap_profiler.cpp
+@@ -31,7 +31,6 @@
+ 
+ #include <absl/hash/hash.h>
+ 
+-// IWYU pragma: no_include "cxxabi.h"
+ #include <algorithm>
+ #include <array>
+ #include <atomic>
+@@ -46,6 +45,12 @@
+ #include <utility>
+ #include <vector>
+ 
++#ifdef __unix__
++// for using abi::__cxa_demangle, see
++// https://gcc.gnu.org/onlinedocs/libstdc++/manual/ext_demangling.html
++#include <cxxabi.h>
++#endif
++
+ #include "mongo/base/data_range.h"
+ #include "mongo/base/init.h"  // IWYU pragma: keep
+ #include "mongo/base/initializer.h"
+diff --git a/src/mongo/util/stacktrace_libunwind_test.cpp b/src/mongo/util/stacktrace_libunwind_test.cpp
+index 5829cc0c496..825e530d67c 100644
+--- a/src/mongo/util/stacktrace_libunwind_test.cpp
++++ b/src/mongo/util/stacktrace_libunwind_test.cpp
+@@ -31,13 +31,18 @@
+ #include <cstdlib>
+ #include <fmt/format.h>
+ #include <fmt/printf.h>  // IWYU pragma: keep
+-// IWYU pragma: no_include "cxxabi.h"
+ #include <functional>
+ #include <sstream>
+ #include <string>
+ #include <string_view>
+ #include <vector>
+ 
++#ifdef __unix__
++// for using abi::__cxa_demangle, see
++// https://gcc.gnu.org/onlinedocs/libstdc++/manual/ext_demangling.html
++#include <cxxabi.h>
++#endif
++
+ // IWYU pragma: no_include "libunwind-x86_64.h"
+ 
+ #define UNW_LOCAL_ONLY
 diff --git a/src/mongo/util/stacktrace_posix.cpp b/src/mongo/util/stacktrace_posix.cpp
-index 8f782e90fd7..592ba855ea9 100644
+index 8f782e90fd7..7a0155f6b7e 100644
 --- a/src/mongo/util/stacktrace_posix.cpp
 +++ b/src/mongo/util/stacktrace_posix.cpp
-@@ -43,6 +43,12 @@
+@@ -30,7 +30,6 @@
+ 
+ #include <dlfcn.h>
+ #include <fmt/format.h>
+-// IWYU pragma: no_include "cxxabi.h"
+ #include <algorithm>
+ #include <array>
+ #include <cerrno>
+@@ -43,6 +42,12 @@
  #include <vector>
  // IWYU pragma: no_include "libunwind-x86_64.h"
  
-+#ifdef __linux__
++#ifdef __unix__
 +// for using abi::__cxa_demangle, see
 +// https://gcc.gnu.org/onlinedocs/libstdc++/manual/ext_demangling.html
 +#include <cxxabi.h>
