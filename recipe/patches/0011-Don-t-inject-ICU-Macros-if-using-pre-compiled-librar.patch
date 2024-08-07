@@ -1,14 +1,14 @@
-From 5a9a16676b9926be4e22bd967529508284b7cb7d Mon Sep 17 00:00:00 2001
+From e366d2573647457f38c2ed5cc089d150deca4107 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Fri, 8 Jul 2022 23:37:22 -0400
-Subject: [PATCH 11/18] Don't inject ICU Macros if using pre-compiled library
+Subject: [PATCH 11/15] Don't inject ICU Macros if using pre-compiled library
 
 ---
  src/third_party/mozjs/SConscript | 11 +++++++----
  1 file changed, 7 insertions(+), 4 deletions(-)
 
 diff --git a/src/third_party/mozjs/SConscript b/src/third_party/mozjs/SConscript
-index 15cf112989b..ccae581ca4b 100644
+index 666a40f95d3..9ba2e155cf8 100644
 --- a/src/third_party/mozjs/SConscript
 +++ b/src/third_party/mozjs/SConscript
 @@ -3,6 +3,7 @@
@@ -19,7 +19,7 @@ index 15cf112989b..ccae581ca4b 100644
  ])
  
  env = env.Clone()
-@@ -28,6 +29,7 @@ env.Prepend(CPPDEFINES=[
+@@ -27,6 +28,7 @@ env.Prepend(CPPDEFINES=[
      ('IMPL_MFBT', 1),
      ('JS_USE_CUSTOM_ALLOCATOR', 1),
      ('STATIC_JS_API', 1),
@@ -27,7 +27,7 @@ index 15cf112989b..ccae581ca4b 100644
      ('U_NO_DEFAULT_INCLUDE_UTF_HEADERS', 1),
      ('UCONFIG_NO_BREAK_ITERATION', 1),
      ('UCONFIG_NO_FORMATTING', 1),
-@@ -37,7 +39,7 @@ env.Prepend(CPPDEFINES=[
+@@ -36,7 +38,7 @@ env.Prepend(CPPDEFINES=[
      ('U_DISABLE_RENAMING', 1),
      ('U_STATIC_IMPLEMENTATION', 1),
      ('U_USING_ICU_NAMESPACE', 0),
@@ -36,7 +36,7 @@ index 15cf112989b..ccae581ca4b 100644
  
  if get_option('spider-monkey-dbg') == "on":
      env.Prepend(CPPDEFINES=[
-@@ -107,12 +109,12 @@ env.Prepend(CPPPATH=[
+@@ -98,12 +100,12 @@ env.Prepend(CPPPATH=[
      'extract/js/src/jit',
      'extract/js/src/gc',
      'extract/mfbt',
@@ -51,7 +51,7 @@ index 15cf112989b..ccae581ca4b 100644
  
  sources = [
      "mongo_sources/mongoErrorReportToString.cpp",
-@@ -283,7 +285,8 @@ env.Append(
+@@ -251,7 +253,8 @@ env.Append(
          ('U_DISABLE_RENAMING', 1),
          ('U_STATIC_IMPLEMENTATION', 1),
          ('U_USING_ICU_NAMESPACE', 0),

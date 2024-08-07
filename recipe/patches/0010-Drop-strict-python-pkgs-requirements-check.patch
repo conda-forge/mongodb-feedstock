@@ -1,14 +1,14 @@
-From 1d91489ae003b1957a7cef9b43a69606bffe8663 Mon Sep 17 00:00:00 2001
+From 0b8c27d3830dc50c2ff9ebf739b45621f1579abc Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sat, 29 Jan 2022 17:43:42 -0500
-Subject: [PATCH 10/18] Drop strict python pkgs requirements check
+Subject: [PATCH 10/15] Drop strict python pkgs requirements check
 
 ---
  buildscripts/scons.py | 9 ---------
  1 file changed, 9 deletions(-)
 
 diff --git a/buildscripts/scons.py b/buildscripts/scons.py
-index f7f7fcd3d5b..8befd0244e9 100755
+index b1ddc85e54d..8befd0244e9 100755
 --- a/buildscripts/scons.py
 +++ b/buildscripts/scons.py
 @@ -18,15 +18,6 @@ SITE_TOOLS_DIR = os.path.join(MONGODB_ROOT, 'site_scons')
@@ -19,7 +19,7 @@ index f7f7fcd3d5b..8befd0244e9 100755
 -from mongo.pip_requirements import verify_requirements, MissingRequirements
 -
 -try:
--    verify_requirements('etc/pip/compile-requirements.txt')
+-    verify_requirements()
 -except MissingRequirements as ex:
 -    print(ex)
 -    sys.exit(1)
