@@ -1,4 +1,4 @@
-From 8ad20faadcca76cdfcce9d314c668051fd5189f8 Mon Sep 17 00:00:00 2001
+From ac7420b0456e2ca4752028f943b283f5f8542872 Mon Sep 17 00:00:00 2001
 From: "H. Vetinari" <h.vetinari@gmx.com>
 Date: Thu, 25 Jul 2024 23:36:11 +1100
 Subject: [PATCH 15/15] don't mess around with ProfilerLabel being defined or

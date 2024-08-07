@@ -1,11 +1,12 @@
-From 6774cc636b20b41c02093807743105ac4fe27851 Mon Sep 17 00:00:00 2001
+From d767eb3f35af78bd5e16ae8c47828b2d0316be5d Mon Sep 17 00:00:00 2001
 From: "H. Vetinari" <h.vetinari@gmx.com>
 Date: Thu, 25 Jul 2024 12:05:10 +1100
 Subject: [PATCH 14/15] add missing include for abi::__cxa_demangle
 
 ---
- src/mongo/util/heap_profiler.cpp | 6 ++++++
- 1 file changed, 6 insertions(+)
+ src/mongo/util/heap_profiler.cpp    | 6 ++++++
+ src/mongo/util/stacktrace_posix.cpp | 6 ++++++
+ 2 files changed, 12 insertions(+)
 
 diff --git a/src/mongo/util/heap_profiler.cpp b/src/mongo/util/heap_profiler.cpp
 index 6af1279826d..6097f35b06c 100644
@@ -24,3 +25,20 @@ index 6af1279826d..6097f35b06c 100644
  //
  // Sampling heap profiler
  //
+diff --git a/src/mongo/util/stacktrace_posix.cpp b/src/mongo/util/stacktrace_posix.cpp
+index 8f782e90fd7..592ba855ea9 100644
+--- a/src/mongo/util/stacktrace_posix.cpp
++++ b/src/mongo/util/stacktrace_posix.cpp
+@@ -43,6 +43,12 @@
+ #include <vector>
+ // IWYU pragma: no_include "libunwind-x86_64.h"
+ 
++#ifdef __linux__
++// for using abi::__cxa_demangle, see
++// https://gcc.gnu.org/onlinedocs/libstdc++/manual/ext_demangling.html
++#include <cxxabi.h>
++#endif
++
+ #include "mongo/base/init.h"  // IWYU pragma: keep
+ #include "mongo/base/string_data.h"
+ #include "mongo/bson/bsonelement.h"
