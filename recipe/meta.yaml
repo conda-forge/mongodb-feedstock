@@ -39,14 +39,22 @@ requirements:
     - {{ compiler('cxx') }}
     - python 3.10.*
     - ninja
+    # capture bits of https://github.com/mongodb/mongo/blame/r7.3.3/pyproject.toml,
+    # but we're not 100% as strict
     - cheetah3
+    - gitpython
+    - jsonschema
+    - memory_profiler
     - packaging
+    - psutil
+    - puremagic
+    - pymongo >=3.9
+    - pyyaml >=3.0
     - regex
+    - requests
     - requirements-parser
     - setuptools
-    - pymongo >=3.9
-    - psutil
-    - pyyaml >=3.0
+    - tabulate
   host:
     - libabseil
     - libboost-devel
