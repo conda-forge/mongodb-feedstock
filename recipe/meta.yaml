@@ -28,7 +28,7 @@ source:
     - patches/0017-SERVER-76473-Fix-compiling-S2-lib-for-Windows-with-V.patch
 
 build:
-  number: 0
+  number: 1
   detect_binary_files_with_prefix: false
   missing_dso_whitelist:   # [osx]
     - /usr/lib/libresolv.9.dylib  # [osx]
