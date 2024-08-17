@@ -29,7 +29,7 @@ icu:
 libabseil:
 - '20240116'
 libboost_devel:
-- '1.84'
+- '1.86'
 libcurl:
 - '8'
 openssl:
