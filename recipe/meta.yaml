@@ -26,6 +26,7 @@ source:
     - patches/0016-add-missing-include-for-abi-__cxa_demangle.patch
     # backport https://github.com/mongodb/mongo/commit/814c1d2fc4463faeb42cc5a4f265e2800e29fc89
     - patches/0017-SERVER-76473-Fix-compiling-S2-lib-for-Windows-with-V.patch
+    - patches/0018-compatibility-for-boost-1.86.patch
 
 build:
   number: 1

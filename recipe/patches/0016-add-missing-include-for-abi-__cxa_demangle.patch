@@ -1,7 +1,7 @@
 From 99c41806866b5314e7cbfa6448cace4080e6adef Mon Sep 17 00:00:00 2001
 From: "H. Vetinari" <h.vetinari@gmx.com>
 Date: Thu, 25 Jul 2024 12:05:10 +1100
-Subject: [PATCH 16/17] add missing include for abi::__cxa_demangle
+Subject: [PATCH 16/18] add missing include for abi::__cxa_demangle
 
 ---
  src/mongo/util/heap_profiler.cpp | 6 ++++++

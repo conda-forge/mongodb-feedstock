@@ -1,0 +1,31 @@
+From 7de3771a365f805ec3f5ebabe348f969bca552eb Mon Sep 17 00:00:00 2001
+From: "H. Vetinari" <h.vetinari@gmx.com>
+Date: Sat, 17 Aug 2024 20:10:09 +1100
+Subject: [PATCH 18/18] compatibility for boost 1.86
+
+see https://github.com/boostorg/filesystem/issues/320
+---
+ src/mongo/db/initialize_server_global_state.cpp | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/mongo/db/initialize_server_global_state.cpp b/src/mongo/db/initialize_server_global_state.cpp
+index 4dc953ff8ce..4522666e003 100644
+--- a/src/mongo/db/initialize_server_global_state.cpp
++++ b/src/mongo/db/initialize_server_global_state.cpp
+@@ -34,6 +34,7 @@
+ #include "mongo/db/initialize_server_global_state.h"
+ #include "mongo/db/initialize_server_global_state_gen.h"
+ 
++#include <boost/filesystem/exception.hpp>
+ #include <boost/filesystem/operations.hpp>
+ #include <fmt/format.h>
+ #include <iostream>
+@@ -307,7 +308,7 @@ bool checkAndMoveLogFile(const std::string& absoluteLogpath) {
+                                     << "\" should name a file, not a directory.");
+         }
+ 
+-        if (!serverGlobalParams.logAppend && boost::filesystem::is_regular(absoluteLogpath)) {
++        if (!serverGlobalParams.logAppend && boost::filesystem::is_regular_file(absoluteLogpath)) {
+             std::string renameTarget = absoluteLogpath + "." + terseCurrentTimeForFilename();
+             boost::system::error_code ec;
+             boost::filesystem::rename(absoluteLogpath, renameTarget, ec);
