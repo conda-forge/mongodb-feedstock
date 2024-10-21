@@ -27,6 +27,7 @@ source:
     # backport https://github.com/mongodb/mongo/commit/814c1d2fc4463faeb42cc5a4f265e2800e29fc89
     - patches/0017-SERVER-76473-Fix-compiling-S2-lib-for-Windows-with-V.patch
     - patches/0018-compatibility-for-boost-1.86.patch
+    - patches/0019-add-missing-header-for-uint16_t.patch
 
 build:
   number: 1

@@ -1,7 +1,7 @@
 From a9d3f9e78f9e2ae78c97b1a1fff6a0fcad81bb7f Mon Sep 17 00:00:00 2001
 From: "H. Vetinari" <h.vetinari@gmx.com>
 Date: Sat, 17 Aug 2024 20:10:09 +1100
-Subject: [PATCH 18/18] compatibility for boost 1.86
+Subject: [PATCH 18/19] compatibility for boost 1.86
 
 see https://github.com/boostorg/filesystem/issues/320
 ---
