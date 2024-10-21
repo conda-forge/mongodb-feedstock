@@ -1,12 +1,16 @@
-From 7de3771a365f805ec3f5ebabe348f969bca552eb Mon Sep 17 00:00:00 2001
+From a9d3f9e78f9e2ae78c97b1a1fff6a0fcad81bb7f Mon Sep 17 00:00:00 2001
 From: "H. Vetinari" <h.vetinari@gmx.com>
 Date: Sat, 17 Aug 2024 20:10:09 +1100
 Subject: [PATCH 18/18] compatibility for boost 1.86
 
 see https://github.com/boostorg/filesystem/issues/320
 ---
- src/mongo/db/initialize_server_global_state.cpp | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ src/mongo/db/initialize_server_global_state.cpp         | 3 ++-
+ src/mongo/db/startup_warnings_mongod.cpp                | 1 +
+ src/mongo/db/storage/storage_engine_lock_file_posix.cpp | 4 ++--
+ src/mongo/db/storage/storage_engine_metadata.cpp        | 4 ++--
+ src/mongo/scripting/engine.cpp                          | 1 +
+ 5 files changed, 8 insertions(+), 5 deletions(-)
 
 diff --git a/src/mongo/db/initialize_server_global_state.cpp b/src/mongo/db/initialize_server_global_state.cpp
 index 4dc953ff8ce..4522666e003 100644
@@ -29,3 +33,71 @@ index 4dc953ff8ce..4522666e003 100644
              std::string renameTarget = absoluteLogpath + "." + terseCurrentTimeForFilename();
              boost::system::error_code ec;
              boost::filesystem::rename(absoluteLogpath, renameTarget, ec);
+diff --git a/src/mongo/db/startup_warnings_mongod.cpp b/src/mongo/db/startup_warnings_mongod.cpp
+index 1c401c6c91d..f7f0a49951e 100644
+--- a/src/mongo/db/startup_warnings_mongod.cpp
++++ b/src/mongo/db/startup_warnings_mongod.cpp
+@@ -33,6 +33,7 @@
+ 
+ #include "mongo/db/startup_warnings_mongod.h"
+ 
++#include <boost/filesystem/exception.hpp>
+ #include <boost/filesystem/operations.hpp>
+ #include <fstream>
+ #ifndef _WIN32
+diff --git a/src/mongo/db/storage/storage_engine_lock_file_posix.cpp b/src/mongo/db/storage/storage_engine_lock_file_posix.cpp
+index 0d67885718a..035b07c2eac 100644
+--- a/src/mongo/db/storage/storage_engine_lock_file_posix.cpp
++++ b/src/mongo/db/storage/storage_engine_lock_file_posix.cpp
+@@ -55,7 +55,7 @@ void flushMyDirectory(const boost::filesystem::path& file) {
+     // if called without a fully qualified path it asserts; that makes mongoperf fail.
+     // so make a warning. need a better solution longer term.
+     // massert(40389, str::stream() << "Couldn't find parent dir for file: " << file.string(),);
+-    if (!file.has_branch_path()) {
++    if (!file.has_parent_path()) {
+         LOGV2(22274,
+               "warning flushMyDirectory couldn't find parent dir for file: {file}",
+               "flushMyDirectory couldn't find parent dir for file",
+@@ -64,7 +64,7 @@ void flushMyDirectory(const boost::filesystem::path& file) {
+     }
+ 
+ 
+-    boost::filesystem::path dir = file.branch_path();  // parent_path in new boosts
++    boost::filesystem::path dir = file.parent_path();  // parent_path in new boosts
+ 
+     LOGV2_DEBUG(22275, 1, "flushing directory {dir_string}", "dir_string"_attr = dir.string());
+ 
+diff --git a/src/mongo/db/storage/storage_engine_metadata.cpp b/src/mongo/db/storage/storage_engine_metadata.cpp
+index 07b21b448e1..87c7cd56cd1 100644
+--- a/src/mongo/db/storage/storage_engine_metadata.cpp
++++ b/src/mongo/db/storage/storage_engine_metadata.cpp
+@@ -220,7 +220,7 @@ void flushMyDirectory(const boost::filesystem::path& file) {
+     // if called without a fully qualified path it asserts; that makes mongoperf fail.
+     // so make a warning. need a better solution longer term.
+     // massert(13652, str::stream() << "Couldn't find parent dir for file: " << file.string(),);
+-    if (!file.has_branch_path()) {
++    if (!file.has_parent_path()) {
+         LOGV2(22283,
+               "warning flushMyDirectory couldn't find parent dir for file: {file}",
+               "flushMyDirectory couldn't find parent dir for file",
+@@ -229,7 +229,7 @@ void flushMyDirectory(const boost::filesystem::path& file) {
+     }
+ 
+ 
+-    boost::filesystem::path dir = file.branch_path();  // parent_path in new boosts
++    boost::filesystem::path dir = file.parent_path();  // parent_path in new boosts
+ 
+     LOGV2_DEBUG(22284, 1, "flushing directory {dir_string}", "dir_string"_attr = dir.string());
+ 
+diff --git a/src/mongo/scripting/engine.cpp b/src/mongo/scripting/engine.cpp
+index 49e920bdf69..beb028d8b1b 100644
+--- a/src/mongo/scripting/engine.cpp
++++ b/src/mongo/scripting/engine.cpp
+@@ -34,6 +34,7 @@
+ #include "mongo/scripting/engine.h"
+ 
+ #include <algorithm>
++#include <boost/filesystem/directory.hpp>
+ #include <boost/filesystem/operations.hpp>
+ 
+ #include "mongo/base/string_data.h"
