@@ -1,4 +1,4 @@
-{% set version = "6.0.16" %}
+{% set version = "7.3.4" %}
 
 package:
   name: mongodb
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/mongodb/mongo/archive/refs/tags/r{{ version }}.tar.gz
-  sha256: 8426949b47e8b0d6b8a048b698c2f80c856464bef4344752dc16f20efd6b10cf
+  sha256: 8174439adad64badecbe210fd40e0aa8f53f40b38ce89add9d8c31e08c973299
   patches:
     - patches/0001-Do-not-inject-debug-info-unnecessarily.patch
     - patches/0002-Fix-icu-namespace-extension-for-un-vendored-icu.patch
@@ -30,7 +30,7 @@ source:
     - patches/0019-add-missing-header-for-uint16_t.patch
 
 build:
-  number: 1
+  number: 0
   detect_binary_files_with_prefix: false
   missing_dso_whitelist:   # [osx]
     - /usr/lib/libresolv.9.dylib  # [osx]
