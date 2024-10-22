@@ -32,6 +32,8 @@ source:
 build:
   number: 1
   detect_binary_files_with_prefix: false
+  # debug
+  skip: true  # [not win]
   missing_dso_whitelist:   # [osx]
     - /usr/lib/libresolv.9.dylib  # [osx]
 
