@@ -1,4 +1,4 @@
-From e7b2c10430c4c03732e4cbb78496e4b4841a26cd Mon Sep 17 00:00:00 2001
+From 75a8b6a0f3746a4b4ca4ef8b776b592a29a3d568 Mon Sep 17 00:00:00 2001
 From: "H. Vetinari" <h.vetinari@gmx.com>
 Date: Tue, 22 Oct 2024 09:29:20 +1100
 Subject: [PATCH 19/19] add missing header for uint16_t
