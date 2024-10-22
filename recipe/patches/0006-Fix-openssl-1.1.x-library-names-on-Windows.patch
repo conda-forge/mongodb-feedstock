@@ -1,7 +1,7 @@
 From 859b4ae760a308433a61723b358f4b4b77d9d8a6 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 25 May 2020 19:50:43 +0000
-Subject: [PATCH 06/17] Fix openssl 1.1.x library names on Windows
+Subject: [PATCH 06/19] Fix openssl 1.1.x library names on Windows
 
 ---
  SConstruct | 6 +++---

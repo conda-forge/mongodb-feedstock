@@ -1,7 +1,7 @@
 From 4170866d12588b91cd8ddddc32cc50af5f5d1833 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 11 Jul 2021 23:31:20 -0400
-Subject: [PATCH 10/17] Disable installer on Windows
+Subject: [PATCH 10/19] Disable installer on Windows
 
 ---
  src/mongo/SConscript | 2 +-
