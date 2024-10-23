@@ -23,7 +23,7 @@ github_actions_labels:
 icu:
 - '75'
 libabseil:
-- '20240116'
+- '20240722'
 libboost_devel:
 - '1.86'
 libcurl:
