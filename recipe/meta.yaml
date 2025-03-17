@@ -53,6 +53,7 @@ requirements:
   host:
     - libabseil
     - libboost-devel
+    - liblzma  # [linux]
     - icu
     # Windows build uses WinHTTP
     - libcurl  # [not win]
