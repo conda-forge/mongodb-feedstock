@@ -53,7 +53,7 @@ requirements:
   host:
     - libabseil
     - libboost-devel
-    - liblzma  # [linux]
+    - liblzma-devel  # [linux]
     - icu
     # Windows build uses WinHTTP
     - libcurl  # [not win]
@@ -62,7 +62,6 @@ requirements:
     - openssl  # [linux]
     - pcre
     - snappy
-    - xz
     - yaml-cpp
     - zlib
     - zstd
