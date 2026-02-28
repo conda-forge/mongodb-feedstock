@@ -46,7 +46,8 @@ requirements:
     - packaging
     - regex
     - requirements-parser
-    - setuptools
+    # due to pkg_resources removal
+    - setuptools <82
     - pymongo >=3.9
     - psutil
     - pyyaml >=3.0
