@@ -38,7 +38,7 @@ source:
     - patches/0027-resharding_util-split-deeply-nested-pipeline-literals-to-avoid-MSVC-C1060.patch  # [win]
     - patches/0028-SConstruct-use-conda-activated-msvc-env.patch  # [win]
 build:
-  number: 0
+  number: 1
   detect_binary_files_with_prefix: false
   # MongoDB distributes ppc64le only for Enterprise Edition
   skip: True  # [ppc64le]

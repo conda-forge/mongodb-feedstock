@@ -14,11 +14,11 @@ github_actions:
 provider:
   linux_64: github_actions
   linux_aarch64: github_actions
-  osx_arm64: default
   osx_64: default
+  osx_arm64: default
   win_64: github_actions
 test: native_and_emulated
 workflow_settings:
   pagefile_size:
-    - value: 20
-      os: win
+  - os: win
+    value: 20
