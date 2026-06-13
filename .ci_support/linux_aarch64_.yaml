@@ -21,7 +21,7 @@ github_actions_labels:
 icu:
 - '75'
 libboost_devel:
-- '1.88'
+- '1.90'
 libcurl:
 - '8'
 openssl:
