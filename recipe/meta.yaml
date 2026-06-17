@@ -1,4 +1,4 @@
-{% set version = "7.0.34" %}
+{% set version = "8.2.11" %}
 
 package:
   name: mongodb
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/mongodb/mongo/archive/refs/tags/r{{ version }}.tar.gz
-  sha256: d98f8904d1a0a5683ffd29b320fd1f3615f6090f6bd9447fd016b428e674a8a1
+  sha256: 7febd3b7e0648c75436889810bde1caf339e07a38fa944eb696043ef768546f9
   patches:
     - patches/0001-Do-not-inject-debug-info-unnecessarily.patch
     - patches/0002-Fix-icu-namespace-extension-for-un-vendored-icu.patch
@@ -41,7 +41,7 @@ build:
   number: 0
   detect_binary_files_with_prefix: false
   # MongoDB distributes ppc64le only for Enterprise Edition
-  skip: True  # [ppc64le]
+  skip: true  # [ppc64le]
   missing_dso_whitelist:   # [osx]
     - /usr/lib/libresolv.9.dylib  # [osx]
 
